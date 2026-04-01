@@ -398,12 +398,13 @@
       <div class="logo">Chanin Jung</div>
       <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="mailto:chaninjung7@gmail.com">Contact</a></li>
+          <li><a href="#work" data-i18n="nav_work">Work</a></li>
+          <li><a href="#research" data-i18n="nav_research">Research</a></li>
+          <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+          <li><a href="#education" data-i18n="nav_education">Education</a></li>
+          <li><a href="mailto:chaninjung7@gmail.com" data-i18n="nav_contact">Contact</a></li>
         </ul>
+        <button class="theme-toggle" onclick="toggleLang()" title="Switch language" id="lang-btn">한국어</button>
         <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
           <span id="theme-icon">☀</span>
         </button>
@@ -417,14 +418,14 @@
     <section class="hero">
       <div class="eyebrow">
         <span class="dot"></span>
-        Open to opportunities
+        <span data-i18n="hero_eyebrow">Open to opportunities</span>
       </div>
       <h1>
-        AI/LLM Developer<br>
-        who ships <span class="gradient">production</span><br>
-        systems.
+        <span data-i18n="hero_h1_1">AI/LLM Developer</span><br>
+        <span data-i18n="hero_h1_2">who ships</span> <span class="gradient" data-i18n="hero_h1_3">production</span><br>
+        <span data-i18n="hero_h1_4">systems.</span>
       </h1>
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="hero_desc">
         I build enterprise AI systems that real people use every day — not prototypes.
         Engineering background, philosophy training, hands-on LLM ops.
       </p>
@@ -444,7 +445,7 @@
       </div>
       <div class="scroll-hint">
         <span class="scroll-line"></span>
-        Scroll to explore
+        <span data-i18n="scroll_hint">Scroll to explore</span>
       </div>
     </section>
 
@@ -452,23 +453,23 @@
     <div class="stats-bar reveal">
       <div class="stat-card">
         <div class="stat-value">1 week &rarr; 1 min</div>
-        <div class="stat-label">Regulatory Document Search</div>
+        <div class="stat-label" data-i18n="stat1_lbl">Regulatory Document Search</div>
       </div>
       <div class="stat-card">
         <div class="stat-value">&#8361;33 / query</div>
-        <div class="stat-label">~$0.025 — Optimized Cost</div>
+        <div class="stat-label" data-i18n="stat2_lbl">~$0.025 — Optimized Cost</div>
       </div>
       <div class="stat-card">
         <div class="stat-value">100+ users</div>
-        <div class="stat-label">Production System in Live Use</div>
+        <div class="stat-label" data-i18n="stat3_lbl">Production System in Live Use</div>
       </div>
     </div>
 
     <!-- Work -->
     <section id="work">
       <div class="section-heading reveal">
-        <div class="section-tag">Work</div>
-        <h2>What I've Built</h2>
+        <div class="section-tag" data-i18n="work_tag">Work</div>
+        <h2 data-i18n="work_h2">What I've Built</h2>
       </div>
 
       <div class="work-grid">
@@ -476,19 +477,19 @@
         <!-- Project 1 -->
         <div class="card reveal">
           <div class="card-top">
-            <h3>Enterprise LLM Agent Platform</h3>
-            <span class="badge badge-prod">Production</span>
+            <h3 data-i18n="p1_h3">Enterprise LLM Agent Platform</h3>
+            <span class="badge badge-prod" data-i18n="p1_badge">Production</span>
           </div>
-          <p class="card-desc">
+          <p class="card-desc" data-i18n="p1_desc">
             AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company.
             Users ask regulatory questions in Mattermost — the agent retrieves answers with cited legal references.
           </p>
           <ul class="detail-list">
-            <li>Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding</li>
-            <li>Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost</li>
-            <li>21 pods, 9 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions</li>
-            <li>Regulatory document search time: 1 week &rarr; 1 minute</li>
-            <li>Query cost: &#8361;33/query (~$0.025)</li>
+            <li data-i18n="p1_li1">Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding</li>
+            <li data-i18n="p1_li2">Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost</li>
+            <li data-i18n="p1_li3">21 pods, 9 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions</li>
+            <li data-i18n="p1_li4">Regulatory document search time: 1 week &rarr; 1 minute</li>
+            <li data-i18n="p1_li5">Query cost: &#8361;33/query (~$0.025)</li>
           </ul>
           <div class="arch-block">
             <span class="n">Mattermost</span> <span class="a">&rarr;</span> <span class="n">n8n</span> <span class="a">&rarr;</span> <span class="n">Dify Agent</span> <span class="a">&rarr;</span> [<span class="s">Construction Standards API</span> / <span class="s">Legislation API</span> / <span class="s">Gemini Grounding</span>]<br>
@@ -505,19 +506,19 @@
         <!-- Project 2 -->
         <div class="card reveal">
           <div class="card-top">
-            <h3>Hybrid Retrieval RAG Pipeline</h3>
-            <span class="badge badge-wip">In Progress</span>
+            <h3 data-i18n="p2_h3">Hybrid Retrieval RAG Pipeline</h3>
+            <span class="badge badge-wip" data-i18n="p2_badge">In Progress</span>
           </div>
-          <p class="card-desc">
+          <p class="card-desc" data-i18n="p2_desc">
             BM25 + Elasticsearch hybrid retrieval system for 3,500+ Korean regulatory documents,
             with morphological analysis (Kiwi tokenizer) and query decomposition.
           </p>
           <ul class="detail-list">
-            <li>BM25-based retrieval with Korean morphological analysis (Kiwi)</li>
-            <li>84% verification accuracy with 0 false positives</li>
-            <li>Structure-preserving document preprocessing pipeline — 78% token reduction</li>
-            <li>Query decomposition: agent tool calls 4 &rarr; 1</li>
-            <li>Target cost: ~&#8361;10/query (70% cost reduction)</li>
+            <li data-i18n="p2_li1">BM25-based retrieval with Korean morphological analysis (Kiwi)</li>
+            <li data-i18n="p2_li2">84% verification accuracy with 0 false positives</li>
+            <li data-i18n="p2_li3">Structure-preserving document preprocessing pipeline — 78% token reduction</li>
+            <li data-i18n="p2_li4">Query decomposition: agent tool calls 4 &rarr; 1</li>
+            <li data-i18n="p2_li5">Target cost: ~&#8361;10/query (70% cost reduction)</li>
           </ul>
           <div class="tags">
             <span>Elasticsearch</span><span>BM25</span><span>LangChain</span>
@@ -528,17 +529,17 @@
         <!-- Project 3 — Music AI -->
         <div class="card reveal">
           <div class="card-top">
-            <h3>Music Mixing AI — Subjective Language &rarr; Audio Parameters</h3>
-            <span class="badge badge-personal">Personal</span>
+            <h3 data-i18n="p3_h3">Music Mixing AI — Subjective Language &rarr; Audio Parameters</h3>
+            <span class="badge badge-personal" data-i18n="p3_badge">Personal</span>
           </div>
-          <p class="card-desc">
+          <p class="card-desc" data-i18n="p3_desc">
             A personal project exploring whether AI can interpret abstract expressions like "make it warmer"
             or "add more air" and translate them into concrete audio effect parameters in a DAW.
           </p>
           <ul class="detail-list">
-            <li>Built on REAPER (DAW) with an AI layer mapping natural language descriptions to EQ / reverb / compression values</li>
-            <li>Core challenge: evaluating whether the AI actually understood the user's intent — not just returned a plausible answer</li>
-            <li>Connects to broader research interest: how AI systems handle subjective, human-centric language</li>
+            <li data-i18n="p3_li1">Built on REAPER (DAW) with an AI layer mapping natural language descriptions to EQ / reverb / compression values</li>
+            <li data-i18n="p3_li2">Core challenge: evaluating whether the AI actually understood the user's intent — not just returned a plausible answer</li>
+            <li data-i18n="p3_li3">Connects to broader research interest: how AI systems handle subjective, human-centric language</li>
           </ul>
           <div class="tags">
             <span>Python</span><span>LLM</span><span>REAPER</span><span>Audio DSP</span><span>NLP</span>
@@ -548,17 +549,17 @@
         <!-- Project 4 — POSCO Battery -->
         <div class="card reveal">
           <div class="card-top">
-            <h3>Li-ion Battery Defect Rate Reduction via XGBoost</h3>
-            <span class="badge badge-research">POSCO Academy</span>
+            <h3 data-i18n="p4_h3">Li-ion Battery Defect Rate Reduction via XGBoost</h3>
+            <span class="badge badge-research" data-i18n="p4_badge">POSCO Academy</span>
           </div>
-          <p class="card-desc">
+          <p class="card-desc" data-i18n="p4_desc">
             Analyzed real production data from a lithium-ion battery formation process to identify defect-causing factors and build a predictive model to reduce the defect rate.
           </p>
           <ul class="detail-list">
-            <li>Dataset: 44,078 observations × 113 process variables + 26 time-series variables</li>
-            <li>Feature selection via ANOVA, Chi-squared, Decision Tree — identified charge/discharge equipment and temperature as key factors</li>
-            <li>Defect rate reduced from <strong>3.12% → 0.45%</strong> using XGBoost prediction model</li>
-            <li>Domain insight: outlier temperatures (25°–30°C) validated against literature and preserved, not removed</li>
+            <li data-i18n="p4_li1">Dataset: 44,078 observations × 113 process variables + 26 time-series variables</li>
+            <li data-i18n="p4_li2">Feature selection via ANOVA, Chi-squared, Decision Tree — identified charge/discharge equipment and temperature as key factors</li>
+            <li data-i18n="p4_li3">Defect rate reduced from <strong>3.12% → 0.45%</strong> using XGBoost prediction model</li>
+            <li data-i18n="p4_li4">Domain insight: outlier temperatures (25°–30°C) validated against literature and preserved, not removed</li>
           </ul>
           <div class="tags">
             <span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span><span>Time-series</span>
@@ -568,21 +569,21 @@
         <!-- Project 5 — POSCO Smart Farm -->
         <div class="card reveal">
           <div class="card-top">
-            <h3>Smart Farm AI — Tomato Ripeness &amp; Disease Detection</h3>
-            <span class="badge badge-research">POSCO Academy · Award</span>
+            <h3 data-i18n="p5_h3">Smart Farm AI — Tomato Ripeness &amp; Disease Detection</h3>
+            <span class="badge badge-research" data-i18n="p5_badge">POSCO Academy · Award</span>
           </div>
-          <p class="card-desc">
+          <p class="card-desc" data-i18n="p5_desc">
             Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes).
             Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images —
             and published the augmented dataset publicly on Roboflow.
           </p>
           <ul class="detail-list">
-            <li>Ripeness dataset: 2,448 images (turning/pink/red — class imbalance in "turning")</li>
-            <li>GAN generated 600 synthetic "turning" images → final training set: <strong>3,088 images</strong>; FID-optimized parameters</li>
-            <li>Turning class mAP50: 0.969 → <strong>0.991</strong> after GAN augmentation; final ripeness mAP50: <strong>0.973</strong></li>
-            <li>Disease model: compared YOLOv5/v6/v8 → YOLOv5 selected at mAP50 <strong>0.991</strong></li>
-            <li>RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
-            <li>Augmented dataset published: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a></li>
+            <li data-i18n="p5_li1">Ripeness dataset: 2,448 images (turning/pink/red — class imbalance in "turning")</li>
+            <li data-i18n="p5_li2">GAN generated 600 synthetic "turning" images → final training set: <strong>3,088 images</strong>; FID-optimized parameters</li>
+            <li data-i18n="p5_li3">Turning class mAP50: 0.969 → <strong>0.991</strong> after GAN augmentation; final ripeness mAP50: <strong>0.973</strong></li>
+            <li data-i18n="p5_li4">Disease model: compared YOLOv5/v6/v8 → YOLOv5 selected at mAP50 <strong>0.991</strong></li>
+            <li data-i18n="p5_li5">RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
+            <li data-i18n="p5_li6">Augmented dataset published: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a></li>
           </ul>
           <div class="tags">
             <span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span><span>RFID</span><span>Python</span>
@@ -595,21 +596,21 @@
     <!-- Research -->
     <section id="research">
       <div class="section-heading reveal">
-        <div class="section-tag">Research</div>
-        <h2>Publications &amp; Academic Work</h2>
+        <div class="section-tag" data-i18n="research_tag">Research</div>
+        <h2 data-i18n="research_h2">Publications &amp; Academic Work</h2>
       </div>
 
       <!-- SCI Paper -->
       <div class="card paper-card reveal">
         <div class="paper-meta">
           <span class="paper-journal">IEEE Access &mdash; SCI</span>
-          <span class="paper-year">2023 &nbsp;·&nbsp; First Author</span>
+          <span class="paper-year" data-i18n="paper_year">2023 &nbsp;·&nbsp; First Author</span>
         </div>
         <div class="paper-title">
           Counter-Rotating Hoop Stabilizer and SVR Control for Two-Wheels Vehicle Applications
         </div>
-        <p class="paper-abstract">
-          The capstone design project won the Grand Prize (대상, 2021) and was awarded research funding to continue development.
+        <p class="paper-abstract" data-i18n="paper_abstract">
+          The capstone design project won the Grand Prize (2021) and was awarded research funding to continue development.
           The PID-controlled reaction wheel system was then fully redesigned for this SCI paper: replaced PID with SVR (Support Vector Regression),
           and replaced the single reaction wheel with a counter-rotating hoop — two wheels spinning in opposite directions
           to achieve more stable, bidirectional balance control.
@@ -618,19 +619,19 @@
         <div class="paper-stats">
           <div class="paper-stat">
             <span class="ps-val">100%</span>
-            <span class="ps-lbl">Balance correction accuracy</span>
+            <span class="ps-lbl" data-i18n="ps_lbl1">Balance correction accuracy</span>
           </div>
           <div class="paper-stat">
             <span class="ps-val">±23°</span>
-            <span class="ps-lbl">Tilt correction range</span>
+            <span class="ps-lbl" data-i18n="ps_lbl2">Tilt correction range</span>
           </div>
           <div class="paper-stat">
             <span class="ps-val">2.13 s</span>
-            <span class="ps-lbl">Avg. recovery time</span>
+            <span class="ps-lbl" data-i18n="ps_lbl3">Avg. recovery time</span>
           </div>
           <div class="paper-stat">
             <span class="ps-val">98.2%</span>
-            <span class="ps-lbl">SVR correlation (RBF kernel)</span>
+            <span class="ps-lbl" data-i18n="ps_lbl4">SVR correlation (RBF kernel)</span>
           </div>
         </div>
         <div class="tags">
@@ -641,19 +642,19 @@
       <!-- Philosophy Thesis -->
       <div class="card reveal" style="margin-bottom: 96px;">
         <div class="card-top">
-          <h3>The Structure of Continuous Scientific Revolutions</h3>
-          <span class="badge badge-research">Outstanding Thesis</span>
+          <h3 data-i18n="phil_h3">The Structure of Continuous Scientific Revolutions</h3>
+          <span class="badge badge-research" data-i18n="phil_badge">Outstanding Thesis</span>
         </div>
-        <p class="card-desc">
+        <p class="card-desc" data-i18n="phil_desc">
           Undergraduate philosophy thesis. Proposed a new interpretation of Thomas Kuhn's paradigm shift theory
           — arguing that scientific revolutions should be read as <em>continuous</em>, not discontinuous.
           Used SVR as a conceptual framework to model paradigm selection as a regression problem over the history of science.
         </p>
         <ul class="detail-list">
-          <li>Critically analyzed Kuhn, Popper, Carnap, and Jo In-rae's interpretations of scientific progress</li>
-          <li>Proposed an SVR-based schema where paradigms are weighted data points and the regression line represents the best available scientific judgment across time</li>
-          <li>Argued that transitivity of paradigm criteria implies a continuous structure — connecting scientific revolutions like links in a chain</li>
-          <li>Selected as outstanding graduation thesis; published in the university's philosophy journal</li>
+          <li data-i18n="phil_li1">Critically analyzed Kuhn, Popper, Carnap, and Jo In-rae's interpretations of scientific progress</li>
+          <li data-i18n="phil_li2">Proposed an SVR-based schema where paradigms are weighted data points and the regression line represents the best available scientific judgment across time</li>
+          <li data-i18n="phil_li3">Argued that transitivity of paradigm criteria implies a continuous structure — connecting scientific revolutions like links in a chain</li>
+          <li data-i18n="phil_li4">Selected as outstanding graduation thesis; published in the university's philosophy journal</li>
         </ul>
         <div class="tags">
           <span>Philosophy of Science</span><span>Thomas Kuhn</span><span>SVR</span><span>Epistemology</span>
@@ -664,32 +665,32 @@
     <!-- Experience -->
     <section id="experience">
       <div class="section-heading reveal">
-        <div class="section-tag">Experience</div>
-        <h2>Career</h2>
+        <div class="section-tag" data-i18n="exp_tag">Experience</div>
+        <h2 data-i18n="exp_h2">Career</h2>
       </div>
 
       <div class="timeline">
         <div class="tl-item reveal">
-          <div class="tl-period">Feb 2024 &mdash; Present</div>
-          <div class="tl-title">AI Developer &mdash; LLM / RAG Engineer</div>
-          <div class="tl-place">Construction Engineering Consulting Firm &mdash; Seoul, Korea</div>
+          <div class="tl-period" data-i18n="tl1_period">Feb 2024 &mdash; Present</div>
+          <div class="tl-title" data-i18n="tl1_title">AI Developer &mdash; LLM / RAG Engineer</div>
+          <div class="tl-place" data-i18n="tl1_place">Construction Engineering Consulting Firm &mdash; Seoul, Korea</div>
           <ul class="tl-desc">
-            <li>Built and operate enterprise LLM agent platform serving 100+ users on AWS EKS</li>
-            <li>Production RAG pipelines with Elasticsearch for regulatory / legal document search</li>
-            <li>AI agent &amp; chatbot development with Dify; workflow automation with n8n</li>
-            <li>LLM observability and cost monitoring with Langfuse</li>
-            <li>Infrastructure: 9 services, 21 pods; Keycloak SSO; Terraform; GitHub Actions CI/CD</li>
+            <li data-i18n="tl1_li1">Built and operate enterprise LLM agent platform serving 100+ users on AWS EKS</li>
+            <li data-i18n="tl1_li2">Production RAG pipelines with Elasticsearch for regulatory / legal document search</li>
+            <li data-i18n="tl1_li3">AI agent &amp; chatbot development with Dify; workflow automation with n8n</li>
+            <li data-i18n="tl1_li4">LLM observability and cost monitoring with Langfuse</li>
+            <li data-i18n="tl1_li5">Infrastructure: 9 services, 21 pods; Keycloak SSO; Terraform; GitHub Actions CI/CD</li>
           </ul>
         </div>
 
         <div class="tl-item reveal">
-          <div class="tl-period">2019 &mdash; Feb 2024 &nbsp;(4.5 years)</div>
-          <div class="tl-title">HVAC &amp; Mechanical Design Engineer</div>
-          <div class="tl-place">Construction Engineering Consulting Firm &mdash; Seoul, Korea</div>
+          <div class="tl-period" data-i18n="tl2_period">2019 &mdash; Feb 2024 &nbsp;(4.5 years)</div>
+          <div class="tl-title" data-i18n="tl2_title">HVAC &amp; Mechanical Design Engineer</div>
+          <div class="tl-place" data-i18n="tl2_place">Construction Engineering Consulting Firm &mdash; Seoul, Korea</div>
           <ul class="tl-desc">
-            <li>HVAC system design and CAD documentation for large-scale construction projects</li>
-            <li>Deep familiarity with Korean construction standards, legal codes, and regulatory documents</li>
-            <li>This domain knowledge became the foundation for the AI systems I later built</li>
+            <li data-i18n="tl2_li1">HVAC system design and CAD documentation for large-scale construction projects</li>
+            <li data-i18n="tl2_li2">Deep familiarity with Korean construction standards, legal codes, and regulatory documents</li>
+            <li data-i18n="tl2_li3">This domain knowledge became the foundation for the AI systems I later built</li>
           </ul>
         </div>
       </div>
@@ -698,18 +699,18 @@
     <!-- Education -->
     <section id="education">
       <div class="section-heading reveal">
-        <div class="section-tag">Education</div>
-        <h2>Academic Background</h2>
+        <div class="section-tag" data-i18n="edu_tag">Education</div>
+        <h2 data-i18n="edu_h2">Academic Background</h2>
       </div>
 
       <div class="edu-grid reveal">
         <div class="edu-card">
           <div class="edu-icon">🎓</div>
-          <div class="edu-degree">B.S. Mechanical &amp; Biomedical Engineering</div>
-          <div class="edu-degree" style="font-size:0.88rem; margin-top:2px;">+ Double Major in Philosophy</div>
-          <div class="edu-school">Ewha Womans University</div>
-          <div class="edu-period">Graduated 2023</div>
-          <div class="edu-note">
+          <div class="edu-degree" data-i18n="edu1_degree">B.S. Mechanical &amp; Biomedical Engineering</div>
+          <div class="edu-degree" style="font-size:0.88rem; margin-top:2px;" data-i18n="edu1_degree2">+ Double Major in Philosophy</div>
+          <div class="edu-school" data-i18n="edu1_school">Ewha Womans University</div>
+          <div class="edu-period" data-i18n="edu1_period">Graduated 2023</div>
+          <div class="edu-note" data-i18n="edu1_note">
             <strong>Engineering thesis (Grand Prize):</strong> Reaction Wheel balance &amp; direction control prototype using PID control — awarded research funding, extended into first-author SCI paper (IEEE Access, 2023).<br><br>
             <strong>Philosophy thesis (Outstanding Award):</strong> <em>"The Structure of Continuous Scientific Revolutions"</em> — reinterpreted Thomas Kuhn's paradigm theory using SVR as a conceptual model for continuous paradigm selection. Published in the university's philosophy journal.
           </div>
@@ -717,32 +718,32 @@
 
         <div class="edu-card">
           <div class="edu-icon">🤖</div>
-          <div class="edu-degree">POSCO Young AI &amp; BigData Academy</div>
-          <div class="edu-school">POSCO HRD &times; POSTECH</div>
-          <div class="edu-period">Oct 2023 &mdash; Dec 2023</div>
-          <div class="edu-note">
+          <div class="edu-degree" data-i18n="edu2_degree">POSCO Young AI &amp; BigData Academy</div>
+          <div class="edu-school" data-i18n="edu2_school">POSCO HRD &times; POSTECH</div>
+          <div class="edu-period" data-i18n="edu2_period">Oct 2023 &mdash; Dec 2023</div>
+          <div class="edu-note" data-i18n="edu2_note">
             Intensive ML/DL program. Completed two team projects:
             XGBoost-based battery defect reduction and YOLOv5+GAN smart farm detection system.
-            Project Excellence Award (우수상).
+            Project Excellence Award.
           </div>
         </div>
 
         <div class="edu-card">
           <div class="edu-icon">🗄️</div>
-          <div class="edu-degree">SQLD — SQL Developer</div>
-          <div class="edu-school">Korea Data Industry Promotion Institute</div>
-          <div class="edu-period">Apr 2024</div>
-          <div class="edu-note">
+          <div class="edu-degree" data-i18n="edu3_degree">SQLD — SQL Developer</div>
+          <div class="edu-school" data-i18n="edu3_school">Korea Data Industry Promotion Institute</div>
+          <div class="edu-period" data-i18n="edu3_period">Apr 2024</div>
+          <div class="edu-note" data-i18n="edu3_note">
             Certified in SQL query design, database modeling, and optimization.
           </div>
         </div>
 
         <div class="edu-card">
           <div class="edu-icon">📊</div>
-          <div class="edu-degree">ADsP — Data Analysis Semi-Professional</div>
-          <div class="edu-school">Korea Data Industry Promotion Institute</div>
-          <div class="edu-period">Mar 2024</div>
-          <div class="edu-note">
+          <div class="edu-degree" data-i18n="edu4_degree">ADsP — Data Analysis Semi-Professional</div>
+          <div class="edu-school" data-i18n="edu4_school">Korea Data Industry Promotion Institute</div>
+          <div class="edu-period" data-i18n="edu4_period">Mar 2024</div>
+          <div class="edu-note" data-i18n="edu4_note">
             Certified in data analysis methodology, statistics, and machine learning fundamentals.
           </div>
         </div>
@@ -752,33 +753,33 @@
     <!-- Awards -->
     <section>
       <div class="section-heading reveal">
-        <div class="section-tag">Awards &amp; Certifications</div>
-        <h2>Recognition</h2>
+        <div class="section-tag" data-i18n="awards_tag">Awards &amp; Certifications</div>
+        <h2 data-i18n="awards_h2">Recognition</h2>
       </div>
 
       <div class="tech-grid reveal" style="margin-bottom: 96px;">
         <div class="tech-cat">
           <div class="tech-cat-name">2021</div>
           <div class="tech-items">
-            <span>융합캡스톤디자인 대상 — Ewha Womans University</span>
+            <span data-i18n="award1">Capstone Design Grand Prize — Ewha Womans University</span>
           </div>
         </div>
         <div class="tech-cat">
           <div class="tech-cat-name">2023</div>
           <div class="tech-items">
-            <span>POSCO AI BigData Academy — Project Excellence Award (우수상)</span>
+            <span data-i18n="award2">POSCO AI BigData Academy — Project Excellence Award</span>
           </div>
         </div>
         <div class="tech-cat">
           <div class="tech-cat-name">Mar 2024</div>
           <div class="tech-items">
-            <span>ADsP — Data Analysis Semi-Professional</span>
+            <span data-i18n="award3">ADsP — Data Analysis Semi-Professional</span>
           </div>
         </div>
         <div class="tech-cat">
           <div class="tech-cat-name">Apr 2024</div>
           <div class="tech-items">
-            <span>SQLD — SQL Developer</span>
+            <span data-i18n="award4">SQLD — SQL Developer</span>
           </div>
         </div>
       </div>
@@ -787,8 +788,8 @@
     <!-- Tech Stack -->
     <section>
       <div class="section-heading reveal">
-        <div class="section-tag">Tech Stack</div>
-        <h2>Tools &amp; Technologies</h2>
+        <div class="section-tag" data-i18n="tech_tag">Tech Stack</div>
+        <h2 data-i18n="tech_h2">Tools &amp; Technologies</h2>
       </div>
 
       <div class="tech-grid reveal">
@@ -824,9 +825,9 @@
           </div>
         </div>
         <div class="tech-cat">
-          <div class="tech-cat-name">Languages</div>
+          <div class="tech-cat-name" data-i18n="tech_lang_cat">Languages</div>
           <div class="tech-items">
-            <span>Korean (Native)</span><span>English (Bilingual)</span>
+            <span data-i18n="tech_lang1">Korean (Native)</span><span data-i18n="tech_lang2">English (Bilingual)</span>
           </div>
         </div>
       </div>
@@ -835,35 +836,35 @@
     <!-- Background -->
     <section>
       <div class="section-heading reveal">
-        <div class="section-tag">Background</div>
-        <h2>The Story</h2>
+        <div class="section-tag" data-i18n="bg_tag">Background</div>
+        <h2 data-i18n="bg_h2">The Story</h2>
       </div>
 
       <div class="about-block">
         <div class="about-card reveal">
-          <p>
+          <p data-i18n="bg_p1">
             I spent <strong>4.5 years as an HVAC design engineer</strong> — drawing systems, reading construction codes,
             and learning the dense regulatory language of the Korean construction industry. That background isn't just history;
             it's the reason I could build AI tools that engineers actually trust.
           </p>
-          <p>
+          <p data-i18n="bg_p2">
             While working, I went back to university at Ewha Womans University, studying
             <strong>Mechanical &amp; Biomedical Engineering alongside Philosophy</strong>.
             The combination sounds unusual, but it shaped how I think about AI:
             engineering gave me the precision, philosophy gave me the question —
             <em>what does it mean for a machine to actually understand what a person means?</em>
           </p>
-          <p>
+          <p data-i18n="bg_p3">
             That question led me to publish a <strong>first-author SCI paper in IEEE Access</strong>,
             applying machine learning to a control problem that classical methods couldn't solve cleanly.
             It was the moment AI stopped being a tool I used and became the field I wanted to work in.
           </p>
-          <p>
+          <p data-i18n="bg_p4">
             Today I build production LLM systems. And on the side, I'm working on a personal project
             that sits right at the center of all of this: <strong>teaching AI to understand subjective musical language</strong>
             — because "make it warmer" doesn't have a lookup table.
           </p>
-          <p style="color: var(--text-muted); font-size:0.88rem; margin-top: 8px;">
+          <p style="color: var(--text-muted); font-size:0.88rem; margin-top: 8px;" data-i18n="bg_p5">
             I've been playing guitar for 20 years. I mix my own recordings. I travel solo.
             I learn by building.
           </p>
@@ -873,7 +874,7 @@
 
     <!-- Footer -->
     <footer>
-      <span>&copy; 2025 Chanin Jung</span>
+      <span data-i18n="footer_copy">&copy; 2025 Chanin Jung</span>
       <div class="footer-links">
         <a href="https://github.com/chaninjung" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/chaninjung" target="_blank">LinkedIn</a>
@@ -884,13 +885,283 @@
   </div>
 
   <script>
-    // Scroll reveal
+    // ── i18n dictionary ──────────────────────────────────────────────────────
+    const i18n = {
+      en: {
+        nav_work: "Work",
+        nav_research: "Research",
+        nav_experience: "Experience",
+        nav_education: "Education",
+        nav_contact: "Contact",
+        hero_eyebrow: "Open to opportunities",
+        hero_h1_1: "AI/LLM Developer",
+        hero_h1_2: "who ships",
+        hero_h1_3: "production",
+        hero_h1_4: "systems.",
+        hero_desc: "I build enterprise AI systems that real people use every day — not prototypes. Engineering background, philosophy training, hands-on LLM ops.",
+        scroll_hint: "Scroll to explore",
+        stat1_lbl: "Regulatory Document Search",
+        stat2_lbl: "~$0.025 — Optimized Cost",
+        stat3_lbl: "Production System in Live Use",
+        work_tag: "Work",
+        work_h2: "What I've Built",
+        p1_h3: "Enterprise LLM Agent Platform",
+        p1_badge: "Production",
+        p1_desc: "AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company. Users ask regulatory questions in Mattermost — the agent retrieves answers with cited legal references.",
+        p1_li1: "Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding",
+        p1_li2: "Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost",
+        p1_li3: "21 pods, 9 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions",
+        p1_li4: "Regulatory document search time: 1 week &rarr; 1 minute",
+        p1_li5: "Query cost: &#8361;33/query (~$0.025)",
+        p2_h3: "Hybrid Retrieval RAG Pipeline",
+        p2_badge: "In Progress",
+        p2_desc: "BM25 + Elasticsearch hybrid retrieval system for 3,500+ Korean regulatory documents, with morphological analysis (Kiwi tokenizer) and query decomposition.",
+        p2_li1: "BM25-based retrieval with Korean morphological analysis (Kiwi)",
+        p2_li2: "84% verification accuracy with 0 false positives",
+        p2_li3: "Structure-preserving document preprocessing pipeline — 78% token reduction",
+        p2_li4: "Query decomposition: agent tool calls 4 &rarr; 1",
+        p2_li5: "Target cost: ~&#8361;10/query (70% cost reduction)",
+        p3_h3: "Music Mixing AI — Subjective Language &rarr; Audio Parameters",
+        p3_badge: "Personal",
+        p3_desc: 'A personal project exploring whether AI can interpret abstract expressions like "make it warmer" or "add more air" and translate them into concrete audio effect parameters in a DAW.',
+        p3_li1: "Built on REAPER (DAW) with an AI layer mapping natural language descriptions to EQ / reverb / compression values",
+        p3_li2: "Core challenge: evaluating whether the AI actually understood the user's intent — not just returned a plausible answer",
+        p3_li3: "Connects to broader research interest: how AI systems handle subjective, human-centric language",
+        p4_h3: "Li-ion Battery Defect Rate Reduction via XGBoost",
+        p4_badge: "POSCO Academy",
+        p4_desc: "Analyzed real production data from a lithium-ion battery formation process to identify defect-causing factors and build a predictive model to reduce the defect rate.",
+        p4_li1: "Dataset: 44,078 observations × 113 process variables + 26 time-series variables",
+        p4_li2: "Feature selection via ANOVA, Chi-squared, Decision Tree — identified charge/discharge equipment and temperature as key factors",
+        p4_li3: "Defect rate reduced from <strong>3.12% → 0.45%</strong> using XGBoost prediction model",
+        p4_li4: "Domain insight: outlier temperatures (25°–30°C) validated against literature and preserved, not removed",
+        p5_h3: "Smart Farm AI — Tomato Ripeness &amp; Disease Detection",
+        p5_badge: "POSCO Academy · Award",
+        p5_desc: 'Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes). Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images — and published the augmented dataset publicly on Roboflow.',
+        p5_li1: 'Ripeness dataset: 2,448 images (turning/pink/red — class imbalance in "turning")',
+        p5_li2: 'GAN generated 600 synthetic "turning" images → final training set: <strong>3,088 images</strong>; FID-optimized parameters',
+        p5_li3: "Turning class mAP50: 0.969 → <strong>0.991</strong> after GAN augmentation; final ripeness mAP50: <strong>0.973</strong>",
+        p5_li4: "Disease model: compared YOLOv5/v6/v8 → YOLOv5 selected at mAP50 <strong>0.991</strong>",
+        p5_li5: "RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed",
+        p5_li6: 'Augmented dataset published: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a>',
+        research_tag: "Research",
+        research_h2: "Publications &amp; Academic Work",
+        paper_year: "2023 &nbsp;·&nbsp; First Author",
+        paper_abstract: "The capstone design project won the Grand Prize (2021) and was awarded research funding to continue development. The PID-controlled reaction wheel system was then fully redesigned for this SCI paper: replaced PID with SVR (Support Vector Regression), and replaced the single reaction wheel with a counter-rotating hoop — two wheels spinning in opposite directions to achieve more stable, bidirectional balance control. SVR predicted the required PWM voltage at each tilt angle; hyperparameter optimization with RBF kernel achieved 98.2% correlation.",
+        ps_lbl1: "Balance correction accuracy",
+        ps_lbl2: "Tilt correction range",
+        ps_lbl3: "Avg. recovery time",
+        ps_lbl4: "SVR correlation (RBF kernel)",
+        phil_h3: "The Structure of Continuous Scientific Revolutions",
+        phil_badge: "Outstanding Thesis",
+        phil_desc: "Undergraduate philosophy thesis. Proposed a new interpretation of Thomas Kuhn's paradigm shift theory — arguing that scientific revolutions should be read as <em>continuous</em>, not discontinuous. Used SVR as a conceptual framework to model paradigm selection as a regression problem over the history of science.",
+        phil_li1: "Critically analyzed Kuhn, Popper, Carnap, and Jo In-rae's interpretations of scientific progress",
+        phil_li2: "Proposed an SVR-based schema where paradigms are weighted data points and the regression line represents the best available scientific judgment across time",
+        phil_li3: "Argued that transitivity of paradigm criteria implies a continuous structure — connecting scientific revolutions like links in a chain",
+        phil_li4: "Selected as outstanding graduation thesis; published in the university's philosophy journal",
+        exp_tag: "Experience",
+        exp_h2: "Career",
+        tl1_period: "Feb 2024 &mdash; Present",
+        tl1_title: "AI Developer &mdash; LLM / RAG Engineer",
+        tl1_place: "Construction Engineering Consulting Firm &mdash; Seoul, Korea",
+        tl1_li1: "Built and operate enterprise LLM agent platform serving 100+ users on AWS EKS",
+        tl1_li2: "Production RAG pipelines with Elasticsearch for regulatory / legal document search",
+        tl1_li3: "AI agent &amp; chatbot development with Dify; workflow automation with n8n",
+        tl1_li4: "LLM observability and cost monitoring with Langfuse",
+        tl1_li5: "Infrastructure: 9 services, 21 pods; Keycloak SSO; Terraform; GitHub Actions CI/CD",
+        tl2_period: "2019 &mdash; Feb 2024 &nbsp;(4.5 years)",
+        tl2_title: "HVAC &amp; Mechanical Design Engineer",
+        tl2_place: "Construction Engineering Consulting Firm &mdash; Seoul, Korea",
+        tl2_li1: "HVAC system design and CAD documentation for large-scale construction projects",
+        tl2_li2: "Deep familiarity with Korean construction standards, legal codes, and regulatory documents",
+        tl2_li3: "This domain knowledge became the foundation for the AI systems I later built",
+        edu_tag: "Education",
+        edu_h2: "Academic Background",
+        edu1_degree: "B.S. Mechanical &amp; Biomedical Engineering",
+        edu1_degree2: "+ Double Major in Philosophy",
+        edu1_school: "Ewha Womans University",
+        edu1_period: "Graduated 2023",
+        edu1_note: '<strong>Engineering thesis (Grand Prize):</strong> Reaction Wheel balance &amp; direction control prototype using PID control — awarded research funding, extended into first-author SCI paper (IEEE Access, 2023).<br><br><strong>Philosophy thesis (Outstanding Award):</strong> <em>"The Structure of Continuous Scientific Revolutions"</em> — reinterpreted Thomas Kuhn\'s paradigm theory using SVR as a conceptual model for continuous paradigm selection. Published in the university\'s philosophy journal.',
+        edu2_degree: "POSCO Young AI &amp; BigData Academy",
+        edu2_school: "POSCO HRD &times; POSTECH",
+        edu2_period: "Oct 2023 &mdash; Dec 2023",
+        edu2_note: "Intensive ML/DL program. Completed two team projects: XGBoost-based battery defect reduction and YOLOv5+GAN smart farm detection system. Project Excellence Award.",
+        edu3_degree: "SQLD — SQL Developer",
+        edu3_school: "Korea Data Industry Promotion Institute",
+        edu3_period: "Apr 2024",
+        edu3_note: "Certified in SQL query design, database modeling, and optimization.",
+        edu4_degree: "ADsP — Data Analysis Semi-Professional",
+        edu4_school: "Korea Data Industry Promotion Institute",
+        edu4_period: "Mar 2024",
+        edu4_note: "Certified in data analysis methodology, statistics, and machine learning fundamentals.",
+        awards_tag: "Awards &amp; Certifications",
+        awards_h2: "Recognition",
+        award1: "Capstone Design Grand Prize — Ewha Womans University",
+        award2: "POSCO AI BigData Academy — Project Excellence Award",
+        award3: "ADsP — Data Analysis Semi-Professional",
+        award4: "SQLD — SQL Developer",
+        tech_tag: "Tech Stack",
+        tech_h2: "Tools &amp; Technologies",
+        tech_lang_cat: "Languages",
+        tech_lang1: "Korean (Native)",
+        tech_lang2: "English (Bilingual)",
+        bg_tag: "Background",
+        bg_h2: "The Story",
+        bg_p1: "I spent <strong>4.5 years as an HVAC design engineer</strong> — drawing systems, reading construction codes, and learning the dense regulatory language of the Korean construction industry. That background isn't just history; it's the reason I could build AI tools that engineers actually trust.",
+        bg_p2: "While working, I went back to university at Ewha Womans University, studying <strong>Mechanical &amp; Biomedical Engineering alongside Philosophy</strong>. The combination sounds unusual, but it shaped how I think about AI: engineering gave me the precision, philosophy gave me the question — <em>what does it mean for a machine to actually understand what a person means?</em>",
+        bg_p3: "That question led me to publish a <strong>first-author SCI paper in IEEE Access</strong>, applying machine learning to a control problem that classical methods couldn't solve cleanly. It was the moment AI stopped being a tool I used and became the field I wanted to work in.",
+        bg_p4: 'Today I build production LLM systems. And on the side, I\'m working on a personal project that sits right at the center of all of this: <strong>teaching AI to understand subjective musical language</strong> — because "make it warmer" doesn\'t have a lookup table.',
+        bg_p5: "I've been playing guitar for 20 years. I mix my own recordings. I travel solo. I learn by building.",
+        footer_copy: "&copy; 2025 Chanin Jung",
+      },
+      ko: {
+        nav_work: "업무",
+        nav_research: "연구",
+        nav_experience: "경력",
+        nav_education: "학력",
+        nav_contact: "연락",
+        hero_eyebrow: "구직 중",
+        hero_h1_1: "AI/LLM 개발자",
+        hero_h1_2: "실전",
+        hero_h1_3: "프로덕션",
+        hero_h1_4: "시스템 구축.",
+        hero_desc: "프로토타입이 아닌, 실제 사람들이 매일 사용하는 기업용 AI 시스템을 만듭니다. 기계공학적 사고, 철학적 훈련, 실전 LLM 운영 경험.",
+        scroll_hint: "스크롤하여 탐색",
+        stat1_lbl: "규정 문서 검색 시간",
+        stat2_lbl: "~$0.025 — 최적화된 쿼리 비용",
+        stat3_lbl: "실 운영 중인 프로덕션 시스템",
+        work_tag: "업무",
+        work_h2: "구축한 것들",
+        p1_h3: "엔터프라이즈 LLM 에이전트 플랫폼",
+        p1_badge: "프로덕션",
+        p1_desc: "1,700명 규모 건설엔지니어링 회사의 6개 부서, 100명 이상 사용자에게 서비스하는 AI 에이전트. Mattermost에서 규정 질문을 하면 법적 참조와 함께 답변을 제공합니다.",
+        p1_li1: "Dify 기반 LLM 에이전트가 3개 데이터 소스를 자율 호출: 건설기준 API, 법제처 API, Gemini 웹 그라운딩",
+        p1_li2: "전체 파이프라인: Mattermost → n8n → Dify 에이전트 → n8n → Mattermost",
+        p1_li3: "AWS EKS에 21개 파드, 9개 오픈소스 서비스 — Keycloak SSO(5개 도구 통합), GitHub Actions CI/CD",
+        p1_li4: "규정 문서 검색 시간: 1주일 → 1분",
+        p1_li5: "쿼리 비용: ₩33/쿼리 (~$0.025)",
+        p2_h3: "하이브리드 검색 RAG 파이프라인",
+        p2_badge: "개발 중",
+        p2_desc: "3,500개 이상 한국 규정 문서를 위한 BM25 + Elasticsearch 하이브리드 검색 시스템. 형태소 분석(Kiwi 토크나이저)과 쿼리 분해 적용.",
+        p2_li1: "Kiwi 형태소 분석 기반 BM25 검색",
+        p2_li2: "오탐(false positive) 0건으로 84% 검증 정확도",
+        p2_li3: "문서 구조 보존 전처리 파이프라인 — 토큰 78% 절감",
+        p2_li4: "쿼리 분해: 에이전트 도구 호출 4회 → 1회",
+        p2_li5: "목표 비용: ~₩10/쿼리 (70% 비용 절감)",
+        p3_h3: "음악 믹싱 AI — 주관적 언어 → 오디오 파라미터",
+        p3_badge: "개인 프로젝트",
+        p3_desc: "\"더 따뜻하게\" 또는 \"공기감을 더\"와 같은 추상적 표현을 DAW의 구체적인 오디오 이펙트 파라미터로 변환할 수 있는지 탐구하는 개인 프로젝트.",
+        p3_li1: "REAPER(DAW) 기반으로 구축, 자연어 설명을 EQ / 리버브 / 컴프레션 값으로 매핑하는 AI 레이어",
+        p3_li2: "핵심 과제: AI가 단순히 그럴듯한 답을 반환하는 것이 아니라 실제로 사용자의 의도를 이해했는지 평가",
+        p3_li3: "AI 시스템이 주관적이고 인간 중심적인 언어를 어떻게 처리하는지에 대한 더 넓은 연구 관심사와 연결",
+        p4_h3: "XGBoost 기반 리튬이온 배터리 불량률 감소",
+        p4_badge: "POSCO 아카데미",
+        p4_desc: "리튬이온 배터리 화성 공정의 실제 생산 데이터를 분석하여 불량 원인 인자를 파악하고, 불량률을 줄이기 위한 예측 모델을 구축했습니다.",
+        p4_li1: "데이터셋: 44,078개 관측치 × 113개 공정 변수 + 26개 시계열 변수",
+        p4_li2: "ANOVA, 카이제곱, 의사결정트리를 통한 특성 선택 — 충방전 장비와 온도를 핵심 인자로 식별",
+        p4_li3: "XGBoost 예측 모델로 불량률 <strong>3.12% → 0.45%</strong> 감소",
+        p4_li4: "도메인 인사이트: 이상치 온도(25°–30°C)를 문헌 검토 후 유효한 데이터로 보존",
+        p5_h3: "스마트팜 AI — 토마토 숙성도 및 병충해 감지",
+        p5_badge: "POSCO 아카데미 · 수상",
+        p5_desc: "토마토 숙성도(3클래스)와 병충해(10클래스)를 위한 YOLOv5 기반 실시간 감지 시스템 구축. 클래스 불균형 해소를 위해 GAN을 직접 학습하여 합성 숙성 이미지를 생성하고, 증강 데이터셋을 Roboflow에 공개.",
+        p5_li1: "숙성도 데이터셋: 2,448장 (전환/핑크/빨강 — '전환' 클래스 불균형)",
+        p5_li2: "GAN으로 '전환' 합성 이미지 600장 생성 → 최종 학습셋: <strong>3,088장</strong>; FID 최적화 파라미터",
+        p5_li3: "전환 클래스 mAP50: 0.969 → <strong>0.991</strong> (GAN 증강 후); 최종 숙성도 mAP50: <strong>0.973</strong>",
+        p5_li4: "병충해 모델: YOLOv5/v6/v8 비교 → mAP50 <strong>0.991</strong>로 YOLOv5 선택",
+        p5_li5: "RFID + Arduino를 활용한 토마토 위치 추적; Flask 웹 대시보드로 실시간 감지 피드",
+        p5_li6: '증강 데이터셋 공개: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a>',
+        research_tag: "연구",
+        research_h2: "논문 및 학술 활동",
+        paper_year: "2023 &nbsp;·&nbsp; 제1저자",
+        paper_abstract: "캡스톤 디자인 프로젝트가 대상(2021)을 수상하고 연구비를 지원받아 후속 개발을 이어갔습니다. PID 제어 기반 반응 휠 시스템을 본 SCI 논문을 위해 전면 재설계: PID를 SVR(서포트 벡터 회귀)로 교체하고, 단일 반응 휠을 반대 방향으로 회전하는 두 개의 후프로 대체하여 더 안정적인 양방향 균형 제어를 구현했습니다. SVR이 각 기울기 각도에서 필요한 PWM 전압을 예측하며, RBF 커널로 하이퍼파라미터 최적화 시 98.2% 상관관계를 달성했습니다.",
+        ps_lbl1: "균형 보정 정확도",
+        ps_lbl2: "기울기 보정 범위",
+        ps_lbl3: "평균 복원 시간",
+        ps_lbl4: "SVR 상관관계 (RBF 커널)",
+        phil_h3: "연속적 과학혁명의 구조",
+        phil_badge: "우수 졸업논문",
+        phil_desc: "학부 철학 졸업논문. 토마스 쿤의 패러다임 전환 이론에 대한 새로운 해석을 제안 — 과학혁명은 불연속적이 아닌 <em>연속적</em>으로 읽혀야 한다고 주장. SVR을 개념적 프레임워크로 활용하여 과학사에서의 패러다임 선택을 회귀 문제로 모델링.",
+        phil_li1: "쿤, 포퍼, 카르납, 조인래의 과학 발전 해석을 비판적으로 분석",
+        phil_li2: "패러다임을 가중치가 있는 데이터 포인트로, 회귀선을 시간에 걸친 최선의 과학적 판단으로 보는 SVR 기반 도식 제안",
+        phil_li3: "패러다임 기준의 이행성이 연속적 구조를 함의한다고 논증 — 과학혁명들을 사슬의 고리처럼 연결",
+        phil_li4: "우수 졸업논문으로 선정; 대학 철학 저널에 게재",
+        exp_tag: "경력",
+        exp_h2: "커리어",
+        tl1_period: "2024.02 — 현재",
+        tl1_title: "AI 개발자 — LLM / RAG 엔지니어",
+        tl1_place: "건설엔지니어링 컨설팅 회사 — 서울, 한국",
+        tl1_li1: "AWS EKS에서 100명 이상 사용자에게 서비스하는 엔터프라이즈 LLM 에이전트 플랫폼 구축 및 운영",
+        tl1_li2: "규정/법률 문서 검색을 위한 Elasticsearch 기반 프로덕션 RAG 파이프라인",
+        tl1_li3: "Dify를 활용한 AI 에이전트 및 챗봇 개발; n8n을 활용한 워크플로우 자동화",
+        tl1_li4: "Langfuse를 활용한 LLM 관측성 및 비용 모니터링",
+        tl1_li5: "인프라: 9개 서비스, 21개 파드; Keycloak SSO; Terraform; GitHub Actions CI/CD",
+        tl2_period: "2019 — 2024.02 (4년 6개월)",
+        tl2_title: "HVAC &amp; 기계 설계 엔지니어",
+        tl2_place: "건설엔지니어링 컨설팅 회사 — 서울, 한국",
+        tl2_li1: "대규모 건설 프로젝트의 HVAC 시스템 설계 및 CAD 문서 작성",
+        tl2_li2: "한국 건설 기준, 법규, 규정 문서에 대한 깊은 이해",
+        tl2_li3: "이 도메인 지식이 이후 구축한 AI 시스템의 기반이 됨",
+        edu_tag: "학력",
+        edu_h2: "학력 사항",
+        edu1_degree: "기계·의공학 학사",
+        edu1_degree2: "+ 철학 복수전공",
+        edu1_school: "이화여자대학교",
+        edu1_period: "2023년 졸업",
+        edu1_note: "<strong>공학 졸업논문 (대상):</strong> PID 제어를 활용한 반응 휠 균형 및 방향 제어 프로토타입 — 연구비 수주 후 제1저자 SCI 논문으로 발전 (IEEE Access, 2023).<br><br><strong>철학 졸업논문 (우수상):</strong> <em>「연속적 과학혁명의 구조」</em> — SVR을 개념 모델로 활용하여 토마스 쿤의 패러다임 이론을 재해석. 대학 철학 저널에 게재.",
+        edu2_degree: "POSCO 청년 AI·빅데이터 아카데미",
+        edu2_school: "POSCO HRD × POSTECH",
+        edu2_period: "2023.10 — 2023.12",
+        edu2_note: "집중 ML/DL 과정. 두 팀 프로젝트 완료: XGBoost 기반 배터리 불량률 감소 및 YOLOv5+GAN 스마트팜 감지 시스템. 프로젝트 우수상 수상.",
+        edu3_degree: "SQLD — SQL 개발자",
+        edu3_school: "한국데이터산업진흥원",
+        edu3_period: "2024.04",
+        edu3_note: "SQL 쿼리 설계, 데이터베이스 모델링 및 최적화 자격증.",
+        edu4_degree: "ADsP — 데이터분석 준전문가",
+        edu4_school: "한국데이터산업진흥원",
+        edu4_period: "2024.03",
+        edu4_note: "데이터 분석 방법론, 통계, 머신러닝 기초 자격증.",
+        awards_tag: "수상 및 자격",
+        awards_h2: "수상 내역",
+        award1: "융합캡스톤디자인 대상 — 이화여자대학교",
+        award2: "POSCO AI 빅데이터 아카데미 — 프로젝트 우수상",
+        award3: "ADsP — 데이터분석 준전문가",
+        award4: "SQLD — SQL 개발자",
+        tech_tag: "기술 스택",
+        tech_h2: "도구 및 기술",
+        tech_lang_cat: "언어",
+        tech_lang1: "한국어 (모국어)",
+        tech_lang2: "영어 (이중 언어)",
+        bg_tag: "배경",
+        bg_h2: "저의 이야기",
+        bg_p1: "<strong>4년 6개월간 HVAC 설계 엔지니어</strong>로 일했습니다 — 시스템을 설계하고, 건설 법규를 읽으며, 한국 건설 산업의 복잡한 규정 언어를 익혔습니다. 그 배경은 단순한 과거가 아니라, 엔지니어들이 실제로 신뢰하는 AI 도구를 만들 수 있었던 이유입니다.",
+        bg_p2: "재직 중 이화여자대학교에서 <strong>기계·의공학과 철학을 함께</strong> 공부했습니다. 이 조합이 이상하게 보일 수 있지만, 제가 AI를 생각하는 방식을 형성했습니다: 공학은 정밀함을, 철학은 질문을 주었습니다 — <em>기계가 사람의 말을 실제로 이해한다는 것은 무엇을 의미하는가?</em>",
+        bg_p3: "그 질문은 저를 <strong>IEEE Access에 제1저자 SCI 논문</strong> 게재로 이끌었습니다. 고전적인 방법으로는 깔끔하게 해결할 수 없었던 제어 문제에 머신러닝을 적용했습니다. AI가 제가 사용하는 도구에서 제가 일하고 싶은 분야로 바뀐 순간이었습니다.",
+        bg_p4: "지금은 프로덕션 LLM 시스템을 구축하고 있습니다. 그리고 사이드 프로젝트로, 이 모든 것의 중심에 있는 것을 작업 중입니다: <strong>주관적인 음악 언어를 이해하도록 AI를 훈련시키는 것</strong> — \"더 따뜻하게\"에는 정해진 정답이 없으니까요.",
+        bg_p5: "20년째 기타를 치고 있습니다. 직접 레코딩을 믹싱합니다. 혼자 여행합니다. 만들면서 배웁니다.",
+        footer_copy: "&copy; 2025 정찬인",
+      }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'ko' : 'en';
+      document.getElementById('lang-btn').textContent = currentLang === 'en' ? '한국어' : 'English';
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[currentLang][key] !== undefined) {
+          el.innerHTML = i18n[currentLang][key];
+        }
+      });
+    }
+
+    // ── Scroll reveal ────────────────────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Theme toggle
+    // ── Theme toggle ─────────────────────────────────────────────────────────
     function toggleTheme() {
       const html = document.documentElement;
       const isDark = html.getAttribute('data-theme') === 'dark';
