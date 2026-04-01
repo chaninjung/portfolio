@@ -572,13 +572,17 @@
             <span class="badge badge-research">POSCO Academy · Award</span>
           </div>
           <p class="card-desc">
-            Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes), with GAN-based data augmentation to resolve class imbalance. Won the project excellence award.
+            Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes).
+            Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images —
+            and published the augmented dataset publicly on Roboflow.
           </p>
           <ul class="detail-list">
-            <li>Ripeness dataset: 2,448 images → augmented to 3,088 using GAN (600 synthetic images, FID-optimized parameters)</li>
-            <li>Ripeness mAP50: 0.969 → <strong>0.973</strong> after GAN augmentation; Disease mAP50: <strong>0.991</strong> (YOLOv5 best among v5/v6/v8)</li>
-            <li>RFID + Arduino for tomato location tracking on RC car prototype</li>
-            <li>Flask web dashboard for real-time cam feed with simultaneous detection</li>
+            <li>Original dataset: 2,448 images (turning/pink/red — severe class imbalance in "turning")</li>
+            <li>GAN trained for 34,100 epochs; batch size &amp; optimizer selected by lowest FID score experimentally</li>
+            <li>Generated 2,000 synthetic "turning" images → final training set: <strong>9,831 images</strong></li>
+            <li>Ripeness mAP50: 0.969 → <strong>0.973</strong> post-GAN; Disease mAP50: <strong>0.991</strong> (YOLOv5 best vs v6/v8)</li>
+            <li>RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
+            <li>Augmented dataset published: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a></li>
           </ul>
           <div class="tags">
             <span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span><span>RFID</span><span>Python</span>
