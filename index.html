@@ -552,22 +552,24 @@
     <section id="research">
       <div class="section-heading reveal">
         <div class="section-tag">Research</div>
-        <h2>Publication</h2>
+        <h2>Publications &amp; Academic Work</h2>
       </div>
 
+      <!-- SCI Paper -->
       <div class="card paper-card reveal">
         <div class="paper-meta">
           <span class="paper-journal">IEEE Access &mdash; SCI</span>
           <span class="paper-year">2023 &nbsp;·&nbsp; First Author</span>
         </div>
         <div class="paper-title">
-          Counter-Rotating Hoop Stabilization System for Two-Wheeled Vehicles with SVR-Based Real-Time Balance Control
+          Counter-Rotating Hoop Stabilizer and SVR Control for Two-Wheels Vehicle Applications
         </div>
         <p class="paper-abstract">
-          Designed a counter-rotating hoop mechanism that generates a stabilizing gyroscopic force to prevent a two-wheeled vehicle from falling.
-          Applied Support Vector Regression (SVR) to control the system in real time, enabling automatic balance correction without manual input.
-          This was my first direct experience combining hardware design with machine learning — and it made clear that AI can solve control problems
-          that are intractable with classical methods.
+          The capstone design project (Dept. 1st place, 2021) built a PID-controlled reaction wheel balancer for a two-wheeled vehicle.
+          That result became the foundation for this SCI paper — the entire system was redesigned: replaced PID with SVR (Support Vector Regression),
+          and replaced the single reaction wheel with a counter-rotating hoop — two wheels spinning in opposite directions
+          to achieve more stable, bidirectional balance control.
+          SVR predicted the required PWM voltage at each tilt angle; hyperparameter optimization with RBF kernel achieved 98.2% correlation.
         </p>
         <div class="paper-stats">
           <div class="paper-stat">
@@ -579,12 +581,38 @@
             <span class="ps-lbl">Tilt correction range</span>
           </div>
           <div class="paper-stat">
-            <span class="ps-val">1.3 s</span>
-            <span class="ps-lbl">Avg. reaction time</span>
+            <span class="ps-val">2.13 s</span>
+            <span class="ps-lbl">Avg. recovery time</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">98.2%</span>
+            <span class="ps-lbl">SVR correlation (RBF kernel)</span>
           </div>
         </div>
         <div class="tags">
-          <span>SVR</span><span>Machine Learning</span><span>Control Systems</span><span>Mechanical Engineering</span><span>IEEE Access</span>
+          <span>SVR</span><span>PID Control</span><span>Reaction Wheel</span><span>Embedded Systems</span><span>Arduino</span><span>MATLAB/Simulink</span><span>IEEE Access</span>
+        </div>
+      </div>
+
+      <!-- Philosophy Thesis -->
+      <div class="card reveal" style="margin-bottom: 96px;">
+        <div class="card-top">
+          <h3>The Structure of Continuous Scientific Revolutions</h3>
+          <span class="badge badge-research">Outstanding Thesis</span>
+        </div>
+        <p class="card-desc">
+          Undergraduate philosophy thesis. Proposed a new interpretation of Thomas Kuhn's paradigm shift theory
+          — arguing that scientific revolutions should be read as <em>continuous</em>, not discontinuous.
+          Used SVR as a conceptual framework to model paradigm selection as a regression problem over the history of science.
+        </p>
+        <ul class="detail-list">
+          <li>Critically analyzed Kuhn, Popper, Carnap, and Jo In-rae's interpretations of scientific progress</li>
+          <li>Proposed an SVR-based schema where paradigms are weighted data points and the regression line represents the best available scientific judgment across time</li>
+          <li>Argued that transitivity of paradigm criteria implies a continuous structure — connecting scientific revolutions like links in a chain</li>
+          <li>Selected as outstanding graduation thesis; published in the university's philosophy journal</li>
+        </ul>
+        <div class="tags">
+          <span>Philosophy of Science</span><span>Thomas Kuhn</span><span>SVR</span><span>Epistemology</span>
         </div>
       </div>
     </section>
@@ -638,8 +666,8 @@
           <div class="edu-school">Ewha Womans University</div>
           <div class="edu-period">Graduated 2023</div>
           <div class="edu-note">
-            Published first-author SCI paper (IEEE Access) while studying here.
-            Philosophy background informs my thinking on how AI handles subjective human language.
+            Published first-author SCI paper in IEEE Access.<br><br>
+            Undergraduate thesis — <em>"The Structure of Continuous Scientific Revolutions"</em> — proposed a new interpretation of Thomas Kuhn's paradigm theory using SVR (Support Vector Regression) as a conceptual framework for continuous paradigm selection. Selected as an outstanding graduation thesis; published in the university's philosophy journal.
           </div>
         </div>
 
