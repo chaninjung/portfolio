@@ -345,6 +345,43 @@
     .edu-period { font-size: 0.76rem; color: var(--text-dim); margin-bottom: 10px; }
     .edu-note   { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
 
+    /* ── Battery insight viz ── */
+    .battery-viz {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; margin-bottom: 20px;
+    }
+    .bv-flow {
+      display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap;
+    }
+    .bv-step {
+      flex: 1; min-width: 140px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .bv-step.highlight {
+      border-color: var(--green-border); background: var(--green-bg);
+    }
+    .bv-label {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-dim);
+    }
+    .bv-step.highlight .bv-label { color: var(--green); }
+    .bv-body { font-size: 0.8rem; color: var(--text); line-height: 1.5; }
+    .bv-val {
+      font-size: 1.3rem; font-weight: 800; color: var(--green);
+      letter-spacing: -0.02em;
+    }
+    .bv-sub { font-size: 0.72rem; color: var(--text-muted); }
+    .bv-arrow {
+      display: flex; align-items: center; color: var(--text-dim);
+      font-size: 1rem; flex-shrink: 0; padding: 0 2px;
+    }
+    @media (max-width: 768px) {
+      .bv-flow { flex-direction: column; }
+      .bv-arrow { transform: rotate(90deg); align-self: center; }
+    }
+
     /* ── Tech stack ── */
     .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; margin-bottom: 96px; }
 
@@ -607,6 +644,25 @@
             <li data-i18n="p4_li3">Defect rate reduced from <strong>3.12% → 0.45%</strong> using XGBoost prediction model</li>
             <li data-i18n="p4_li4">Domain insight: outlier temperatures (25°–30°C) validated against literature and preserved, not removed</li>
           </ul>
+          <div class="battery-viz">
+            <div class="bv-flow">
+              <div class="bv-step">
+                <div class="bv-label">Finding</div>
+                <div class="bv-body">Heatmap revealed <strong>edge positions</strong> of charge/discharge equipment had disproportionately high defect rates</div>
+              </div>
+              <div class="bv-arrow">→</div>
+              <div class="bv-step">
+                <div class="bv-label">Intervention</div>
+                <div class="bv-body">Heating wire installed at high-defect positions in discharge stage 2 — temperature conditions optimized to 25.6°C–29.7°C</div>
+              </div>
+              <div class="bv-arrow">→</div>
+              <div class="bv-step highlight">
+                <div class="bv-label">Result</div>
+                <div class="bv-val">3.12% → 0.45%</div>
+                <div class="bv-sub">↓ 2.67%p defect reduction</div>
+              </div>
+            </div>
+          </div>
           <div class="tags">
             <span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span><span>Time-series</span>
           </div>
