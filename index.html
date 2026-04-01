@@ -356,10 +356,56 @@
 
     /* ── About / Background ── */
     .about-block { margin-bottom: 96px; }
-    .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 40px; }
-    .about-card p { font-size: 0.95rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
-    .about-card p:last-child { margin-bottom: 0; }
-    .about-card strong { color: var(--white); font-weight: 600; }
+
+    /* ── Story Timeline ── */
+    .story-timeline {
+      position: relative; padding: 40px 0 20px;
+    }
+    .story-track {
+      position: relative; display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .story-track::before {
+      content: ''; position: absolute; top: 18px; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
+      opacity: 0.4;
+    }
+    .story-node {
+      display: flex; flex-direction: column; align-items: center;
+      flex: 1; position: relative; padding: 0 6px;
+    }
+    .story-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+      margin-bottom: 14px; flex-shrink: 0; z-index: 1;
+      transition: transform 0.2s;
+    }
+    .story-node:hover .story-dot { transform: scale(1.4); }
+    .story-year {
+      font-size: 0.72rem; font-weight: 700; color: var(--accent);
+      letter-spacing: 0.04em; margin-bottom: 6px; text-align: center;
+    }
+    .story-label {
+      font-size: 0.78rem; color: var(--text); text-align: center; line-height: 1.5;
+      font-weight: 500;
+    }
+    .story-sub {
+      font-size: 0.72rem; color: var(--text-muted); text-align: center;
+      line-height: 1.4; margin-top: 4px;
+    }
+    .story-node.highlight .story-dot { background: var(--green); box-shadow: 0 0 0 3px var(--green-bg); }
+    .story-node.highlight .story-year { color: var(--green); }
+    .story-node.award .story-dot { background: var(--amber); box-shadow: 0 0 0 3px var(--amber-bg); }
+    .story-node.award .story-year { color: var(--amber); }
+
+    @media (max-width: 768px) {
+      .story-track { flex-direction: column; align-items: flex-start; gap: 0; padding-left: 20px; }
+      .story-track::before { top: 0; bottom: 0; left: 4px; right: auto; width: 1px; height: auto;
+        background: linear-gradient(to bottom, transparent, var(--accent), var(--accent), transparent); }
+      .story-node { flex-direction: row; align-items: flex-start; gap: 16px; padding: 0 0 28px 0; }
+      .story-dot { margin-bottom: 0; margin-top: 2px; flex-shrink: 0; }
+      .story-year, .story-label, .story-sub { text-align: left; }
+    }
 
     /* ── Footer ── */
     footer {
@@ -811,33 +857,52 @@
       </div>
 
       <div class="about-block">
-        <div class="about-card reveal">
-          <p data-i18n="bg_p1">
-            I spent <strong>4.5 years as an HVAC design engineer</strong> — drawing systems, reading construction codes,
-            and learning the dense regulatory language of the Korean construction industry. That background isn't just history;
-            it's the reason I could build AI tools that engineers actually trust.
-          </p>
-          <p data-i18n="bg_p2">
-            While working, I went back to university at Ewha Womans University, studying
-            <strong>Mechanical &amp; Biomedical Engineering alongside Philosophy</strong>.
-            The combination sounds unusual, but it shaped how I think about AI:
-            engineering gave me the precision, philosophy gave me the question —
-            <em>what does it mean for a machine to actually understand what a person means?</em>
-          </p>
-          <p data-i18n="bg_p3">
-            That question led me to publish a <strong>first-author SCI paper in IEEE Access</strong>,
-            applying machine learning to a control problem that classical methods couldn't solve cleanly.
-            It was the moment AI stopped being a tool I used and became the field I wanted to work in.
-          </p>
-          <p data-i18n="bg_p4">
-            Today I build production LLM systems. And on the side, I'm working on a personal project
-            that sits right at the center of all of this: <strong>teaching AI to understand subjective musical language</strong>
-            — because "make it warmer" doesn't have a lookup table.
-          </p>
-          <p style="color: var(--text-muted); font-size:0.88rem; margin-top: 8px;" data-i18n="bg_p5">
-            I've been playing guitar for 20 years. I mix my own recordings. I travel solo.
-            I learn by building.
-          </p>
+        <div class="story-timeline reveal">
+          <div class="story-track">
+
+            <div class="story-node">
+              <div class="story-dot"></div>
+              <div class="story-year">2019</div>
+              <div class="story-label" data-i18n="st1_label">HVAC Engineer</div>
+              <div class="story-sub" data-i18n="st1_sub">Construction Engineering<br>Consulting Firm</div>
+            </div>
+
+            <div class="story-node">
+              <div class="story-dot"></div>
+              <div class="story-year">2020</div>
+              <div class="story-label" data-i18n="st2_label">Ewha Womans Univ.</div>
+              <div class="story-sub" data-i18n="st2_sub">Mechanical &amp; Biomedical Eng.<br>+ Philosophy</div>
+            </div>
+
+            <div class="story-node award">
+              <div class="story-dot"></div>
+              <div class="story-year">2021</div>
+              <div class="story-label" data-i18n="st3_label">🏆 Capstone Grand Prize</div>
+              <div class="story-sub" data-i18n="st3_sub">Dept. 1st — Research funding awarded</div>
+            </div>
+
+            <div class="story-node award">
+              <div class="story-dot"></div>
+              <div class="story-year">2023</div>
+              <div class="story-label" data-i18n="st4_label">SCI Paper · Graduation<br>POSCO Academy 🏆</div>
+              <div class="story-sub" data-i18n="st4_sub">IEEE Access (1st author)<br>Excellence Award</div>
+            </div>
+
+            <div class="story-node highlight">
+              <div class="story-dot"></div>
+              <div class="story-year">2024</div>
+              <div class="story-label" data-i18n="st5_label">→ AI / LLM Developer</div>
+              <div class="story-sub" data-i18n="st5_sub">Career pivot to AI<br>ADsP · SQLD</div>
+            </div>
+
+            <div class="story-node highlight">
+              <div class="story-dot"></div>
+              <div class="story-year" data-i18n="st6_year">Now</div>
+              <div class="story-label" data-i18n="st6_label">Enterprise LLM Platform</div>
+              <div class="story-sub" data-i18n="st6_sub">100+ users · AWS EKS<br>RAG · Agents · Infra</div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -969,11 +1034,19 @@
         tech_lang2: "English (Professional Working Proficiency)",
         bg_tag: "Background",
         bg_h2: "The Story",
-        bg_p1: "I spent <strong>4.5 years as an HVAC design engineer</strong> — drawing systems, reading construction codes, and learning the dense regulatory language of the Korean construction industry. That background isn't just history; it's the reason I could build AI tools that engineers actually trust.",
-        bg_p2: "While working, I went back to university at Ewha Womans University, studying <strong>Mechanical &amp; Biomedical Engineering alongside Philosophy</strong>. The combination sounds unusual, but it shaped how I think about AI: engineering gave me the precision, philosophy gave me the question — <em>what does it mean for a machine to actually understand what a person means?</em>",
-        bg_p3: "That question led me to publish a <strong>first-author SCI paper in IEEE Access</strong>, applying machine learning to a control problem that classical methods couldn't solve cleanly. It was the moment AI stopped being a tool I used and became the field I wanted to work in.",
-        bg_p4: 'Today I build production LLM systems. And on the side, I\'m working on a personal project that sits right at the center of all of this: <strong>teaching AI to understand subjective musical language</strong> — because "make it warmer" doesn\'t have a lookup table.',
-        bg_p5: "I've been playing guitar for 20 years. I mix my own recordings. I travel solo. I learn by building.",
+        st1_label: "HVAC Engineer",
+        st1_sub: "Construction Engineering<br>Consulting Firm",
+        st2_label: "Ewha Womans Univ.",
+        st2_sub: "Mechanical &amp; Biomedical Eng.<br>+ Philosophy",
+        st3_label: "🏆 Capstone Grand Prize",
+        st3_sub: "Dept. 1st — Research funding awarded",
+        st4_label: "SCI Paper · Graduation<br>POSCO Academy 🏆",
+        st4_sub: "IEEE Access (1st author)<br>Excellence Award",
+        st5_label: "→ AI / LLM Developer",
+        st5_sub: "Career pivot to AI<br>ADsP · SQLD",
+        st6_year: "Now",
+        st6_label: "Enterprise LLM Platform",
+        st6_sub: "100+ users · AWS EKS<br>RAG · Agents · Infra",
         footer_copy: "&copy; 2026 Chanin Jung",
       },
       ko: {
@@ -1087,12 +1160,20 @@
         tech_lang1: "한국어 (모국어)",
         tech_lang2: "영어 (업무 수준)",
         bg_tag: "배경",
-        bg_h2: "저의 이야기",
-        bg_p1: "<strong>4년 6개월간 HVAC 설계 엔지니어</strong>로 일했습니다 — 시스템을 설계하고, 건설 법규를 읽으며, 한국 건설 산업의 복잡한 규정 언어를 익혔습니다. 그 배경은 단순한 과거가 아니라, 엔지니어들이 실제로 신뢰하는 AI 도구를 만들 수 있었던 이유입니다.",
-        bg_p2: "재직 중 이화여자대학교에서 <strong>기계·의공학과 철학을 함께</strong> 공부했습니다. 이 조합이 이상하게 보일 수 있지만, 제가 AI를 생각하는 방식을 형성했습니다: 공학은 정밀함을, 철학은 질문을 주었습니다 — <em>기계가 사람의 말을 실제로 이해한다는 것은 무엇을 의미하는가?</em>",
-        bg_p3: "그 질문은 저를 <strong>IEEE Access에 제1저자 SCI 논문</strong> 게재로 이끌었습니다. 고전적인 방법으로는 깔끔하게 해결할 수 없었던 제어 문제에 머신러닝을 적용했습니다. AI가 제가 사용하는 도구에서 제가 일하고 싶은 분야로 바뀐 순간이었습니다.",
-        bg_p4: "지금은 프로덕션 LLM 시스템을 구축하고 있습니다. 그리고 사이드 프로젝트로, 이 모든 것의 중심에 있는 것을 작업 중입니다: <strong>주관적인 음악 언어를 이해하도록 AI를 훈련시키는 것</strong> — \"더 따뜻하게\"에는 정해진 정답이 없으니까요.",
-        bg_p5: "20년째 기타를 치고 있습니다. 직접 레코딩을 믹싱합니다. 혼자 여행합니다. 만들면서 배웁니다.",
+        bg_h2: "이야기",
+        st1_label: "HVAC 설계 엔지니어",
+        st1_sub: "건설엔지니어링<br>컨설팅 회사",
+        st2_label: "이화여자대학교",
+        st2_sub: "기계·의공학<br>+ 철학 복수전공",
+        st3_label: "🏆 캡스톤 대상",
+        st3_sub: "학과 1등 — 연구비 수주",
+        st4_label: "SCI 논문 · 졸업<br>POSCO 아카데미 🏆",
+        st4_sub: "IEEE Access (제1저자)<br>우수상",
+        st5_label: "→ AI / LLM 개발자",
+        st5_sub: "AI로 커리어 전환<br>ADsP · SQLD",
+        st6_year: "현재",
+        st6_label: "엔터프라이즈 LLM 플랫폼",
+        st6_sub: "100명+ 사용자 · AWS EKS<br>RAG · 에이전트 · 인프라",
         footer_copy: "&copy; 2026 정찬인",
       }
     };
