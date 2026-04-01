@@ -639,6 +639,26 @@
           </div>
         </div>
 
+        <!-- Project 6 — CAD LISP LoRA -->
+        <div class="card reveal">
+          <div class="card-top">
+            <h3 data-i18n="p6_h3">CAD LISP Code Generation — LoRA Fine-tuning</h3>
+            <span class="badge badge-wip" data-i18n="p6_badge">Research</span>
+          </div>
+          <p class="card-desc" data-i18n="p6_desc">
+            Fine-tuned an LLM on CAD LISP — a niche domain-specific language used in construction CAD workflows —
+            to enable accurate code generation for a language with virtually no public training data.
+          </p>
+          <ul class="detail-list">
+            <li data-i18n="p6_li1">Built an LLM-based data augmentation pipeline to generate training data from scratch — CAD LISP has almost no open-source corpus</li>
+            <li data-i18n="p6_li2">Applied LoRA (PEFT) to inject domain-specific function patterns and code structure</li>
+            <li data-i18n="p6_li3">Validated with a LangChain self-evaluation pipeline: code generation accuracy <strong>43% → 92%</strong></li>
+          </ul>
+          <div class="tags">
+            <span>LoRA</span><span>PEFT</span><span>LLM Fine-tuning</span><span>Data Augmentation</span><span>LangChain</span><span>Python</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -978,6 +998,12 @@
         p5_li4: "Disease model: compared YOLOv5/v6/v8 → YOLOv5 selected at mAP50 <strong>0.991</strong>",
         p5_li5: "RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed",
         p5_li6: 'Augmented dataset published: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a>',
+        p6_h3: "CAD LISP Code Generation — LoRA Fine-tuning",
+        p6_badge: "Research",
+        p6_desc: "Fine-tuned an LLM on CAD LISP — a niche domain-specific language used in construction CAD workflows — to enable accurate code generation for a language with virtually no public training data.",
+        p6_li1: "Built an LLM-based data augmentation pipeline to generate training data from scratch — CAD LISP has almost no open-source corpus",
+        p6_li2: "Applied LoRA (PEFT) to inject domain-specific function patterns and code structure",
+        p6_li3: "Validated with a LangChain self-evaluation pipeline: code generation accuracy <strong>43% → 92%</strong>",
         research_tag: "Research",
         research_h2: "Publications &amp; Academic Work",
         paper_year: "2023 &nbsp;·&nbsp; First Author",
@@ -1105,6 +1131,12 @@
         p5_li4: "병충해 모델: YOLOv5/v6/v8 비교 → mAP50 <strong>0.991</strong>로 YOLOv5 선택",
         p5_li5: "RFID + Arduino를 활용한 토마토 위치 추적; Flask 웹 대시보드로 실시간 감지 피드",
         p5_li6: '증강 데이터셋 공개: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a>',
+        p6_h3: "CAD LISP 코드 생성 — LoRA 파인튜닝",
+        p6_badge: "연구",
+        p6_desc: "건설 CAD 워크플로우에서 사용되는 니치 도메인 언어인 CAD LISP에 LLM을 파인튜닝하여, 공개 학습 데이터가 거의 없는 언어의 코드 생성 정확도를 높인 연구.",
+        p6_li1: "CAD LISP 오픈소스 코퍼스가 거의 없어, LLM 기반 데이터 증강 파이프라인을 직접 구축하여 학습 데이터 확보",
+        p6_li2: "LoRA(PEFT)를 적용하여 도메인 특화 함수 패턴 및 코드 구조 주입",
+        p6_li3: "LangChain 자체 평가 파이프라인으로 검증: 코드 생성 정확도 <strong>43% → 92%</strong>",
         research_tag: "연구",
         research_h2: "논문 및 학술 활동",
         paper_year: "2023 &nbsp;·&nbsp; 제1저자",
