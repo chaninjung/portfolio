@@ -545,6 +545,46 @@
           </div>
         </div>
 
+        <!-- Project 4 — POSCO Battery -->
+        <div class="card reveal">
+          <div class="card-top">
+            <h3>Li-ion Battery Defect Rate Reduction via XGBoost</h3>
+            <span class="badge badge-research">POSCO Academy</span>
+          </div>
+          <p class="card-desc">
+            Analyzed real production data from a lithium-ion battery formation process to identify defect-causing factors and build a predictive model to reduce the defect rate.
+          </p>
+          <ul class="detail-list">
+            <li>Dataset: 44,078 observations × 113 process variables + 26 time-series variables</li>
+            <li>Feature selection via ANOVA, Chi-squared, Decision Tree — identified charge/discharge equipment and temperature as key factors</li>
+            <li>Defect rate reduced from <strong>3.12% → 0.45%</strong> using XGBoost prediction model</li>
+            <li>Domain insight: outlier temperatures (25°–30°C) validated against literature and preserved, not removed</li>
+          </ul>
+          <div class="tags">
+            <span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span><span>Time-series</span>
+          </div>
+        </div>
+
+        <!-- Project 5 — POSCO Smart Farm -->
+        <div class="card reveal">
+          <div class="card-top">
+            <h3>Smart Farm AI — Tomato Ripeness &amp; Disease Detection</h3>
+            <span class="badge badge-research">POSCO Academy · Award</span>
+          </div>
+          <p class="card-desc">
+            Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes), with GAN-based data augmentation to resolve class imbalance. Won the project excellence award.
+          </p>
+          <ul class="detail-list">
+            <li>Ripeness dataset: 2,448 images → augmented to 3,088 using GAN (600 synthetic images, FID-optimized parameters)</li>
+            <li>Ripeness mAP50: 0.969 → <strong>0.973</strong> after GAN augmentation; Disease mAP50: <strong>0.991</strong> (YOLOv5 best among v5/v6/v8)</li>
+            <li>RFID + Arduino for tomato location tracking on RC car prototype</li>
+            <li>Flask web dashboard for real-time cam feed with simultaneous detection</li>
+          </ul>
+          <div class="tags">
+            <span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span><span>RFID</span><span>Python</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -673,22 +713,68 @@
 
         <div class="edu-card">
           <div class="edu-icon">🤖</div>
-          <div class="edu-degree">AI Academy — ML &amp; Deep Learning</div>
-          <div class="edu-school">POSCO &times; POSTECH</div>
-          <div class="edu-period">Post-graduation</div>
+          <div class="edu-degree">POSCO Young AI &amp; BigData Academy</div>
+          <div class="edu-school">POSCO HRD &times; POSTECH</div>
+          <div class="edu-period">Oct 2023 &mdash; Dec 2023</div>
           <div class="edu-note">
-            Intensive program covering machine learning fundamentals, deep learning architectures,
-            and practical model training.
+            Intensive ML/DL program. Completed two team projects:
+            XGBoost-based battery defect reduction and YOLOv5+GAN smart farm detection system.
+            Project Excellence Award (우수상).
           </div>
         </div>
 
         <div class="edu-card">
           <div class="edu-icon">🗄️</div>
-          <div class="edu-degree">SQL Database Certification</div>
-          <div class="edu-school">National certification</div>
-          <div class="edu-period">Post-graduation</div>
+          <div class="edu-degree">SQLD — SQL Developer</div>
+          <div class="edu-school">Korea Data Industry Promotion Institute</div>
+          <div class="edu-period">Apr 2024</div>
           <div class="edu-note">
-            Proficiency in relational databases, query optimization, and data management.
+            Certified in SQL query design, database modeling, and optimization.
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon">📊</div>
+          <div class="edu-degree">ADsP — Data Analysis Semi-Professional</div>
+          <div class="edu-school">Korea Data Industry Promotion Institute</div>
+          <div class="edu-period">Mar 2024</div>
+          <div class="edu-note">
+            Certified in data analysis methodology, statistics, and machine learning fundamentals.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section>
+      <div class="section-heading reveal">
+        <div class="section-tag">Awards &amp; Certifications</div>
+        <h2>Recognition</h2>
+      </div>
+
+      <div class="tech-grid reveal" style="margin-bottom: 96px;">
+        <div class="tech-cat">
+          <div class="tech-cat-name">2021</div>
+          <div class="tech-items">
+            <span>융합캡스톤디자인 대상 — Ewha Womans University</span>
+          </div>
+        </div>
+        <div class="tech-cat">
+          <div class="tech-cat-name">2023</div>
+          <div class="tech-items">
+            <span>POSCO AI BigData Academy — Project Excellence Award (우수상)</span>
+          </div>
+        </div>
+        <div class="tech-cat">
+          <div class="tech-cat-name">Mar 2024</div>
+          <div class="tech-items">
+            <span>ADsP — Data Analysis Semi-Professional</span>
+          </div>
+        </div>
+        <div class="tech-cat">
+          <div class="tech-cat-name">Apr 2024</div>
+          <div class="tech-items">
+            <span>SQLD — SQL Developer</span>
           </div>
         </div>
       </div>
