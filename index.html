@@ -693,6 +693,46 @@
         <h2 data-i18n="research_h2">Publications &amp; Academic Work</h2>
       </div>
 
+      <!-- i3CE 2026 Paper -->
+      <div class="card paper-card reveal">
+        <div class="paper-meta">
+          <span class="paper-journal">i3CE 2026 &mdash; ASCE</span>
+          <span class="paper-year" data-i18n="paper2_year">2026 &nbsp;&middot;&nbsp; First Author &nbsp;&middot;&nbsp; Conditionally Accepted (Under Revision)</span>
+        </div>
+        <div class="paper-title">
+          <a href="#" style="color: var(--white); text-decoration: none;">
+            BM25-based Retrieval-Augmented Compliance Verification for Korean Construction Standards
+          </a>
+        </div>
+        <img src="architecture_figure1.png" alt="BM25-based RAG pipeline architecture"
+             class="lightbox-img" onclick="openLightbox(this.src)"
+             style="width:100%; max-width:720px; border-radius:10px; margin-bottom:20px; border:1px solid var(--border);">
+        <p class="paper-abstract" data-i18n="paper2_abstract">
+          A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.
+        </p>
+        <div class="paper-stats">
+          <div class="paper-stat">
+            <span class="ps-val">84.0%</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl1">Accuracy (vs 76% standalone)</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">82.0%</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl2">Recall@5</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">0</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl3">False Positives (vs 11)</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">78%</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl4">Token reduction</span>
+          </div>
+        </div>
+        <div class="tags">
+          <span>BM25</span><span>RAG</span><span>Kiwi</span><span>Compliance Verification</span><span>Construction Standards</span><span>Python</span>
+        </div>
+      </div>
+
       <!-- SCI Paper -->
       <div class="card paper-card reveal">
         <div class="paper-meta">
@@ -735,46 +775,6 @@
         </div>
         <div class="tags">
           <span>SVR</span><span>PID Control</span><span>Reaction Wheel</span><span>Embedded Systems</span><span>Arduino</span><span>MATLAB/Simulink</span><span>IEEE Access</span>
-        </div>
-      </div>
-
-      <!-- i3CE 2026 Paper -->
-      <div class="card paper-card reveal">
-        <div class="paper-meta">
-          <span class="paper-journal">i3CE 2026 &mdash; ASCE</span>
-          <span class="paper-year" data-i18n="paper2_year">2026 &nbsp;&middot;&nbsp; First Author &nbsp;&middot;&nbsp; Conditionally Accepted (Under Revision)</span>
-        </div>
-        <div class="paper-title">
-          <a href="#" style="color: var(--white); text-decoration: none;">
-            BM25-based Retrieval-Augmented Compliance Verification for Korean Construction Standards
-          </a>
-        </div>
-        <img src="architecture_figure1.png" alt="BM25-based RAG pipeline architecture"
-             class="lightbox-img" onclick="openLightbox(this.src)"
-             style="width:100%; max-width:720px; border-radius:10px; margin-bottom:20px; border:1px solid var(--border);">
-        <p class="paper-abstract" data-i18n="paper2_abstract">
-          A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.
-        </p>
-        <div class="paper-stats">
-          <div class="paper-stat">
-            <span class="ps-val">84.0%</span>
-            <span class="ps-lbl" data-i18n="ps2_lbl1">Accuracy (vs 76% standalone)</span>
-          </div>
-          <div class="paper-stat">
-            <span class="ps-val">82.0%</span>
-            <span class="ps-lbl" data-i18n="ps2_lbl2">Recall@5</span>
-          </div>
-          <div class="paper-stat">
-            <span class="ps-val">0</span>
-            <span class="ps-lbl" data-i18n="ps2_lbl3">False Positives (vs 11)</span>
-          </div>
-          <div class="paper-stat">
-            <span class="ps-val">78%</span>
-            <span class="ps-lbl" data-i18n="ps2_lbl4">Token reduction</span>
-          </div>
-        </div>
-        <div class="tags">
-          <span>BM25</span><span>RAG</span><span>Kiwi</span><span>Compliance Verification</span><span>Construction Standards</span><span>Python</span>
         </div>
       </div>
 
