@@ -750,6 +750,43 @@
         </div>
       </div>
 
+      <!-- i3CE 2026 Paper -->
+      <div class="card paper-card reveal">
+        <div class="paper-meta">
+          <span class="paper-journal">i3CE 2026 &mdash; ASCE</span>
+          <span class="paper-year" data-i18n="paper2_year">2026 &nbsp;&middot;&nbsp; First Author &nbsp;&middot;&nbsp; Conditionally Accepted</span>
+        </div>
+        <div class="paper-title">
+          <a href="#" style="color: var(--white); text-decoration: none;">
+            BM25-based Retrieval-Augmented Compliance Verification for Korean Construction Standards
+          </a>
+        </div>
+        <p class="paper-abstract" data-i18n="paper2_abstract">
+          A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.
+        </p>
+        <div class="paper-stats">
+          <div class="paper-stat">
+            <span class="ps-val">84.0%</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl1">Accuracy (vs 76% standalone)</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">82.0%</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl2">Recall@5</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">0</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl3">False Positives (vs 11)</span>
+          </div>
+          <div class="paper-stat">
+            <span class="ps-val">78%</span>
+            <span class="ps-lbl" data-i18n="ps2_lbl4">Token reduction</span>
+          </div>
+        </div>
+        <div class="tags">
+          <span>BM25</span><span>RAG</span><span>Kiwi</span><span>Elasticsearch</span><span>Compliance Verification</span><span>Construction Standards</span><span>Python</span>
+        </div>
+      </div>
+
     </section>
 
     <!-- Experience -->
@@ -1061,6 +1098,12 @@
         research_tag: "Research",
         research_h2: "Publications &amp; Academic Work",
         paper_year: "2023 &nbsp;·&nbsp; First Author",
+        paper2_year: "2026 &nbsp;&middot;&nbsp; First Author &nbsp;&middot;&nbsp; Conditionally Accepted",
+        paper2_abstract: "A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.",
+        ps2_lbl1: "Accuracy (vs 76% standalone)",
+        ps2_lbl2: "Recall@5",
+        ps2_lbl3: "False Positives (vs 11)",
+        ps2_lbl4: "Token reduction",
         paper_abstract: "The capstone design project won the Grand Prize (2021) and was awarded research funding to continue development. The PID-controlled reaction wheel system was then fully redesigned for this SCI paper: replaced PID with SVR (Support Vector Regression), and replaced the single reaction wheel with a counter-rotating hoop — two wheels spinning in opposite directions to achieve more stable, bidirectional balance control. SVR predicted the required PWM voltage at each tilt angle; hyperparameter optimization with RBF kernel achieved 98.2% correlation.",
         ps_lbl1: "Balance correction accuracy",
         ps_lbl2: "Tilt correction range",
@@ -1196,6 +1239,12 @@
         research_tag: "연구",
         research_h2: "논문 및 학술 활동",
         paper_year: "2023 &nbsp;·&nbsp; 제1저자",
+        paper2_year: "2026 &nbsp;&middot;&nbsp; 제1저자 &nbsp;&middot;&nbsp; Conditionally Accepted",
+        paper2_abstract: "한국 건설기준(KCSC) 도메인 특화 RAG 시스템. Markdown-HTML 전처리 파이프라인으로 토큰 78% 절감, BM25+Kiwi 형태소 분석 기반 Lexical Retrieval로 조항 수준 용어 정렬 및 인용 기반 검증 수행. 50개 전문가 벤치마크 평가 결과 정확도 76.0%→84.0% 향상, False Positive 11→0건. 2026년 6월 송도 ASCE i3CE 학회 발표 예정.",
+        ps2_lbl1: "정확도 (vs 76% 단독 LLM)",
+        ps2_lbl2: "Recall@5",
+        ps2_lbl3: "False Positive (vs 11건)",
+        ps2_lbl4: "토큰 절감",
         paper_abstract: "캡스톤 디자인 프로젝트가 대상(2021)을 수상하고 연구비를 지원받아 후속 개발을 이어갔습니다. PID 제어 기반 반응 휠 시스템을 본 SCI 논문을 위해 전면 재설계: PID를 SVR(서포트 벡터 회귀)로 교체하고, 단일 반응 휠을 반대 방향으로 회전하는 두 개의 후프로 대체하여 더 안정적인 양방향 균형 제어를 구현했습니다. SVR이 각 기울기 각도에서 필요한 PWM 전압을 예측하며, RBF 커널로 하이퍼파라미터 최적화 시 98.2% 상관관계를 달성했습니다.",
         ps_lbl1: "균형 보정 정확도",
         ps_lbl2: "기울기 보정 범위",
