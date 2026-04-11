@@ -469,6 +469,15 @@
       footer { flex-direction: column; gap: 14px; }
       .footer-links { justify-content: center; }
     }
+    /* Lightbox */
+    .lightbox-img { cursor: zoom-in; transition: opacity 0.2s; }
+    .lightbox-img:hover { opacity: 0.85; }
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.85); justify-content: center; align-items: center; cursor: zoom-out;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img { max-width: 90vw; max-height: 90vh; border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
   </style>
 </head>
 <body>
@@ -639,6 +648,7 @@
           </p>
           <img src="tomato-gan.gif"
                alt="GAN-generated tomato ripeness images"
+               class="lightbox-img" onclick="openLightbox(this.src)"
                style="width:100%; max-width:320px; border-radius:10px; margin-bottom:20px; border:1px solid var(--border);">
           <ul class="detail-list">
             <li data-i18n="p5_li1">Ripeness dataset: 2,448 images (turning/pink/red — class imbalance in "turning")</li>
@@ -703,6 +713,7 @@
           SVR predicted the required PWM voltage at each tilt angle; hyperparameter optimization with RBF kernel achieved 98.2% correlation.
         </p>
         <img src="ieee.gif" alt="Counter-rotating hoop stabilizer demo"
+             class="lightbox-img" onclick="openLightbox(this.src)"
              style="width:100%; max-width:720px; border-radius:10px; margin-bottom:20px; border:1px solid var(--border);">
         <div class="paper-stats">
           <div class="paper-stat">
@@ -739,6 +750,7 @@
           </a>
         </div>
         <img src="architecture_figure1.png" alt="BM25-based RAG pipeline architecture"
+             class="lightbox-img" onclick="openLightbox(this.src)"
              style="width:100%; max-width:720px; border-radius:10px; margin-bottom:20px; border:1px solid var(--border);">
         <p class="paper-abstract" data-i18n="paper2_abstract">
           A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.
@@ -1325,6 +1337,19 @@
       html.setAttribute('data-theme', isDark ? 'light' : 'dark');
       document.getElementById('theme-icon').textContent = isDark ? '☾' : '☀';
     }
+    // Lightbox
+    function openLightbox(src) {
+      const overlay = document.getElementById('lightbox');
+      overlay.querySelector('img').src = src;
+      overlay.classList.add('active');
+    }
+    document.getElementById('lightbox').addEventListener('click', function() {
+      this.classList.remove('active');
+    });
   </script>
+
+  <div id="lightbox" class="lightbox-overlay" onclick="this.classList.remove('active')">
+    <img src="" alt="Enlarged view">
+  </div>
 </body>
 </html>
