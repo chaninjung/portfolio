@@ -406,9 +406,18 @@
       background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
       opacity: 0.4;
     }
+    [id] {
+      scroll-margin-top: 90px;
+    }
+
     .story-node {
       display: flex; flex-direction: column; align-items: center;
       flex: 1; position: relative; padding: 0 6px;
+      text-decoration: none; cursor: pointer; color: inherit;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .story-node:hover {
+      transform: translateY(-2px);
     }
     .story-dot {
       width: 10px; height: 10px; border-radius: 50%;
@@ -494,6 +503,7 @@
       <div class="logo">Chanin Jung</div>
       <div class="nav-right">
         <ul class="nav-links">
+          <li><a href="#story" data-i18n="nav_story">Story</a></li>
           <li><a href="#work" data-i18n="nav_work">Work</a></li>
           <li><a href="#research" data-i18n="nav_research">Research</a></li>
           <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
@@ -562,6 +572,64 @@
         <div class="stat-label" data-i18n="stat3_lbl">Production System in Live Use</div>
       </div>
     </div>
+
+    <!-- Background / The Story -->
+    <section id="story">
+      <div class="section-heading reveal">
+        <div class="section-tag" data-i18n="bg_tag">Background</div>
+        <h2 data-i18n="bg_h2">The Story</h2>
+      </div>
+
+      <div class="about-block">
+        <div class="story-timeline reveal">
+          <div class="story-track">
+
+            <a href="#exp-hvac" class="story-node work">
+              <div class="story-dot"></div>
+              <div class="story-year">2014</div>
+              <div class="story-label" data-i18n="st1_label">👔 HVAC Engineer</div>
+              <div class="story-sub" data-i18n="st1_sub">Building Systems Design Firms · 4+ yrs</div>
+            </a>
+
+            <a href="#edu-ewha" class="story-node edu">
+              <div class="story-dot"></div>
+              <div class="story-year">2020</div>
+              <div class="story-label" data-i18n="st2_label">🎓 B.S. Ewha Womans Univ.</div>
+              <div class="story-sub" data-i18n="st2_sub">Seoul, Korea<br>Mechanical &amp; Biomedical Eng. + Philosophy</div>
+            </a>
+
+            <a href="#award-capstone" class="story-node award">
+              <div class="story-dot"></div>
+              <div class="story-year">2021</div>
+              <div class="story-label" data-i18n="st3_label">🏆 Capstone Grand Prize</div>
+              <div class="story-sub" data-i18n="st3_sub">Dept. 1st — Research funding awarded</div>
+            </a>
+
+            <a href="#paper-sci" class="story-node award">
+              <div class="story-dot"></div>
+              <div class="story-year">2023</div>
+              <div class="story-label" data-i18n="st4_label">SCI Paper · Graduation<br>POSCO Academy 🏆</div>
+              <div class="story-sub" data-i18n="st4_sub">IEEE Access (1st author)<br>Excellence Award</div>
+            </a>
+
+            <a href="#exp-ai" class="story-node work">
+              <div class="story-dot"></div>
+              <div class="story-year">2024</div>
+              <div class="story-label" data-i18n="st5_label">👔 AI / LLM Developer</div>
+              <div class="story-sub" data-i18n="st5_sub">Civil Eng. Firm · R&D Institute<br>AI Team · RAG &amp; Agents · 2+ yrs</div>
+            </a>
+
+            <a href="#edu-elte" class="story-node edu">
+              <div class="story-dot"></div>
+              <div class="story-year" data-i18n="st6_year">Now</div>
+              <div class="story-label" data-i18n="st6_label">🎓 M.S. Eötvös Loránd University</div>
+              <div class="story-sub" data-i18n="st6_sub">Budapest, Hungary<br>Computer Science · Specialized in AI</div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Work -->
     <section id="work">
@@ -722,7 +790,7 @@
       </div>
 
       <!-- SCI Paper -->
-      <div class="card paper-card reveal">
+      <div class="card paper-card reveal" id="paper-sci">
         <div class="paper-meta">
           <span class="paper-journal">IEEE Access &mdash; SCI</span>
           <span class="paper-year" data-i18n="paper_year">2023 &nbsp;·&nbsp; First Author</span>
@@ -776,7 +844,7 @@
       </div>
 
       <div class="timeline">
-        <div class="tl-item reveal">
+        <div class="tl-item reveal" id="exp-ai">
           <div class="tl-period" data-i18n="tl1_period">Feb 2024 &mdash; Apr 2026</div>
           <div class="tl-title" data-i18n="tl1_title">AI Developer &mdash; LLM / RAG Engineer</div>
           <div class="tl-place" data-i18n="tl1_place">Dongmyeong Engineering &amp; Construction (DMEC) &mdash; Seoul, Korea</div>
@@ -789,7 +857,7 @@
           </ul>
         </div>
 
-        <div class="tl-item reveal">
+        <div class="tl-item reveal" id="exp-hvac">
           <div class="tl-period" data-i18n="tl2_period">Oct 2014 &mdash; Feb 2019 &nbsp;(4 yrs 3 mos)</div>
           <div class="tl-title" data-i18n="tl2_title">HVAC &amp; Mechanical Design Engineer</div>
           <div class="tl-place" data-i18n="tl2_place">Building Systems Design Firms &mdash; Seoul, Korea</div>
@@ -810,7 +878,7 @@
       </div>
 
       <div class="edu-grid reveal">
-        <div class="edu-card">
+        <div class="edu-card" id="edu-elte">
           <div class="edu-icon">🎓</div>
           <div class="edu-degree" data-i18n="edu0_degree">M.S. Computer Science</div>
           <div class="edu-degree" style="font-size:0.88rem; margin-top:2px;" data-i18n="edu0_degree2">+ Specialized in Artificial Intelligence</div>
@@ -821,7 +889,7 @@
           </div>
         </div>
 
-        <div class="edu-card">
+        <div class="edu-card" id="edu-ewha">
           <div class="edu-icon">🎓</div>
           <div class="edu-degree" data-i18n="edu1_degree">B.S. Mechanical &amp; Biomedical Engineering</div>
           <div class="edu-degree" style="font-size:0.88rem; margin-top:2px;" data-i18n="edu1_degree2">+ Double Major in Philosophy</div>
@@ -869,7 +937,7 @@
       </div>
 
       <div class="tech-grid reveal" style="margin-bottom: 96px;">
-        <div class="tech-cat">
+        <div class="tech-cat" id="award-capstone">
           <div class="tech-cat-name" data-i18n="award_cat1">2021 · Award</div>
           <div class="tech-items">
             <span data-i18n="award1">🏆 Capstone Design Grand Prize — Ewha Womans University</span>
@@ -939,63 +1007,7 @@
       </div>
     </section>
 
-    <!-- Background -->
-    <section>
-      <div class="section-heading reveal">
-        <div class="section-tag" data-i18n="bg_tag">Background</div>
-        <h2 data-i18n="bg_h2">The Story</h2>
-      </div>
 
-      <div class="about-block">
-        <div class="story-timeline reveal">
-          <div class="story-track">
-
-            <div class="story-node work">
-              <div class="story-dot"></div>
-              <div class="story-year">2014</div>
-              <div class="story-label" data-i18n="st1_label">👔 HVAC Engineer</div>
-              <div class="story-sub" data-i18n="st1_sub">Building Systems Design Firms · 4+ yrs</div>
-            </div>
-
-            <div class="story-node edu">
-              <div class="story-dot"></div>
-              <div class="story-year">2020</div>
-              <div class="story-label" data-i18n="st2_label">🎓 B.S. Ewha Womans Univ.</div>
-              <div class="story-sub" data-i18n="st2_sub">Seoul, Korea<br>Mechanical &amp; Biomedical Eng. + Philosophy</div>
-            </div>
-
-            <div class="story-node award">
-              <div class="story-dot"></div>
-              <div class="story-year">2021</div>
-              <div class="story-label" data-i18n="st3_label">🏆 Capstone Grand Prize</div>
-              <div class="story-sub" data-i18n="st3_sub">Dept. 1st — Research funding awarded</div>
-            </div>
-
-            <div class="story-node award">
-              <div class="story-dot"></div>
-              <div class="story-year">2023</div>
-              <div class="story-label" data-i18n="st4_label">SCI Paper · Graduation<br>POSCO Academy 🏆</div>
-              <div class="story-sub" data-i18n="st4_sub">IEEE Access (1st author)<br>Excellence Award</div>
-            </div>
-
-            <div class="story-node work">
-              <div class="story-dot"></div>
-              <div class="story-year">2024</div>
-              <div class="story-label" data-i18n="st5_label">👔 AI / LLM Developer</div>
-              <div class="story-sub" data-i18n="st5_sub">Civil Eng. Firm · R&D Institute<br>AI Team · RAG &amp; Agents · 2+ yrs</div>
-            </div>
-
-            <div class="story-node edu">
-              <div class="story-dot"></div>
-              <div class="story-year" data-i18n="st6_year">Now</div>
-              <div class="story-label" data-i18n="st6_label">🎓 M.S. Eötvös Loránd University</div>
-              <div class="story-sub" data-i18n="st6_sub">Budapest, Hungary<br>Computer Science · Specialized in AI</div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -1013,6 +1025,7 @@
     // ── i18n dictionary ──────────────────────────────────────────────────────
     const i18n = {
       en: {
+        nav_story: "Story",
         nav_work: "Work",
         nav_research: "Research",
         nav_experience: "Experience",
@@ -1157,6 +1170,7 @@
         footer_copy: "&copy; 2026 Chanin Jung",
       },
       ko: {
+        nav_story: "이야기",
         nav_work: "업무",
         nav_research: "연구",
         nav_experience: "경력",
