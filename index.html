@@ -434,6 +434,10 @@
     .story-node.highlight .story-year { color: var(--green); }
     .story-node.award .story-dot { background: var(--amber); box-shadow: 0 0 0 3px var(--amber-bg); }
     .story-node.award .story-year { color: var(--amber); }
+    .story-node.work .story-dot { background: var(--blue); box-shadow: 0 0 0 3px var(--blue-bg); }
+    .story-node.work .story-year { color: var(--blue); }
+    .story-node.edu .story-dot { background: var(--purple); box-shadow: 0 0 0 3px var(--purple-bg); }
+    .story-node.edu .story-year { color: var(--purple); }
 
     @media (max-width: 768px) {
       .story-track { flex-direction: column; align-items: flex-start; gap: 0; padding-left: 20px; }
@@ -964,14 +968,14 @@
         <div class="story-timeline reveal">
           <div class="story-track">
 
-            <div class="story-node">
+            <div class="story-node work">
               <div class="story-dot"></div>
               <div class="story-year">2014</div>
               <div class="story-label" data-i18n="st1_label">🏢 HVAC Engineer</div>
               <div class="story-sub" data-i18n="st1_sub">Building Systems Design Firms<br>(by 2019, 4+ years)</div>
             </div>
 
-            <div class="story-node">
+            <div class="story-node edu">
               <div class="story-dot"></div>
               <div class="story-year">2020</div>
               <div class="story-label" data-i18n="st2_label">🎓 Ewha Womans Univ.</div>
@@ -992,14 +996,14 @@
               <div class="story-sub" data-i18n="st4_sub">IEEE Access (1st author)<br>Excellence Award</div>
             </div>
 
-            <div class="story-node highlight">
+            <div class="story-node work">
               <div class="story-dot"></div>
               <div class="story-year">2024</div>
               <div class="story-label" data-i18n="st5_label">🏢 AI / LLM Developer</div>
               <div class="story-sub" data-i18n="st5_sub">Civil Eng. Firm · R&D Institute<br>AI Team · RAG &amp; Agents · 2+ yrs</div>
             </div>
 
-            <div class="story-node highlight">
+            <div class="story-node edu">
               <div class="story-dot"></div>
               <div class="story-year" data-i18n="st6_year">Now</div>
               <div class="story-label" data-i18n="st6_label">🎓 Eötvös Loránd University</div>
