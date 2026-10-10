@@ -678,6 +678,28 @@
 
 
 
+        <!-- Project 2 — Huko News -->
+        <div class="card reveal" id="work-huko">
+          <div class="card-top">
+            <h3 data-i18n="p7_h3">Huko News — Daily Korean News for Learners</h3>
+            <span class="badge badge-prod" data-i18n="p7_badge">Live</span>
+          </div>
+          <p class="card-desc" data-i18n="p7_desc">
+            A live news platform serving daily-updated Korean news to global Korean learners at four
+            difficulty levels (TOPIK 1–6) in Korean, English, and Hungarian — fully automated from
+            collection to publication.
+            <a href="https://hukonews.com/" target="_blank" style="color: var(--accent);">hukonews.com ↗</a>
+          </p>
+          <ul class="detail-list">
+            <li data-i18n="p7_li1">End-to-end daily pipeline: news collection &rarr; LLM rewriting &amp; level-grading &rarr; trilingual translation (KOR/ENG/HU) &rarr; image sourcing &rarr; TTS audio &rarr; deploy</li>
+            <li data-i18n="p7_li2">Level-aware generation across 4 bands (600–1,200 chars) with LLM self-revision when articles miss length/style targets</li>
+            <li data-i18n="p7_li3">Static site auto-deployed to Cloudflare Pages via GitHub Actions (daily 07:00 KST), with SEO automation (sitemap, IndexNow)</li>
+          </ul>
+          <div class="tags">
+            <span>Python</span><span>LLM</span><span>Automation</span><span>Cloudflare Pages</span><span>GitHub Actions</span><span>TTS</span>
+          </div>
+        </div>
+
         <!-- Project 4 — POSCO Battery -->
         <div class="card reveal" id="work-posco">
           <div class="card-top">
@@ -1059,6 +1081,12 @@
         p1_li3: "21 pods, 6 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions",
         p1_li4: "Regulatory document search time: 1 week &rarr; 1 minute",
         p1_li5: "Query cost: &#8361;33/query (~$0.025)",
+        p7_h3: "Huko News — Daily Korean News for Learners",
+        p7_badge: "Live",
+        p7_desc: "A live news platform serving daily-updated Korean news to global Korean learners at four difficulty levels (TOPIK 1–6) in Korean, English, and Hungarian — fully automated from collection to publication. <a href=\"https://hukonews.com/\" target=\"_blank\" style=\"color: var(--accent);\">hukonews.com ↗</a>",
+        p7_li1: "End-to-end daily pipeline: news collection &rarr; LLM rewriting &amp; level-grading &rarr; trilingual translation (KOR/ENG/HU) &rarr; image sourcing &rarr; TTS audio &rarr; deploy",
+        p7_li2: "Level-aware generation across 4 bands (600–1,200 chars) with LLM self-revision when articles miss length/style targets",
+        p7_li3: "Static site auto-deployed to Cloudflare Pages via GitHub Actions (daily 07:00 KST), with SEO automation (sitemap, IndexNow)",
         p2_h3: "Hybrid Retrieval RAG Pipeline",
         p2_badge: "In Progress",
         p2_desc: "BM25 + Elasticsearch hybrid retrieval system for 3,500+ Korean regulatory documents, with morphological analysis (Kiwi tokenizer) and query decomposition.",
@@ -1206,6 +1234,12 @@
         p1_li3: "AWS EKS에 21개 파드, 6개 오픈소스 서비스 — Keycloak SSO(5개 도구 통합), GitHub Actions CI/CD",
         p1_li4: "규정 문서 검색 시간: 1주일 → 1분",
         p1_li5: "쿼리 비용: ₩33/쿼리 (~$0.025)",
+        p7_h3: "후코 뉴스 — 한국어 학습자를 위한 데일리 뉴스",
+        p7_badge: "운영 중",
+        p7_desc: "전 세계 한국어 학습자에게 매일 갱신되는 한국 뉴스를 4개 난이도(TOPIK 1~6)로, 한국어·영어·헝가리어 3개 언어로 제공하는 실서비스 뉴스 플랫폼. 뉴스 수집부터 배포까지 전 과정 자동화. <a href=\"https://hukonews.com/\" target=\"_blank\" style=\"color: var(--accent);\">hukonews.com ↗</a>",
+        p7_li1: "뉴스 수집 &rarr; LLM 재작성·난이도 분류 &rarr; 3개 언어 번역(KOR/ENG/HU) &rarr; 이미지 수집 &rarr; TTS 오디오 &rarr; 배포까지 전 과정 일일 자동화 파이프라인",
+        p7_li2: "4개 레벨 밴드(600~1,200자)에 맞춘 생성, 분량·문체 기준 미달 시 LLM이 스스로 재보강",
+        p7_li3: "GitHub Actions로 Cloudflare Pages에 자동 배포(매일 07:00 KST), SEO 자동화(사이트맵, IndexNow)",
         p2_h3: "하이브리드 검색 RAG 파이프라인",
         p2_badge: "개발 중",
         p2_desc: "3,500개 이상 한국 규정 문서를 위한 BM25 + Elasticsearch 하이브리드 검색 시스템. 형태소 분석(Kiwi 토크나이저)과 쿼리 분해 적용.",
