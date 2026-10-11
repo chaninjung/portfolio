@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chanin Jung — AI/LLM Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A; --bg-2:#0F0F0F; --surface:#161616; --border:#242424;
+  --text:#EDEDED; --muted:#8B8B8B; --accent:#C6F135; --accent-ink:#0A0A0A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.logo,.stat-num,.mono{font-family:'Space Grotesk',sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.accent{color:var(--accent)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:60;background:rgba(10,10,10,.8);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{font-weight:700;font-size:1.55rem;letter-spacing:-.03em}
+.logo .dot{color:var(--accent)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.82rem;
+  padding:12px 22px;border-radius:999px;transition:transform .2s,background .2s,color .2s,border-color .2s}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-accent:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--border);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--border);color:var(--text);
+  border-radius:10px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
+
+/* hero */
+.hero{padding:96px 0 72px;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 0 rgba(198,241,53,.55);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(198,241,53,.55)}70%{box-shadow:0 0 0 12px rgba(198,241,53,0)}100%{box-shadow:0 0 0 0 rgba(198,241,53,0)}}
+.hero h1{font-size:clamp(3.1rem,9vw,7rem);line-height:.96;letter-spacing:-.035em;font-weight:700}
+.hero h1 .thin{color:var(--muted);font-weight:400}
+.typing{margin-top:30px;display:inline-block;font-family:'Space Grotesk';font-weight:600;
+  font-size:clamp(1.05rem,3vw,1.6rem);background:var(--accent);color:var(--accent-ink);
+  padding:9px 16px;border-radius:9px;min-height:1.2em}
+.cursor{display:inline-block;width:3px;height:1em;background:var(--accent-ink);
+  margin-left:4px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-desc{max-width:580px;color:var(--muted);margin-top:30px;font-size:1.03rem}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.stats{display:flex;gap:56px;margin-top:66px;flex-wrap:wrap}
+.stat-num{font-size:2.5rem;font-weight:700;letter-spacing:-.02em;line-height:1}
+.stat-num .plus{color:var(--accent)}
+.stat-lbl{font-size:.78rem;color:var(--muted);letter-spacing:.05em;margin-top:8px}
+
+/* section */
+section{padding:86px 0}
+.sec-head{margin-bottom:44px}
+.sec-tag{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3rem);letter-spacing:-.025em;font-weight:700}
+
+/* marquee */
+.marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;white-space:nowrap;padding:20px 0;background:var(--bg-2)}
+.marquee-track{display:inline-block;animation:scroll 26s linear infinite}
+.marquee-track span{font-family:'Space Grotesk';font-size:1.15rem;font-weight:500;color:var(--muted);margin:0 26px}
+.marquee-track span b{color:var(--text);font-weight:600}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;
+  transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
+.card h3{font-size:1.32rem;letter-spacing:-.02em;line-height:1.25}
+.badge{font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;white-space:nowrap}
+.badge-prod{background:rgba(198,241,53,.14);color:var(--accent);border:1px solid rgba(198,241,53,.3)}
+.badge-other{background:rgba(139,139,139,.12);color:var(--muted);border:1px solid var(--border)}
+.card p{color:var(--muted);font-size:.92rem}
+.card img{width:100%;border-radius:12px;margin:16px 0;background:#fff;border:1px solid var(--border)}
+.card ul{list-style:none;margin:16px 0 0}
+.card li{position:relative;padding-left:20px;color:var(--muted);font-size:.88rem;margin-bottom:9px}
+.card li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:7px;
+  border-radius:2px;background:var(--accent)}
+.card li b{color:var(--text);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
+.tags span{font-size:.72rem;color:var(--muted);border:1px solid var(--border);
+  padding:4px 11px;border-radius:999px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+.about-lead{font-family:'Space Grotesk';font-size:clamp(1.3rem,2.6vw,1.9rem);
+  line-height:1.35;letter-spacing:-.02em}
+.about-lead .accent{border-bottom:2px solid var(--accent);padding-bottom:2px}
+.about p{color:var(--muted);margin-top:20px}
+.about-cards{display:flex;flex-direction:column;gap:16px}
+.mini{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
+.mini .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.mini .v{font-family:'Space Grotesk';font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+.mini .s{font-size:.85rem;color:var(--muted);margin-top:4px}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.skills span{font-size:.78rem;border:1px solid var(--border);padding:6px 13px;border-radius:999px;color:var(--text)}
+.skills span:hover{border-color:var(--accent);color:var(--accent)}
+
+/* contact */
+.contact{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.contact .sec-head{margin-bottom:28px}
+.contact h2{font-size:clamp(2.4rem,6vw,4.4rem);letter-spacing:-.03em;line-height:1.02}
+.contact .mail{display:inline-block;margin-top:26px;font-family:'Space Grotesk';
+  font-size:clamp(1.1rem,3vw,1.7rem);font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:4px}
+.contact .mail:hover{color:var(--accent)}
+.contact-links{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+
+/* footer */
+footer{padding:44px 0}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-inner .f-links{display:flex;gap:24px}
+.foot-inner .f-links a{font-size:.84rem;color:var(--muted)}
+.foot-inner .f-links a:hover{color:var(--accent)}
+.foot-inner small{color:var(--muted);font-size:.8rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;
+    background:var(--bg-2);border-bottom:1px solid var(--border);padding:22px 28px;gap:16px;align-items:flex-start}
+  .menu-btn{display:block}
+  .work-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .stats{gap:34px}
+}
+</style>
+</head>
+<body id="top">
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">chanin<span class="dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#top">HOME</a>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+      <a href="mailto:chaninjung7@gmail.com" class="btn btn-accent">Let's Talk</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow reveal"><span class="pulse"></span> Open to opportunities &middot; Budapest / Remote</div>
+  <h1 class="reveal">I'm Chanin<br><span class="thin">AI / LLM Developer</span></h1>
+  <div class="reveal"><span class="typing" id="typing"></span><span class="cursor"></span></div>
+  <p class="hero-desc reveal">I build enterprise AI systems that real people use every day &mdash; not prototypes. Engineering background, hands-on LLM ops, and a habit of shipping.</p>
+  <div class="hero-cta reveal">
+    <a href="mailto:chaninjung7@gmail.com" class="btn btn-accent">Get in touch &rarr;</a>
+    <a href="#work" class="btn btn-ghost">View work</a>
+  </div>
+  <div class="stats reveal">
+    <div><div class="stat-num">100<span class="plus">+</span></div><div class="stat-lbl">Users served</div></div>
+    <div><div class="stat-num">2<span class="plus">+</span></div><div class="stat-lbl">Years in AI</div></div>
+    <div><div class="stat-num">1</div><div class="stat-lbl">IEEE SCI paper</div></div>
+    <div><div class="stat-num">6<span class="plus">+</span></div><div class="stat-lbl">Production services</div></div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span><b>LLM / RAG</b></span><span>&middot;</span><span>AWS EKS</span><span>&middot;</span><span><b>Python</b></span><span>&middot;</span><span>Dify &middot; n8n</span><span>&middot;</span><span><b>Cloudflare Pages</b></span><span>&middot;</span><span>Langfuse</span><span>&middot;</span><span><b>YOLOv5 / GAN</b></span><span>&middot;</span><span>XGBoost</span><span>&middot;</span>
+    <span><b>LLM / RAG</b></span><span>&middot;</span><span>AWS EKS</span><span>&middot;</span><span><b>Python</b></span><span>&middot;</span><span>Dify &middot; n8n</span><span>&middot;</span><span><b>Cloudflare Pages</b></span><span>&middot;</span><span>Langfuse</span><span>&middot;</span><span><b>YOLOv5 / GAN</b></span><span>&middot;</span><span>XGBoost</span><span>&middot;</span>
+  </div>
+</div>
+
+<section id="work" class="wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag">Work</div>
+    <h2>Selected projects</h2>
+  </div>
+  <div class="work-grid">
+
+    <article class="card reveal">
+      <div class="card-top">
+        <h3>Enterprise LLM Agent Platform</h3>
+        <span class="badge badge-prod">Production</span>
+      </div>
+      <p>AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company &mdash; answers regulatory questions in Mattermost with cited legal references.</p>
+      <ul>
+        <li>Dify agent auto-calls <b>3 data sources</b>: Construction Standards API, Legislation API, Gemini grounding</li>
+        <li>Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify &rarr; n8n</li>
+        <li><b>21 pods</b>, 6 open-source services on AWS EKS &middot; Keycloak SSO &middot; CI/CD</li>
+        <li>Regulatory search: <b>1 week &rarr; 1 minute</b> &middot; &#8361;33/query</li>
+      </ul>
+      <div class="tags"><span>Python</span><span>Dify</span><span>n8n</span><span>AWS EKS</span><span>Terraform</span><span>Keycloak</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-top">
+        <h3>Huko News &mdash; Full-Stack Web Service</h3>
+        <span class="badge badge-prod">Production</span>
+      </div>
+      <p>A live Korean-learning news website I designed, built, and run end-to-end. I own the whole stack: front-end, content engine, and deployment.</p>
+      <img src="huko-banner.png" alt="Huko News &mdash; Daily Korean News">
+      <ul>
+        <li>Built the site from scratch &mdash; responsive front-end (HTML/CSS/JS) + search &amp; material library</li>
+        <li>Python content engine: collection &rarr; LLM rewriting &amp; level-grading &rarr; 3-language translation &rarr; TTS</li>
+        <li>Ships daily via GitHub Actions to Cloudflare Pages + SEO automation</li>
+      </ul>
+      <div class="tags"><span>HTML/CSS/JS</span><span>Python</span><span>LLM</span><span>Cloudflare Pages</span><span>GitHub Actions</span><span>SEO</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-top">
+        <h3>Li-ion Battery Defect Rate Reduction</h3>
+        <span class="badge badge-other">POSCO &middot; Award</span>
+      </div>
+      <p>Analyzed real production data from a lithium-ion battery formation process to find defect-causing factors and cut the defect rate.</p>
+      <ul>
+        <li>Dataset: <b>44,078</b> observations &times; 113 process vars + 26 time-series vars</li>
+        <li>Feature selection via ANOVA, Chi-squared, Decision Tree</li>
+        <li>Defect rate <b>3.12% &rarr; 0.45%</b> with an XGBoost model</li>
+      </ul>
+      <div class="tags"><span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-top">
+        <h3>Smart Farm AI &mdash; Ripeness &amp; Disease</h3>
+        <span class="badge badge-other">POSCO &middot; Award</span>
+      </div>
+      <p>Real-time YOLOv5 system for tomato ripeness (3 classes) and disease (10 classes). Trained a GAN from scratch to fix class imbalance.</p>
+      <ul>
+        <li>GAN generated <b>600</b> synthetic images &rarr; final set <b>3,088</b> images</li>
+        <li>Turning-class mAP50: <b>0.969 &rarr; 0.991</b> after augmentation</li>
+        <li>RFID + Arduino tracking &middot; Flask real-time dashboard</li>
+      </ul>
+      <div class="tags"><span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-top">
+        <h3>CAD LISP Code Generation &mdash; LoRA</h3>
+        <span class="badge badge-other">Research</span>
+      </div>
+      <p>Fine-tuned an LLM on CAD LISP &mdash; a niche domain language with virtually no public training data.</p>
+      <ul>
+        <li>Built an LLM-based data-augmentation pipeline from scratch</li>
+        <li>Chain-of-Thought in training data + LoRA fine-tuning</li>
+        <li>LLM-as-Judge accuracy: <b>43% &rarr; 92%</b></li>
+      </ul>
+      <div class="tags"><span>LoRA</span><span>Chain-of-Thought</span><span>Data Augmentation</span><span>Python</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-top">
+        <h3>IEEE Access &mdash; SCI Paper (1st Author)</h3>
+        <span class="badge badge-other">Research</span>
+      </div>
+      <p>Counter-rotating hoop stabilizer with SVR control for a two-wheel vehicle &mdash; redesigned from the grand-prize capstone.</p>
+      <ul>
+        <li>SVR predicted PWM voltage per tilt angle (RBF kernel)</li>
+        <li><b>98.2%</b> correlation &middot; &plusmn;23&deg; tilt correction</li>
+        <li>Replaced PID + single wheel with a counter-rotating hoop</li>
+      </ul>
+      <div class="tags"><span>SVR</span><span>Control</span><span>Embedded</span><span>MATLAB/Simulink</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section id="about" class="wrap about">
+  <div class="sec-head reveal">
+    <div class="sec-tag">About</div>
+    <h2>A little about me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-lead">Engineer-turned-AI-developer who <span class="accent">ships real systems</span> &mdash; from front-end to infra.</p>
+      <p>I started in HVAC &amp; mechanical design, moved into AI/LLM engineering, and now build enterprise RAG + agent systems that people rely on daily. I like owning the whole path: designing it, building it, deploying it, and keeping it running.</p>
+      <p>Currently pursuing an M.S. in Computer Science (AI) at E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest.</p>
+      <div class="skills">
+        <span>Python</span><span>LLM / RAG</span><span>Dify</span><span>n8n</span><span>LangChain</span>
+        <span>Elasticsearch</span><span>AWS EKS</span><span>Terraform</span><span>Docker</span>
+        <span>Cloudflare</span><span>GitHub Actions</span><span>XGBoost</span><span>YOLOv5</span>
+      </div>
+    </div>
+    <div class="about-cards reveal">
+      <div class="mini"><div class="k">Now</div><div class="v">M.S. Computer Science &middot; AI</div><div class="s">E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest</div></div>
+      <div class="mini"><div class="k">Experience</div><div class="v">AI / LLM Developer</div><div class="s">Dongmyeong E&amp;C &middot; R&amp;D Institute</div></div>
+      <div class="mini"><div class="k">Recognition</div><div class="v">IEEE Access &mdash; SCI paper</div><div class="s">1st author &middot; POSCO Excellence Award</div></div>
+      <div class="mini"><div class="k">Languages</div><div class="v">Korean (native) &middot; English (business)</div><div class="s">Hungarian &mdash; learning</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Contact</div>
+      <h2>Let's build<br>something.</h2>
+    </div>
+    <a href="mailto:chaninjung7@gmail.com" class="mail">chaninjung7@gmail.com</a>
+    <div class="contact-links">
+      <a href="mailto:chaninjung7@gmail.com" class="btn btn-accent">Email me</a>
+      <a href="https://github.com/chaninjung" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/chaninjung" target="_blank" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="logo" style="font-size:1.2rem">chanin<span class="dot">.</span></span>
+    <div class="f-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/chaninjung" target="_blank">GitHub</a>
+      <a href="mailto:chaninjung7@gmail.com">Email</a>
+    </div>
+    <small>&copy; 2026 Chanin Jung &middot; Built from scratch</small>
+  </div>
+</footer>
+
+<script>
+  // typing effect
+  const phrases = ['I\'M AN AI / LLM DEVELOPER', 'I BUILD RAG + AGENT SYSTEMS', 'I SHIP PRODUCTION AI'];
+  const el = document.getElementById('typing');
+  let p = 0, c = 0, deleting = false;
+  function tick(){
+    const full = phrases[p];
+    el.textContent = full.slice(0, c);
+    if(!deleting){
+      if(c < full.length){ c++; setTimeout(tick, 65); }
+      else { deleting = true; setTimeout(tick, 1400); }
+    } else {
+      if(c > 0){ c--; setTimeout(tick, 28); }
+      else { deleting = false; p = (p + 1) % phrases.length; setTimeout(tick, 320); }
+    }
+  }
+  tick();
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // close mobile menu on link click
+  document.querySelectorAll('#navLinks a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+</script>
+
+</body>
+</html>
