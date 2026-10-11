@@ -6,7 +6,7 @@
 <title>Chanin Jung — AI/LLM Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0A0A0A; --bg-2:#0F0F0F; --surface:#161616; --border:#242424;
@@ -101,25 +101,68 @@ section{padding:78px 0}
 .marquee-track span b{color:var(--text);font-weight:600}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* work cards */
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;
-  transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
-.card:hover{border-color:var(--accent);transform:translateY(-4px)}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
-.card h3{font-size:1.28rem;letter-spacing:-.02em;line-height:1.25}
+/* badges + tags (shared) */
 .badge{font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   padding:5px 11px;border-radius:999px;white-space:nowrap}
-.badge-prod{background:rgba(198,241,53,.14);color:var(--accent);border:1px solid rgba(198,241,53,.3)}
 .badge-other{background:rgba(139,139,139,.12);color:var(--muted);border:1px solid var(--border)}
-.card p{color:var(--muted);font-size:.92rem}
-.card img{width:100%;border-radius:12px;margin:16px 0;background:#fff;border:1px solid var(--border)}
-.card ul{list-style:none;margin:16px 0 0}
-.card li{position:relative;padding-left:20px;color:var(--muted);font-size:.88rem;margin-bottom:9px}
-.card li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
-.card li b{color:var(--text);font-weight:600}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
 .tags span{font-size:.72rem;color:var(--muted);border:1px solid var(--border);padding:4px 11px;border-radius:999px}
+
+/* work — noah-style editorial insert */
+.na-work{position:relative;background:#F7F6F3;color:#141414;padding:126px 0 132px;overflow:hidden}
+.na-container{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px}
+.na-watermark{position:absolute;top:0;left:0;right:0;z-index:0;text-align:center;pointer-events:none;user-select:none;
+  font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:.82;
+  font-size:clamp(120px,23vw,250px);color:#EFEEE9;letter-spacing:-.02em}
+.na-rail{position:absolute;top:10px;left:-52px}
+.na-rail span{display:block;white-space:nowrap;position:relative;transform:rotate(90deg);transform-origin:left top;
+  font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.72em;color:#B5B3AC}
+.na-rail span::after{content:'';position:absolute;top:7px;right:-58px;width:42px;height:1px;background:#0A0A0A}
+.na-head{position:relative;margin-bottom:72px}
+.na-head .na-eyebrow{display:block;text-transform:uppercase;font-size:12px;font-weight:600;letter-spacing:3px;
+  color:#B5B3AC;margin-bottom:10px}
+.na-head h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;line-height:1.3;
+  font-size:clamp(1.9rem,4.2vw,2.6rem);color:#0A0A0A}
+
+.na-entry{margin-bottom:104px}
+.na-entry:last-child{margin-bottom:0}
+.na-cover{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  height:clamp(280px,36vw,500px);margin-bottom:48px;
+  background:#EDECE7;border:1px solid #E3E1DB}
+.na-cover::after{content:'';position:absolute;inset:0;z-index:2;background:rgba(0,0,0,.34);
+  opacity:0;transition:opacity .35s ease}
+@media(hover:hover){a.na-cover:hover::after{opacity:1}}
+.na-shot{max-width:88%;max-height:84%;object-fit:contain;border-radius:3px;background:#fff;
+  border:1px solid #E0DED7;box-shadow:0 18px 52px -14px rgba(0,0,0,.3)}
+.na-ghost{user-select:none;white-space:nowrap;font-family:'Playfair Display',Georgia,serif;font-weight:700;letter-spacing:-.03em;
+  font-size:clamp(96px,15vw,210px);line-height:1;color:rgba(0,0,0,.075)}
+.na-label{position:absolute;z-index:3;max-width:80%;text-align:center;background:#fff;
+  padding:3.2em 2.7em;box-shadow:0 6px 60px -8px rgba(0,0,0,.3);
+  transition:padding .35s ease}
+@media(hover:hover){a.na-cover:hover .na-label{padding:3.7em 3.1em}}
+.na-cat{display:block;text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:3px;
+  color:#B5B3AC;margin-bottom:10px}
+.na-label h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;line-height:1.32;
+  font-size:clamp(1.12rem,2.1vw,1.62rem);color:#0A0A0A}
+.na-desc{max-width:620px;margin:0 auto;text-align:center}
+.na-desc p{color:#6B6963;font-size:.98rem;line-height:1.85}
+.na-desc p a{font-weight:600;color:#0A0A0A !important;border-bottom:1px solid rgba(0,0,0,.32)}
+.na-desc p a:hover{color:#63761A !important;border-color:#63761A}
+.na-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:22px}
+.na-tags span{font-size:.72rem;letter-spacing:.04em;color:#6B6963;border:1px solid #DCDAD3;
+  padding:5px 13px;border-radius:999px}
+.na-more{display:block;margin-top:32px;text-align:center}
+.na-more summary{position:relative;display:inline-block;cursor:pointer;list-style:none;
+  text-transform:uppercase;font-size:12px;font-weight:600;letter-spacing:4px;color:#0A0A0A}
+.na-more summary::-webkit-details-marker{display:none}
+.na-more summary::before{content:'';position:absolute;top:7px;left:-56px;width:40px;height:1px;background:#0A0A0A}
+.na-more summary::after{content:' +';color:#63761A}
+.na-more[open] summary::after{content:' \2212'}
+.na-more ul{list-style:none;margin-top:24px;padding-top:24px;border-top:1px solid #E3E1DB;text-align:left}
+.na-more li{position:relative;padding-left:22px;color:#6B6963;font-size:.9rem;line-height:1.75;margin-bottom:11px}
+.na-more li::before{content:'';position:absolute;left:0;top:.72em;width:12px;height:1px;background:#B5B3AC}
+.na-more li b,.na-more li strong{color:#0A0A0A;font-weight:600}
 
 /* research / papers */
 .paper{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:20px}
@@ -204,7 +247,17 @@ footer{padding:44px 0}
   .hero-copy{padding:52px 28px 44px}
   .hero-photo{min-height:440px}
   .hero-rail{display:none}
-  .work-grid,.edu-grid,.grid-2,.about-grid{grid-template-columns:1fr}
+  .edu-grid,.grid-2,.about-grid{grid-template-columns:1fr}
+  .na-work{padding:78px 0 86px}
+  .na-rail{display:none}
+  .na-watermark{font-size:clamp(76px,26vw,150px)}
+  .na-head{margin-bottom:46px}
+  .na-entry{margin-bottom:68px}
+  .na-cover{height:clamp(230px,54vw,330px);margin-bottom:32px}
+  .na-label{max-width:88%;padding:2.1em 1.6em}
+  .na-shot{max-width:92%;max-height:74%}
+  .na-more{display:block;text-align:center}
+  .na-more summary::before{left:-44px;width:30px}
   .stats{gap:30px}
 }
 </style>
@@ -274,87 +327,128 @@ footer{padding:44px 0}
   </div>
 </div>
 
-<section id="work" class="wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag" data-i18n="work_tag">Work</div>
-    <h2 data-i18n="work_h2">What I've Built</h2>
-  </div>
-  <div class="work-grid">
+<section id="work" class="na-work">
+  <div class="na-watermark" aria-hidden="true">Works</div>
+  <div class="na-container">
+    <div class="na-rail" aria-hidden="true"><span>Portfolio</span></div>
+    <div class="na-head reveal">
+      <span class="na-eyebrow" data-i18n="work_tag">Work</span>
+      <h2 data-i18n="work_h2">What I've Built</h2>
+    </div>
 
-    <article class="card reveal">
-      <div class="card-top">
-        <h3 data-i18n="p1_h3">Enterprise LLM Agent Platform</h3>
-        <span class="badge badge-prod" data-i18n="p1_badge">Production</span>
+    <article class="na-entry reveal">
+      <div class="na-cover">
+        <img class="na-shot" src="mattermost.jpg" alt="Enterprise LLM agent answering a construction-regulation question inside Mattermost">
+        <div class="na-label">
+          <span class="na-cat" data-i18n="p1_badge">Production</span>
+          <h3 data-i18n="p1_h3">Enterprise LLM Agent Platform</h3>
+        </div>
       </div>
-      <p data-i18n="p1_desc">AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company. Users ask regulatory questions in Mattermost &mdash; the agent retrieves answers with cited legal references.</p>
-      <ul>
-        <li data-i18n="p1_li1">Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding</li>
-        <li data-i18n="p1_li2">Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost</li>
-        <li data-i18n="p1_li3">21 pods, 6 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions</li>
-        <li data-i18n="p1_li4">Regulatory document search time: 1 week &rarr; 1 minute</li>
-        <li data-i18n="p1_li5">Query cost: &#8361;33/query (~$0.025)</li>
-      </ul>
-      <div class="tags"><span>Python</span><span>Dify</span><span>n8n</span><span>AWS EKS</span><span>Terraform</span><span>Keycloak</span></div>
+      <div class="na-desc">
+        <p data-i18n="p1_desc">AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company. Users ask regulatory questions in Mattermost &mdash; the agent retrieves answers with cited legal references.</p>
+        <div class="na-tags"><span>Python</span><span>Dify</span><span>n8n</span><span>AWS EKS</span><span>Terraform</span><span>Keycloak</span></div>
+        <details class="na-more">
+          <summary data-i18n="work_points">Key points</summary>
+          <ul>
+            <li data-i18n="p1_li1">Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding</li>
+            <li data-i18n="p1_li2">Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost</li>
+            <li data-i18n="p1_li3">21 pods, 6 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions</li>
+            <li data-i18n="p1_li4">Regulatory document search time: 1 week &rarr; 1 minute</li>
+            <li data-i18n="p1_li5">Query cost: &#8361;33/query (~$0.025)</li>
+          </ul>
+        </details>
+      </div>
     </article>
 
-    <article class="card reveal">
-      <div class="card-top">
-        <h3 data-i18n="p7_h3">Huko News &mdash; A Live Full-Stack Web Service</h3>
-        <span class="badge badge-prod" data-i18n="p7_badge">Production</span>
+    <article class="na-entry reveal">
+      <a class="na-cover" href="https://hukonews.com/" target="_blank" rel="noopener">
+        <img class="na-shot" src="huko-home.webp" alt="Huko News homepage &mdash; Daily Korean News">
+        <div class="na-label">
+          <span class="na-cat" data-i18n="p7_badge">Production</span>
+          <h3 data-i18n="p7_h3">Huko News &mdash; A Live Full-Stack Web Service</h3>
+        </div>
+      </a>
+      <div class="na-desc">
+        <p data-i18n="p7_desc">A live Korean-learning news website I designed, built, and run end-to-end &mdash; a real product, not a prototype. I own the whole stack: front-end, content engine, and deployment. <a href="https://hukonews.com/" target="_blank">hukonews.com &#8599;</a></p>
+        <div class="na-tags"><span>HTML/CSS/JS</span><span>Python</span><span>LLM</span><span>Cloudflare Pages</span><span>GitHub Actions</span><span>SEO</span></div>
+        <details class="na-more">
+          <summary data-i18n="work_points">Key points</summary>
+          <ul>
+            <li data-i18n="p7_li1">Designed &amp; built the site from scratch &mdash; responsive front-end (HTML/CSS/JS), article / category / search pages, and a lesson-material library</li>
+            <li data-i18n="p7_li2">Engineered the Python content engine: news collection &rarr; LLM rewriting &amp; level-grading &rarr; trilingual translation (KOR/ENG/HU) &rarr; image sourcing &rarr; TTS audio</li>
+            <li data-i18n="p7_li3">Ships daily via GitHub Actions to Cloudflare Pages (07:00 KST), with SEO automation (sitemap, IndexNow) and AdSense monetization</li>
+          </ul>
+        </details>
       </div>
-      <p data-i18n="p7_desc">A live Korean-learning news website I designed, built, and run end-to-end &mdash; a real product, not a prototype. I own the whole stack: front-end, content engine, and deployment. <a href="https://hukonews.com/" target="_blank" class="accent">hukonews.com &#8599;</a></p>
-      <img src="huko-banner.png" alt="Huko News &mdash; Daily Korean News">
-      <ul>
-        <li data-i18n="p7_li1">Designed &amp; built the site from scratch &mdash; responsive front-end (HTML/CSS/JS), article / category / search pages, and a lesson-material library</li>
-        <li data-i18n="p7_li2">Engineered the Python content engine: news collection &rarr; LLM rewriting &amp; level-grading &rarr; trilingual translation (KOR/ENG/HU) &rarr; image sourcing &rarr; TTS audio</li>
-        <li data-i18n="p7_li3">Ships daily via GitHub Actions to Cloudflare Pages (07:00 KST), with SEO automation (sitemap, IndexNow) and AdSense monetization</li>
-      </ul>
-      <div class="tags"><span>HTML/CSS/JS</span><span>Python</span><span>LLM</span><span>Cloudflare Pages</span><span>GitHub Actions</span><span>SEO</span></div>
     </article>
 
-    <article class="card reveal">
-      <div class="card-top">
-        <h3 data-i18n="p4_h3">Li-ion Battery Defect Rate Reduction via XGBoost</h3>
-        <span class="badge badge-other" data-i18n="p4_badge">POSCO Academy &middot; Award</span>
+    <article class="na-entry reveal">
+      <div class="na-cover">
+        <div class="na-ghost">Predictive</div>
+        <div class="na-label">
+          <span class="na-cat" data-i18n="p4_badge">POSCO Academy &middot; Award</span>
+          <h3 data-i18n="p4_h3">Li-ion Battery Defect Rate Reduction via XGBoost</h3>
+        </div>
       </div>
-      <p data-i18n="p4_desc">Analyzed real production data from a lithium-ion battery formation process to identify defect-causing factors and build a predictive model to reduce the defect rate.</p>
-      <ul>
-        <li data-i18n="p4_li1">Dataset: 44,078 observations &times; 113 process variables + 26 time-series variables</li>
-        <li data-i18n="p4_li2">Feature selection via ANOVA, Chi-squared, Decision Tree &mdash; identified charge/discharge equipment and temperature as key factors</li>
-        <li data-i18n="p4_li3">Defect rate reduced from <b>3.12% &rarr; 0.45%</b> using XGBoost prediction model</li>
-        <li data-i18n="p4_li4">Domain insight: outlier temperatures (25&deg;&ndash;30&deg;C) validated against literature and preserved, not removed</li>
-      </ul>
-      <div class="tags"><span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span></div>
+      <div class="na-desc">
+        <p data-i18n="p4_desc">Analyzed real production data from a lithium-ion battery formation process to identify defect-causing factors and build a predictive model to reduce the defect rate.</p>
+        <div class="na-tags"><span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span></div>
+        <details class="na-more">
+          <summary data-i18n="work_points">Key points</summary>
+          <ul>
+            <li data-i18n="p4_li1">Dataset: 44,078 observations &times; 113 process variables + 26 time-series variables</li>
+            <li data-i18n="p4_li2">Feature selection via ANOVA, Chi-squared, Decision Tree &mdash; identified charge/discharge equipment and temperature as key factors</li>
+            <li data-i18n="p4_li3">Defect rate reduced from <b>3.12% &rarr; 0.45%</b> using XGBoost prediction model</li>
+            <li data-i18n="p4_li4">Domain insight: outlier temperatures (25&deg;&ndash;30&deg;C) validated against literature and preserved, not removed</li>
+          </ul>
+        </details>
+      </div>
     </article>
 
-    <article class="card reveal">
-      <div class="card-top">
-        <h3 data-i18n="p5_h3">Smart Farm AI &mdash; Tomato Ripeness &amp; Disease Detection</h3>
-        <span class="badge badge-other" data-i18n="p5_badge">POSCO Academy &middot; Award</span>
+    <article class="na-entry reveal">
+      <div class="na-cover">
+        <div class="na-ghost">Computer Vision</div>
+        <div class="na-label">
+          <span class="na-cat" data-i18n="p5_badge">POSCO Academy &middot; Award</span>
+          <h3 data-i18n="p5_h3">Smart Farm AI &mdash; Tomato Ripeness &amp; Disease Detection</h3>
+        </div>
       </div>
-      <p data-i18n="p5_desc">Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes). Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images &mdash; and published the augmented dataset publicly on Roboflow.</p>
-      <ul>
-        <li data-i18n="p5_li1">Ripeness dataset: 2,448 images (turning/pink/red &mdash; class imbalance in "turning")</li>
-        <li data-i18n="p5_li2">GAN generated 600 synthetic "turning" images &rarr; final training set: <b>3,088 images</b>; FID-optimized parameters</li>
-        <li data-i18n="p5_li3">Turning class mAP50: 0.969 &rarr; <b>0.991</b> after GAN augmentation; final ripeness mAP50: <b>0.973</b></li>
-        <li data-i18n="p5_li4">Disease model: compared YOLOv5/v6/v8 &rarr; YOLOv5 selected at mAP50 <b>0.991</b></li>
-        <li data-i18n="p5_li5">RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
-      </ul>
-      <div class="tags"><span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span><span>Python</span></div>
+      <div class="na-desc">
+        <p data-i18n="p5_desc">Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes). Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images &mdash; and published the augmented dataset publicly on Roboflow.</p>
+        <div class="na-tags"><span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span><span>Python</span></div>
+        <details class="na-more">
+          <summary data-i18n="work_points">Key points</summary>
+          <ul>
+            <li data-i18n="p5_li1">Ripeness dataset: 2,448 images (turning/pink/red &mdash; class imbalance in "turning")</li>
+            <li data-i18n="p5_li2">GAN generated 600 synthetic "turning" images &rarr; final training set: <b>3,088 images</b>; FID-optimized parameters</li>
+            <li data-i18n="p5_li3">Turning class mAP50: 0.969 &rarr; <b>0.991</b> after GAN augmentation; final ripeness mAP50: <b>0.973</b></li>
+            <li data-i18n="p5_li4">Disease model: compared YOLOv5/v6/v8 &rarr; YOLOv5 selected at mAP50 <b>0.991</b></li>
+            <li data-i18n="p5_li5">RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
+          </ul>
+        </details>
+      </div>
     </article>
 
-    <article class="card reveal">
-      <div class="card-top">
-        <h3 data-i18n="p6_h3">CAD LISP Code Generation &mdash; LoRA Fine-tuning</h3>
-        <span class="badge badge-other" data-i18n="p6_badge">Research</span>
+    <article class="na-entry reveal">
+      <div class="na-cover">
+        <div class="na-ghost">Code Generation</div>
+        <div class="na-label">
+          <span class="na-cat" data-i18n="p6_badge">Research</span>
+          <h3 data-i18n="p6_h3">CAD LISP Code Generation &mdash; LoRA Fine-tuning</h3>
+        </div>
       </div>
-      <p data-i18n="p6_desc">Fine-tuned an LLM on CAD LISP &mdash; a niche domain-specific language used in construction CAD workflows &mdash; to enable accurate code generation for a language with virtually no public training data.</p>
-      <ul>
-        <li data-i18n="p6_li1">Built an LLM-based data augmentation pipeline to generate training data from scratch &mdash; CAD LISP has almost no open-source corpus</li>
-        <li data-i18n="p6_li2">Incorporated Chain-of-Thought prompting into training data; applied LoRA fine-tuning to inject domain-specific function patterns</li>
-        <li data-i18n="p6_li3">Evaluated with LLM-as-Judge (model verifying code correctness): accuracy <b>43% &rarr; 92%</b></li>
-      </ul>
-      <div class="tags"><span>LoRA</span><span>Chain-of-Thought</span><span>Data Augmentation</span><span>LLM-as-Judge</span><span>Python</span></div>
+      <div class="na-desc">
+        <p data-i18n="p6_desc">Fine-tuned an LLM on CAD LISP &mdash; a niche domain-specific language used in construction CAD workflows &mdash; to enable accurate code generation for a language with virtually no public training data.</p>
+        <div class="na-tags"><span>LoRA</span><span>Chain-of-Thought</span><span>Data Augmentation</span><span>LLM-as-Judge</span><span>Python</span></div>
+        <details class="na-more">
+          <summary data-i18n="work_points">Key points</summary>
+          <ul>
+            <li data-i18n="p6_li1">Built an LLM-based data augmentation pipeline to generate training data from scratch &mdash; CAD LISP has almost no open-source corpus</li>
+            <li data-i18n="p6_li2">Incorporated Chain-of-Thought prompting into training data; applied LoRA fine-tuning to inject domain-specific function patterns</li>
+            <li data-i18n="p6_li3">Evaluated with LLM-as-Judge (model verifying code correctness): accuracy <b>43% &rarr; 92%</b></li>
+          </ul>
+        </details>
+      </div>
     </article>
 
   </div>
@@ -588,6 +682,7 @@ footer{padding:44px 0}
         stat3_lbl: "Production System in Live Use",
         work_tag: "Work",
         work_h2: "What I've Built",
+        work_points: "Key points",
         p1_h3: "Enterprise LLM Agent Platform",
         p1_badge: "Production",
         p1_desc: "AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company. Users ask regulatory questions in Mattermost — the agent retrieves answers with cited legal references.",
@@ -762,6 +857,7 @@ footer{padding:44px 0}
         stat3_lbl: "실 운영 중인 프로덕션 시스템",
         work_tag: "업무",
         work_h2: "구축한 것들",
+        work_points: "주요 내용",
         p1_h3: "엔터프라이즈 LLM 에이전트 플랫폼",
         p1_badge: "프로덕션",
         p1_desc: "1,700명 규모 건설엔지니어링 회사의 6개 부서, 100명 이상 사용자에게 서비스하는 AI 에이전트. Mattermost에서 규정 질문을 하면 법적 참조와 함께 답변을 제공합니다.",
