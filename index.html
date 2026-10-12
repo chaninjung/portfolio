@@ -181,7 +181,7 @@ section{padding:78px 0}
 .lt .btn-ghost{border-color:#DCDAD3;color:#141414}
 .lt .btn-ghost:hover{border-color:#5E7017;color:#5E7017}
 /* cards read as white panels on the canvas, like Work's label cards */
-.lt .paper,.lt .mini{background:#fff;border-color:#E3E1DB;
+.lt .paper{background:#fff;border-color:#E3E1DB;
   box-shadow:0 3px 26px -16px rgba(0,0,0,.22)}
 .lt .badge-other{background:#EFEDE8;color:#6B6963;border-color:#E3E1DB}
 .lt .chips span{background:#fff;border-color:#DCDAD3}
@@ -194,7 +194,6 @@ section{padding:78px 0}
 .lt .about-lead{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
   line-height:1.42;color:#0A0A0A}
 .lt .about-lead .accent{border-bottom-color:#C6F135}
-.lt .mini .v{color:#0A0A0A}
 /* contact + footer close the page on a deeper tone */
 .lt .contact{background:#EFEDE8;border-top:1px solid #E3E1DB;border-bottom:none}
 .lt .contact h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
@@ -272,19 +271,13 @@ section{padding:78px 0}
 .chips span{font-size:.76rem;border:1px solid var(--border);padding:6px 13px;border-radius:999px;color:var(--text)}
 .chips span:hover{border-color:var(--accent);color:var(--accent)}
 
-/* about — a wide statement, then a fact row */
+/* about — a wide statement over two prose columns */
 .about-lead-wrap{max-width:920px}
 .about-lead{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
   font-size:clamp(1.5rem,3.2vw,2.25rem);line-height:1.34;color:#0A0A0A}
 .about-lead .accent{border-bottom:2px solid #C6F135;padding-bottom:2px}
 .about-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;margin-top:34px}
 .about-cols p{color:var(--muted);font-size:.94rem;line-height:1.8}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:58px}
-.mini{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;
-  display:flex;flex-direction:column}
-.mini .k{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.mini .v{font-family:'Space Grotesk';font-size:1.02rem;font-weight:600;line-height:1.35}
-.mini .s{font-size:.82rem;color:var(--muted);margin-top:9px;line-height:1.6}
 
 /* contact */
 .contact{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -321,7 +314,6 @@ footer{padding:44px 0}
   .led-group{padding:26px 0 13px;gap:14px}
   .led-group:first-child{padding-top:16px}
   .tech-grid{column-gap:0}
-  .facts{margin-top:42px}
   .na-work{padding:78px 0 86px}
   .na-rail{display:none}
   .na-watermark{font-size:clamp(76px,26vw,150px)}
@@ -622,17 +614,6 @@ footer{padding:44px 0}
     </div>
     <div class="led-group" data-i18n="edu_group_program">Intensive Programs</div>
     <div class="led-row reveal">
-      <div class="led-year" data-i18n="edu2_year">2023</div>
-      <div class="led-body">
-        <div class="led-top">
-          <h3 data-i18n="edu2_degree">POSCO AI &amp; BigData Academy</h3>
-          <span class="badge badge-other" data-i18n="edu2_period">Oct 2023 &mdash; Dec 2023</span>
-        </div>
-        <div class="led-school" data-i18n="edu2_school">POSCO HRD &times; POSTECH</div>
-        <p data-i18n="edu2_note">Intensive ML/DL program &middot; Project Excellence Award</p>
-      </div>
-    </div>
-    <div class="led-row reveal">
       <div class="led-year" data-i18n="edu5_year">2025</div>
       <div class="led-body">
         <div class="led-top">
@@ -641,6 +622,17 @@ footer{padding:44px 0}
         </div>
         <div class="led-school" data-i18n="edu5_school">Modulabs</div>
         <p data-i18n="edu5_note">204 hours &middot; RAG &amp; LLM Agent development</p>
+      </div>
+    </div>
+    <div class="led-row reveal">
+      <div class="led-year" data-i18n="edu2_year">2023</div>
+      <div class="led-body">
+        <div class="led-top">
+          <h3 data-i18n="edu2_degree">POSCO AI &amp; BigData Academy</h3>
+          <span class="badge badge-other" data-i18n="edu2_period">Oct 2023 &mdash; Dec 2023</span>
+        </div>
+        <div class="led-school" data-i18n="edu2_school">POSCO HRD &times; POSTECH</div>
+        <p data-i18n="edu2_note">Intensive ML/DL program &middot; Project Excellence Award</p>
       </div>
     </div>
   </div>
@@ -681,9 +673,9 @@ footer{padding:44px 0}
     <h2 data-i18n="tech_h2">Tools &amp; Technologies</h2>
   </div>
   <div class="tech-grid">
-    <div class="cat reveal"><div class="cat-name">LLM / AI</div><div class="chips"><span>Dify</span><span>LangChain</span><span>Langfuse</span><span>RAG</span><span>LoRA</span><span>Prompt Engineering</span></div></div>
-    <div class="cat reveal"><div class="cat-name">Search &amp; Retrieval</div><div class="chips"><span>Elasticsearch</span><span>BM25</span><span>Vector DB</span><span>Kiwi</span></div></div>
-    <div class="cat reveal"><div class="cat-name">Infrastructure</div><div class="chips"><span>AWS EKS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span></div></div>
+    <div class="cat reveal"><div class="cat-name">LLM / AI</div><div class="chips"><span>Dify</span><span>LangChain</span><span>Langfuse</span><span>RAG</span><span>Prompt Engineering</span></div></div>
+    <div class="cat reveal"><div class="cat-name">Search &amp; Retrieval</div><div class="chips"><span>Elasticsearch</span><span>BM25</span><span>Vector DB</span></div></div>
+    <div class="cat reveal"><div class="cat-name">Infrastructure</div><div class="chips"><span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span></div></div>
     <div class="cat reveal"><div class="cat-name">Backend &amp; Automation</div><div class="chips"><span>Python</span><span>FastAPI</span><span>n8n</span></div></div>
     <div class="cat reveal"><div class="cat-name">Auth &amp; Monitoring</div><div class="chips"><span>Keycloak</span><span>OAuth</span><span>Langfuse</span><span>CloudWatch</span></div></div>
     <div class="cat reveal"><div class="cat-name" data-i18n="tech_lang_cat">Languages</div><div class="chips"><span data-i18n="tech_lang1">Korean (Native)</span><span data-i18n="tech_lang2">English (Business Level)</span></div></div>
@@ -701,12 +693,6 @@ footer{padding:44px 0}
       <p data-i18n="about_p1">I started in HVAC &amp; mechanical design, moved into AI/LLM engineering, and now build enterprise RAG + agent systems that people rely on daily. I like owning the whole path: designing it, building it, deploying it, and keeping it running.</p>
       <p data-i18n="about_p2">Currently pursuing an M.S. in Computer Science (AI) at E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest.</p>
     </div>
-  </div>
-  <div class="facts">
-    <div class="mini reveal"><div class="k" data-i18n="about_k1">Now</div><div class="v" data-i18n="about_v1">M.S. Computer Science &middot; AI</div><div class="s" data-i18n="about_s1">E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest</div></div>
-    <div class="mini reveal"><div class="k" data-i18n="about_k2">Experience</div><div class="v" data-i18n="about_v2">AI / LLM Developer</div><div class="s" data-i18n="about_s2">Dongmyeong E&amp;C &middot; R&amp;D Institute</div></div>
-    <div class="mini reveal"><div class="k" data-i18n="about_k3">Recognition</div><div class="v" data-i18n="about_v3">IEEE Access &mdash; SCI paper</div><div class="s" data-i18n="about_s3">1st author &middot; POSCO Excellence Award</div></div>
-    <div class="mini reveal"><div class="k" data-i18n="about_k4">Languages</div><div class="v" data-i18n="about_v4">Korean (native) &middot; English (business)</div><div class="s" data-i18n="about_s4">Hungarian &mdash; learning</div></div>
   </div>
 </section>
 
@@ -756,10 +742,6 @@ footer{padding:44px 0}
         about_lead: 'Engineer-turned-AI-developer who <span class="accent">ships real systems</span> &mdash; from front-end to infra.',
         about_p1: "I started in HVAC &amp; mechanical design, moved into AI/LLM engineering, and now build enterprise RAG + agent systems that people rely on daily. I like owning the whole path: designing it, building it, deploying it, and keeping it running.",
         about_p2: "Currently pursuing an M.S. in Computer Science (AI) at E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest.",
-        about_k1: "Now", about_v1: "M.S. Computer Science &middot; AI", about_s1: "E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest",
-        about_k2: "Experience", about_v2: "AI / LLM Developer", about_s2: "Dongmyeong E&amp;C &middot; R&amp;D Institute",
-        about_k3: "Recognition", about_v3: "IEEE Access &mdash; SCI paper", about_s3: "1st author &middot; POSCO Excellence Award",
-        about_k4: "Languages", about_v4: "Korean (native) &middot; English (business)", about_s4: "Hungarian &mdash; learning",
         contact_tag: "Contact",
         contact_h2: "Let's build<br>something.",
         contact_email: "Email me",
@@ -893,10 +875,6 @@ footer{padding:44px 0}
         about_lead: '기획부터 인프라까지 <span class="accent">실제 시스템을 만드는</span> 엔지니어 출신 AI 개발자.',
         about_p1: "HVAC·기계 설계에서 시작해 AI/LLM 엔지니어링으로 전환했고, 지금은 사람들이 매일 사용하는 엔터프라이즈 RAG·에이전트 시스템을 만듭니다. 설계부터 구축, 배포, 운영까지 전 과정을 직접 책임지는 것을 좋아합니다.",
         about_p2: "현재 부다페스트 Eötvös Loránd University에서 컴퓨터과학(AI) 석사 과정 중입니다.",
-        about_k1: "현재", about_v1: "컴퓨터과학 석사 · AI", about_s1: "Eötvös Loránd University, Budapest",
-        about_k2: "경력", about_v2: "AI / LLM 개발자", about_s2: "동명기술공단 · R&D 연구소",
-        about_k3: "수상", about_v3: "IEEE Access — SCI 논문", about_s3: "제1저자 · POSCO 우수상",
-        about_k4: "언어", about_v4: "한국어 (모국어) · 영어 (업무)", about_s4: "헝가리어 — 학습 중",
         contact_tag: "연락",
         contact_h2: "함께<br>만들어요.",
         contact_email: "이메일 보내기",
