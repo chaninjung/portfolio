@@ -132,13 +132,25 @@ section{padding:78px 0}
   background:#EDECE7;border:1px solid #E3E1DB}
 .na-cover::after{content:'';position:absolute;inset:0;z-index:2;background:rgba(0,0,0,.34);
   opacity:0;transition:opacity .35s ease}
-@media(hover:hover){a.na-cover:hover::after{opacity:1}}
+/* hovering a linked cover reveals the screenshot instead of covering it, so the
+   veil drops to a whisper-quiet scrim (a full dim would fight the reveal) */
+@media(hover:hover){a.na-cover:hover::after{opacity:.3}}
 .na-shot{max-width:88%;max-height:84%;object-fit:contain;border-radius:3px;background:#fff;
   border:1px solid #E0DED7;box-shadow:0 18px 52px -14px rgba(0,0,0,.3)}
-.na-label{position:absolute;z-index:3;max-width:80%;text-align:center;background:#fff;
+.na-label{position:absolute;top:50%;z-index:3;max-width:80%;text-align:center;background:#fff;
   padding:3.2em 2.7em;box-shadow:0 6px 60px -8px rgba(0,0,0,.3);
-  transition:padding .35s ease}
+  transform:translateY(-50%);
+  transition:padding .35s ease,top .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1)}
+/* On hover the title card slides down to the bottom edge of the cover, so the
+   band of the screenshot it was hiding comes into view; the card still reads as
+   a caption bar. left/right stay auto so the resting box keeps its flex-centred
+   width, and top:50%->100% + the translate both interpolate, so it animates.
+   Below 520px the cover is too short for the (grown) card to sit at the bottom
+   without being clipped, so narrow widths keep the plain centred hover. */
 @media(hover:hover){a.na-cover:hover .na-label{padding:3.7em 3.1em}}
+@media(hover:hover) and (min-width:520px){
+  a.na-cover:hover .na-label{top:100%;transform:translateY(calc(-100% - 26px))}
+}
 .na-cat{display:block;text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:3px;
   color:#5E7017;margin-bottom:10px}
 .na-label h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;line-height:1.32;
