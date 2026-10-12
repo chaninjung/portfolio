@@ -164,6 +164,43 @@ section{padding:78px 0}
 .na-more li::before{content:'';position:absolute;left:0;top:.72em;width:12px;height:1px;background:#B5B3AC}
 .na-more li b,.na-more li strong{color:#0A0A0A;font-weight:600}
 
+/* light zone — Work's editorial canvas continues down to the footer */
+.lt{
+  --bg:#F7F6F3; --bg-2:#EFEDE8; --surface:#FFFFFF; --border:#E3E1DB;
+  --text:#141414; --muted:#6B6963; --accent:#5E7017; --accent-ink:#F7F6F3;
+  background:#F7F6F3;color:#141414}
+.lt section{padding:84px 0}
+.lt > section:first-child{padding-top:0}
+.lt .sec-head{margin-bottom:52px}
+.lt .sec-head h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
+  line-height:1.28;font-size:clamp(1.9rem,4.2vw,2.6rem);color:#0A0A0A}
+/* lime stays the fill accent; olive carries the text-level accent */
+.lt .btn-accent{background:#C6F135;color:#0A0A0A}
+.lt .btn-ghost{border-color:#DCDAD3;color:#141414}
+.lt .btn-ghost:hover{border-color:#5E7017;color:#5E7017}
+/* cards read as white panels on the canvas, like Work's label cards */
+.lt .paper,.lt .edu,.lt .mini{background:#fff;border-color:#E3E1DB;
+  box-shadow:0 3px 26px -16px rgba(0,0,0,.22)}
+.lt .badge-other{background:#EFEDE8;color:#6B6963;border-color:#E3E1DB}
+.lt .chips span{background:#fff;border-color:#DCDAD3}
+.lt .tags span{border-color:#DCDAD3}
+/* timeline */
+.lt .timeline::before{background:#E3E1DB}
+.lt .tl-item::before{background:#C6F135;border-color:#F7F6F3}
+.lt .tl-item li::before{background:#5E7017}
+/* about */
+.lt .about-lead{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
+  line-height:1.42;color:#0A0A0A}
+.lt .about-lead .accent{border-bottom-color:#C6F135}
+.lt .mini .v{color:#0A0A0A}
+/* contact + footer close the page on a deeper tone */
+.lt .contact{background:#EFEDE8;border-top:1px solid #E3E1DB;border-bottom:none}
+.lt .contact h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
+  line-height:1.14;font-size:clamp(2.2rem,5.6vw,3.6rem);color:#0A0A0A}
+.lt .contact .mail{color:#0A0A0A;border-bottom:2px solid #C6F135}
+.lt .contact .mail:hover{color:#5E7017}
+.lt footer{border-top:1px solid #E3E1DB;background:#EFEDE8}
+
 /* research / papers */
 .paper{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:20px}
 .paper-meta{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
@@ -259,6 +296,15 @@ footer{padding:44px 0}
   .na-more{display:block;text-align:center}
   .na-more summary::before{left:-44px;width:30px}
   .stats{gap:30px}
+  .lt section{padding:64px 0}
+  .lt > section:first-child{padding-top:0}
+  .lt .sec-head{margin-bottom:36px}
+  .lt .contact h2{font-size:clamp(1.9rem,8.5vw,2.6rem)}
+  /* long status pills (e.g. "2026 · First Author · Conditionally Accepted
+     (Under Revision)") cannot stay on one line on phones — let them wrap
+     instead of being clipped by body{overflow-x:hidden} */
+  .paper-meta{align-items:flex-start;gap:10px}
+  .paper-meta .badge{white-space:normal;border-radius:12px;line-height:1.55;max-width:100%}
 }
 </style>
 </head>
@@ -429,30 +475,11 @@ footer{padding:44px 0}
       </div>
     </article>
 
-    <article class="na-entry reveal">
-      <div class="na-cover">
-        <div class="na-ghost">Code Generation</div>
-        <div class="na-label">
-          <span class="na-cat" data-i18n="p6_badge">Research</span>
-          <h3 data-i18n="p6_h3">CAD LISP Code Generation &mdash; LoRA Fine-tuning</h3>
-        </div>
-      </div>
-      <div class="na-desc">
-        <p data-i18n="p6_desc">Fine-tuned an LLM on CAD LISP &mdash; a niche domain-specific language used in construction CAD workflows &mdash; to enable accurate code generation for a language with virtually no public training data.</p>
-        <div class="na-tags"><span>LoRA</span><span>Chain-of-Thought</span><span>Data Augmentation</span><span>LLM-as-Judge</span><span>Python</span></div>
-        <details class="na-more">
-          <summary data-i18n="work_points">Key points</summary>
-          <ul>
-            <li data-i18n="p6_li1">Built an LLM-based data augmentation pipeline to generate training data from scratch &mdash; CAD LISP has almost no open-source corpus</li>
-            <li data-i18n="p6_li2">Incorporated Chain-of-Thought prompting into training data; applied LoRA fine-tuning to inject domain-specific function patterns</li>
-            <li data-i18n="p6_li3">Evaluated with LLM-as-Judge (model verifying code correctness): accuracy <b>43% &rarr; 92%</b></li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
   </div>
 </section>
+
+<!-- light zone: Work's editorial canvas continues to the footer -->
+<div class="lt">
 
 <section id="research" class="wrap">
   <div class="sec-head reveal">
@@ -639,6 +666,8 @@ footer{padding:44px 0}
   </div>
 </footer>
 
+</div><!-- /lt -->
+
 <script>
       const i18n = {
       en: {
@@ -719,12 +748,6 @@ footer{padding:44px 0}
         p5_li4: "Disease model: compared YOLOv5/v6/v8 → YOLOv5 selected at mAP50 <strong>0.991</strong>",
         p5_li5: "RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed",
         p5_li6: 'Augmented dataset published: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a>',
-        p6_h3: "CAD LISP Code Generation — LoRA Fine-tuning",
-        p6_badge: "Research",
-        p6_desc: "Fine-tuned an LLM on CAD LISP — a niche domain-specific language used in construction CAD workflows — to enable accurate code generation for a language with virtually no public training data.",
-        p6_li1: "Built an LLM-based data augmentation pipeline to generate training data from scratch — CAD LISP has almost no open-source corpus",
-        p6_li2: "Incorporated Chain-of-Thought prompting into training data; applied LoRA fine-tuning to inject domain-specific function patterns",
-        p6_li3: "Evaluated with LLM-as-Judge (model verifying code correctness): accuracy <strong>43% → 92%</strong>",
         research_tag: "Research",
         research_h2: "Publications &amp; Academic Work",
         paper_year: "2023 &nbsp;·&nbsp; First Author",
@@ -894,12 +917,6 @@ footer{padding:44px 0}
         p5_li4: "병충해 모델: YOLOv5/v6/v8 비교 → mAP50 <strong>0.991</strong>로 YOLOv5 선택",
         p5_li5: "RFID + Arduino를 활용한 토마토 위치 추적; Flask 웹 대시보드로 실시간 감지 피드",
         p5_li6: '증강 데이터셋 공개: <a href="https://universe.roboflow.com/posco-wyx1a/copy_project_agumentation_7831" target="_blank" style="color: var(--accent);">Roboflow ↗</a>',
-        p6_h3: "CAD LISP 코드 생성 — LoRA 파인튜닝",
-        p6_badge: "연구",
-        p6_desc: "건설 CAD 워크플로우에서 사용되는 니치 도메인 언어인 CAD LISP에 LLM을 파인튜닝하여, 공개 학습 데이터가 거의 없는 언어의 코드 생성 정확도를 높인 연구.",
-        p6_li1: "CAD LISP 오픈소스 코퍼스가 거의 없어, LLM 기반 데이터 증강 파이프라인을 직접 구축하여 학습 데이터 확보",
-        p6_li2: "Chain-of-Thought 프롬프팅을 학습 데이터에 적용하여 LoRA 파인튜닝 — 도메인 함수 패턴 주입",
-        p6_li3: "LLM-as-Judge(모델이 코드 정확성 검증) 방식으로 평가: 코드 생성 정확도 <strong>43% → 92%</strong>",
         research_tag: "연구",
         research_h2: "논문 및 학술 활동",
         paper_year: "2023 &nbsp;·&nbsp; 제1저자",
