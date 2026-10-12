@@ -164,6 +164,19 @@ section{padding:78px 0}
 .na-more li::before{content:'';position:absolute;left:0;top:.72em;width:12px;height:1px;background:#B5B3AC}
 .na-more li b,.na-more li strong{color:#0A0A0A;font-weight:600}
 
+/* result figure — deliberately NOT inside .na-cover: .na-label is absolutely
+   centred over the cover and would occlude the middle of a data chart, and
+   .na-desc caps out at 620px which is too narrow for a two-panel figure */
+.na-figure{max-width:1000px;margin:46px auto 0}
+.na-figure img{display:block;width:100%;height:auto;border:1px solid #E0DED7;background:#fff;
+  box-shadow:0 18px 52px -14px rgba(0,0,0,.3)}
+.na-figure figcaption{margin:15px auto 0;max-width:820px;text-align:center;color:#6B6963;
+  font-size:.8rem;line-height:1.75}
+/* paired figures are shown at native pixel size so the ~300px YOLOv5
+   curves are never upscaled and stay crisp */
+.na-figure-row{display:flex;justify-content:center;align-items:flex-start;gap:26px}
+.na-figure-row img{width:auto;height:296px;max-width:100%}
+
 /* light zone — Work's editorial canvas continues down to the footer */
 .lt{
   --bg:#F7F6F3; --bg-2:#EFEDE8; --surface:#FFFFFF; --border:#E3E1DB;
@@ -334,6 +347,9 @@ footer{padding:44px 0}
      instead of being clipped by body{overflow-x:hidden} */
   .paper-meta{align-items:flex-start;gap:10px}
   .paper-meta .badge{white-space:normal;border-radius:12px;line-height:1.55;max-width:100%}
+  .na-figure{margin-top:34px}
+  .na-figure-row{flex-direction:column;align-items:center;gap:20px}
+  .na-figure-row img{height:auto;width:100%;max-width:320px}
 }
 </style>
 </head>
@@ -468,16 +484,20 @@ footer{padding:44px 0}
       <div class="na-desc">
         <p data-i18n="p4_desc">Analyzed real production data from a lithium-ion battery formation process to identify defect-causing factors and build a predictive model to reduce the defect rate.</p>
         <div class="na-tags"><span>XGBoost</span><span>Random Forest</span><span>ANOVA</span><span>Python</span><span>Pandas</span></div>
-        <details class="na-more">
-          <summary data-i18n="work_points">Key points</summary>
-          <ul>
-            <li data-i18n="p4_li1">Dataset: 44,078 observations &times; 113 process variables + 26 time-series variables</li>
-            <li data-i18n="p4_li2">Feature selection via ANOVA, Chi-squared, Decision Tree &mdash; identified charge/discharge equipment and temperature as key factors</li>
-            <li data-i18n="p4_li3">Defect rate reduced from <b>3.12% &rarr; 0.45%</b> using XGBoost prediction model</li>
-            <li data-i18n="p4_li4">Domain insight: outlier temperatures (25&deg;&ndash;30&deg;C) validated against literature and preserved, not removed</li>
-          </ul>
-        </details>
       </div>
+      <figure class="na-figure">
+        <img src="battery-temperature-defect.png" alt="Defect rate by discharge-stage-2 temperature band, with the 25.6 to 29.7 degrees Celsius window highlighted as optimal, plus a table ranking candidate factors across four methods" loading="lazy" decoding="async">
+        <figcaption data-i18n="p4_fig1">Defect rate by discharge-stage-2 temperature band &mdash; holding 25.6&ndash;29.7&deg;C cuts the defect rate to 1.5%, and the same temperature ranks as the single strongest factor across four independent methods.</figcaption>
+      </figure>
+      <details class="na-more">
+        <summary data-i18n="work_points">Key points</summary>
+        <ul>
+          <li data-i18n="p4_li1">Dataset: 44,078 observations &times; 113 process variables + 26 time-series variables</li>
+          <li data-i18n="p4_li2">Feature selection via ANOVA, Chi-squared, Decision Tree &mdash; identified charge/discharge equipment and temperature as key factors</li>
+          <li data-i18n="p4_li3">Defect rate reduced from <b>3.12% &rarr; 0.45%</b> using XGBoost prediction model</li>
+          <li data-i18n="p4_li4">Domain insight: outlier temperatures (25&deg;&ndash;30&deg;C) validated against literature and preserved, not removed</li>
+        </ul>
+      </details>
     </article>
 
     <article class="na-entry reveal">
@@ -491,17 +511,24 @@ footer{padding:44px 0}
       <div class="na-desc">
         <p data-i18n="p5_desc">Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes). Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images &mdash; and published the augmented dataset publicly on Roboflow.</p>
         <div class="na-tags"><span>YOLOv5</span><span>GAN</span><span>Computer Vision</span><span>Flask</span><span>Arduino</span><span>Python</span></div>
-        <details class="na-more">
-          <summary data-i18n="work_points">Key points</summary>
-          <ul>
-            <li data-i18n="p5_li1">Ripeness dataset: 2,448 images (turning/pink/red &mdash; class imbalance in "turning")</li>
-            <li data-i18n="p5_li2">GAN generated 600 synthetic "turning" images &rarr; final training set: <b>3,088 images</b>; FID-optimized parameters</li>
-            <li data-i18n="p5_li3">Turning class mAP50: 0.969 &rarr; <b>0.991</b> after GAN augmentation; final ripeness mAP50: <b>0.973</b></li>
-            <li data-i18n="p5_li4">Disease model: compared YOLOv5/v6/v8 &rarr; YOLOv5 selected at mAP50 <b>0.991</b></li>
-            <li data-i18n="p5_li5">RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
-          </ul>
-        </details>
       </div>
+      <figure class="na-figure">
+        <div class="na-figure-row">
+          <img src="tomato-f1-ripeness.jpg" alt="YOLOv5 F1-confidence curve for tomato ripeness after GAN augmentation" loading="lazy" decoding="async">
+          <img src="tomato-f1-disease.png" alt="YOLOv5 F1-confidence curve across ten tomato leaf disease classes" loading="lazy" decoding="async">
+        </div>
+        <figcaption data-i18n="p5_fig1">YOLOv5 F1&ndash;confidence curves from the published runs &mdash; ripeness after GAN augmentation (left; all classes peak at 0.94) and the 10-class disease model (right; mAP50 0.991).</figcaption>
+      </figure>
+      <details class="na-more">
+        <summary data-i18n="work_points">Key points</summary>
+        <ul>
+          <li data-i18n="p5_li1">Ripeness dataset: 2,448 images (turning/pink/red &mdash; class imbalance in "turning")</li>
+          <li data-i18n="p5_li2">GAN generated 600 synthetic "turning" images &rarr; final training set: <b>3,088 images</b>; FID-optimized parameters</li>
+          <li data-i18n="p5_li3">Turning class mAP50: 0.969 &rarr; <b>0.991</b> after GAN augmentation; final ripeness mAP50: <b>0.973</b></li>
+          <li data-i18n="p5_li4">Disease model: compared YOLOv5/v6/v8 &rarr; YOLOv5 selected at mAP50 <b>0.991</b></li>
+          <li data-i18n="p5_li5">RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed</li>
+        </ul>
+      </details>
     </article>
 
   </div>
@@ -778,6 +805,7 @@ footer{padding:44px 0}
         p4_li2: "Feature selection via ANOVA, Chi-squared, Decision Tree — identified charge/discharge equipment and temperature as key factors",
         p4_li3: "Defect rate reduced from <strong>3.12% → 0.45%</strong> using XGBoost prediction model",
         p4_li4: "Domain insight: outlier temperatures (25°–30°C) validated against literature and preserved, not removed",
+        p4_fig1: "Defect rate by discharge-stage-2 temperature band — holding 25.6–29.7°C cuts the defect rate to 1.5%, and the same temperature ranks as the single strongest factor across four independent methods.",
         p5_h3: "Smart Farm AI — Tomato Ripeness &amp; Disease Detection",
         p5_badge: "POSCO Academy · Award",
         p5_desc: 'Built a real-time YOLOv5-based detection system for tomato ripeness (3 classes) and disease (10 classes). Resolved class imbalance by training a GAN from scratch to generate synthetic ripeness images — and published the augmented dataset publicly on Roboflow.',
@@ -786,6 +814,7 @@ footer{padding:44px 0}
         p5_li3: "Turning class mAP50: 0.969 → <strong>0.991</strong> after GAN augmentation; final ripeness mAP50: <strong>0.973</strong>",
         p5_li4: "Disease model: compared YOLOv5/v6/v8 → YOLOv5 selected at mAP50 <strong>0.991</strong>",
         p5_li5: "RFID + Arduino for tomato location tracking; Flask web dashboard for real-time detection feed",
+        p5_fig1: "YOLOv5 F1–confidence curves from the published runs — ripeness after GAN augmentation (left; all classes peak at 0.94) and the 10-class disease model (right; mAP50 0.991).",
         research_tag: "Research",
         research_h2: "Publications &amp; Academic Work",
         paper_year: "2023 &nbsp;·&nbsp; First Author",
@@ -911,6 +940,7 @@ footer{padding:44px 0}
         p4_li2: "ANOVA, 카이제곱, 의사결정트리를 통한 특성 선택 — 충방전 장비와 온도를 핵심 인자로 식별",
         p4_li3: "XGBoost 예측 모델로 불량률 <strong>3.12% → 0.45%</strong> 감소",
         p4_li4: "도메인 인사이트: 이상치 온도(25°–30°C)를 문헌 검토 후 유효한 데이터로 보존",
+        p4_fig1: "방전 2단계 온도 구간별 불량률 — 25.6–29.7°C를 유지하면 불량률이 1.5%로 떨어지고, 같은 인자가 4개 기법 모두에서 최상위 핵심인자로 나타났습니다.",
         p5_h3: "스마트팜 AI — 토마토 숙성도 및 병충해 감지",
         p5_badge: "POSCO 아카데미 · 수상",
         p5_desc: "토마토 숙성도(3클래스)와 병충해(10클래스)를 위한 YOLOv5 기반 실시간 감지 시스템 구축. 클래스 불균형 해소를 위해 GAN을 직접 학습하여 합성 숙성 이미지를 생성하고, 증강 데이터셋을 Roboflow에 공개.",
@@ -919,6 +949,7 @@ footer{padding:44px 0}
         p5_li3: "전환 클래스 mAP50: 0.969 → <strong>0.991</strong> (GAN 증강 후); 최종 숙성도 mAP50: <strong>0.973</strong>",
         p5_li4: "병충해 모델: YOLOv5/v6/v8 비교 → mAP50 <strong>0.991</strong>로 YOLOv5 선택",
         p5_li5: "RFID + Arduino를 활용한 토마토 위치 추적; Flask 웹 대시보드로 실시간 감지 피드",
+        p5_fig1: "공개된 학습 결과의 YOLOv5 F1–신뢰도 곡선 — GAN 증강 후 숙성도 모델(좌; 전체 클래스 최대 0.94)과 10클래스 병충해 모델(우; mAP50 0.991).",
         research_tag: "연구",
         research_h2: "논문 및 학술 활동",
         paper_year: "2023 &nbsp;·&nbsp; 제1저자",
