@@ -215,8 +215,6 @@ section{padding:78px 0}
 .lt .contact{background:#EFEDE8;border-top:1px solid #E3E1DB;border-bottom:none}
 .lt .contact h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
   line-height:1.14;font-size:clamp(2.2rem,5.6vw,3.6rem);color:#0A0A0A}
-.lt .contact .mail{color:#0A0A0A;border-bottom:2px solid #C6F135}
-.lt .contact .mail:hover{color:#5E7017}
 /* footer returns to the dark hero tone, bookending the page */
 .lt footer{background:#0A0A0A;border-top:none;padding:52px 0;color:#8B8B8B}
 .lt footer .logo{color:#EDEDED}
@@ -299,9 +297,6 @@ section{padding:78px 0}
 /* contact */
 .contact{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .contact h2{font-size:clamp(2.2rem,5.6vw,4.2rem);letter-spacing:-.03em;line-height:1.02}
-.contact .mail{display:inline-block;margin-top:24px;font-family:'Space Grotesk';
-  font-size:clamp(1.05rem,2.8vw,1.6rem);font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:4px}
-.contact .mail:hover{color:var(--accent)}
 .contact-links{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 
 /* footer */
@@ -728,7 +723,7 @@ footer{padding:44px 0}
       <div class="sec-tag" data-i18n="contact_tag">Contact</div>
       <h2 data-i18n="contact_h2">Let's build<br>something.</h2>
     </div>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chaninjung7@gmail.com" target="_blank" rel="noopener" class="mail">chaninjung7@gmail.com</a>
+    <!-- the address itself is never printed on the page; the buttons below carry it -->
     <div class="contact-links">
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chaninjung7@gmail.com" target="_blank" rel="noopener" class="btn btn-accent" data-i18n="contact_email">Email me</a>
       <a href="https://github.com/chaninjung" target="_blank" class="btn btn-ghost">GitHub</a>
