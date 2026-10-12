@@ -169,7 +169,9 @@ section{padding:78px 0}
   --bg:#F7F6F3; --bg-2:#EFEDE8; --surface:#FFFFFF; --border:#E3E1DB;
   --text:#141414; --muted:#6B6963; --accent:#5E7017; --accent-ink:#F7F6F3;
   background:#F7F6F3;color:#141414}
-.lt section{padding:84px 0}
+/* vertical rhythm only — a shorthand here would clobber .wrap's 28px
+   horizontal padding, since .lt section (0,1,1) outranks .wrap (0,1,0) */
+.lt section{padding-top:84px;padding-bottom:84px}
 .lt > section:first-child{padding-top:0}
 .lt .sec-head{margin-bottom:52px}
 .lt .sec-head h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
@@ -179,7 +181,7 @@ section{padding:78px 0}
 .lt .btn-ghost{border-color:#DCDAD3;color:#141414}
 .lt .btn-ghost:hover{border-color:#5E7017;color:#5E7017}
 /* cards read as white panels on the canvas, like Work's label cards */
-.lt .paper,.lt .edu,.lt .mini{background:#fff;border-color:#E3E1DB;
+.lt .paper,.lt .mini{background:#fff;border-color:#E3E1DB;
   box-shadow:0 3px 26px -16px rgba(0,0,0,.22)}
 .lt .badge-other{background:#EFEDE8;color:#6B6963;border-color:#E3E1DB}
 .lt .chips span{background:#fff;border-color:#DCDAD3}
@@ -232,34 +234,52 @@ section{padding:78px 0}
 .tl-item li{position:relative;padding-left:20px;color:var(--muted);font-size:.9rem;margin-bottom:8px}
 .tl-item li::before{content:'';position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
 
-/* education */
-.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.edu{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px}
-.edu-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
-.edu-icon{font-size:1.5rem}
-.edu h3{font-size:1.1rem;letter-spacing:-.01em;line-height:1.3}
-.edu-sub{font-size:.86rem;color:var(--muted);margin-top:4px}
-.edu p{color:var(--muted);font-size:.86rem;margin-top:12px}
+/* education — a year-anchored credential ledger */
+.ledger{border-top:1px solid var(--border)}
+.led-row{display:grid;grid-template-columns:132px 1fr;gap:40px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--border)}
+.led-year{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:2.15rem;
+  line-height:1;color:var(--accent);letter-spacing:-.02em}
+.led-top{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:8px}
+.led-body h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;
+  font-size:clamp(1.18rem,2.1vw,1.5rem);line-height:1.3;color:#0A0A0A}
+.led-sub{font-size:.9rem;color:var(--muted);margin-top:2px}
+.led-school{font-size:.92rem;color:#0A0A0A;font-weight:500;margin-top:5px}
+.led-body p{color:var(--muted);font-size:.88rem;line-height:1.8;margin-top:14px;max-width:76ch}
+.led-body p strong{color:#0A0A0A;font-weight:600}
 
-/* tech + awards */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.cat{margin-bottom:24px}
-.cat-name{font-family:'Space Grotesk';font-size:.95rem;font-weight:600;color:var(--accent);margin-bottom:12px}
+/* awards — a ribbon of credential cards */
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.award{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);
+  border-radius:18px;padding:30px 26px 32px;box-shadow:0 3px 26px -16px rgba(0,0,0,.22)}
+.award-kind{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:20px}
+.award-t{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:1.14rem;
+  line-height:1.35;color:#0A0A0A;min-height:2.7em}
+.award-s{font-size:.83rem;color:var(--muted);margin-top:10px;line-height:1.6}
+
+/* tech stack — a ruled matrix */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));column-gap:44px}
+.cat{border-top:1px solid var(--border);padding:24px 0 30px}
+.cat-name{font-family:'Space Grotesk';font-size:.86rem;font-weight:600;letter-spacing:.05em;
+  color:var(--accent);margin-bottom:16px}
 .chips{display:flex;flex-wrap:wrap;gap:9px}
-.chips span{font-size:.78rem;border:1px solid var(--border);padding:6px 13px;border-radius:999px;color:var(--text)}
+.chips span{font-size:.76rem;border:1px solid var(--border);padding:6px 13px;border-radius:999px;color:var(--text)}
 .chips span:hover{border-color:var(--accent);color:var(--accent)}
-.award{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:.9rem;color:var(--muted)}
-.award b{color:var(--text);font-weight:600}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
-.about-lead{font-family:'Space Grotesk';font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.35;letter-spacing:-.02em}
-.about-lead .accent{border-bottom:2px solid var(--accent);padding-bottom:2px}
-.about p{color:var(--muted);margin-top:18px}
-.mini{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:14px}
-.mini .k{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.mini .v{font-family:'Space Grotesk';font-size:1rem;font-weight:600}
-.mini .s{font-size:.84rem;color:var(--muted);margin-top:3px}
+/* about — a wide statement, then a fact row */
+.about-lead-wrap{max-width:920px}
+.about-lead{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0;
+  font-size:clamp(1.5rem,3.2vw,2.25rem);line-height:1.34;color:#0A0A0A}
+.about-lead .accent{border-bottom:2px solid #C6F135;padding-bottom:2px}
+.about-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;margin-top:34px}
+.about-cols p{color:var(--muted);font-size:.94rem;line-height:1.8}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:58px}
+.mini{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;
+  display:flex;flex-direction:column}
+.mini .k{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.mini .v{font-family:'Space Grotesk';font-size:1.02rem;font-weight:600;line-height:1.35}
+.mini .s{font-size:.82rem;color:var(--muted);margin-top:9px;line-height:1.6}
 
 /* contact */
 .contact{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -290,7 +310,11 @@ footer{padding:44px 0}
   .hero-copy{padding:52px 28px 44px}
   .hero-photo{min-height:440px}
   .hero-rail{display:none}
-  .edu-grid,.grid-2,.about-grid{grid-template-columns:1fr}
+  .led-row{grid-template-columns:76px 1fr;gap:20px;padding:28px 0}
+  .led-year{font-size:1.7rem}
+  .led-top{flex-direction:column;align-items:flex-start;gap:10px}
+  .tech-grid{column-gap:0}
+  .facts{margin-top:42px}
   .na-work{padding:78px 0 86px}
   .na-rail{display:none}
   .na-watermark{font-size:clamp(76px,26vw,150px)}
@@ -302,7 +326,7 @@ footer{padding:44px 0}
   .na-more{display:block;text-align:center}
   .na-more summary::before{left:-44px;width:30px}
   .stats{gap:30px}
-  .lt section{padding:64px 0}
+  .lt section{padding-top:64px;padding-bottom:64px}
   .lt > section:first-child{padding-top:0}
   .lt .sec-head{margin-bottom:36px}
   .lt .contact h2{font-size:clamp(1.9rem,8.5vw,2.6rem)}
@@ -563,64 +587,97 @@ footer{padding:44px 0}
     <div class="sec-tag" data-i18n="edu_tag">Education</div>
     <h2 data-i18n="edu_h2">Academic Background</h2>
   </div>
-  <div class="edu-grid">
-    <div class="edu reveal">
-      <div class="edu-top"><span class="edu-icon">&#127891;</span><span class="badge badge-other" data-i18n="edu0_period">2026 &mdash; Present</span></div>
-      <h3 data-i18n="edu0_degree">M.S. Computer Science</h3>
-      <div class="edu-sub" data-i18n="edu0_degree2">+ Specialized in Artificial Intelligence</div>
-      <div class="edu-sub" data-i18n="edu0_school">E&ouml;tv&ouml;s Lor&aacute;nd University</div>
-      <p data-i18n="edu0_note"><strong>Stipendium Hungaricum Scholarship Recipient:</strong> Awarded full government scholarship for Master's degree in Artificial Intelligence (Budapest, Hungary).</p>
+  <div class="ledger">
+    <div class="led-row reveal">
+      <div class="led-year" data-i18n="edu0_year">2026</div>
+      <div class="led-body">
+        <div class="led-top">
+          <h3 data-i18n="edu0_degree">M.S. Computer Science</h3>
+          <span class="badge badge-other" data-i18n="edu0_period">2026 &mdash; Present</span>
+        </div>
+        <div class="led-sub" data-i18n="edu0_degree2">+ Specialized in Artificial Intelligence</div>
+        <div class="led-school" data-i18n="edu0_school">E&ouml;tv&ouml;s Lor&aacute;nd University</div>
+        <p data-i18n="edu0_note"><strong>Stipendium Hungaricum Scholarship Recipient:</strong> Awarded full government scholarship for Master's degree in Artificial Intelligence (Budapest, Hungary).</p>
+      </div>
     </div>
-    <div class="edu reveal">
-      <div class="edu-top"><span class="edu-icon">&#127891;</span><span class="badge badge-other" data-i18n="edu1_period">Graduated 2023</span></div>
-      <h3 data-i18n="edu1_degree">B.S. Mechanical &amp; Biomedical Engineering</h3>
-      <div class="edu-sub" data-i18n="edu1_degree2">+ Double Major in Philosophy</div>
-      <div class="edu-sub" data-i18n="edu1_school">Ewha Womans University</div>
-      <p data-i18n="edu1_note"><strong>Engineering thesis (Grand Prize):</strong> Reaction Wheel balance &amp; direction control prototype using PID control &mdash; awarded research funding, extended into first-author SCI paper (IEEE Access, 2023).</p>
+    <div class="led-row reveal">
+      <div class="led-year" data-i18n="edu1_year">2023</div>
+      <div class="led-body">
+        <div class="led-top">
+          <h3 data-i18n="edu1_degree">B.S. Mechanical &amp; Biomedical Engineering</h3>
+          <span class="badge badge-other" data-i18n="edu1_period">Graduated 2023</span>
+        </div>
+        <div class="led-sub" data-i18n="edu1_degree2">+ Double Major in Philosophy</div>
+        <div class="led-school" data-i18n="edu1_school">Ewha Womans University</div>
+        <p data-i18n="edu1_note"><strong>Engineering thesis (Grand Prize):</strong> Reaction Wheel balance &amp; direction control prototype using PID control &mdash; awarded research funding, extended into first-author SCI paper (IEEE Access, 2023).</p>
+      </div>
     </div>
-    <div class="edu reveal">
-      <div class="edu-top"><span class="edu-icon">&#128218;</span><span class="badge badge-other" data-i18n="edu2_period">Oct 2023 &mdash; Dec 2023</span></div>
-      <h3 data-i18n="edu2_degree">POSCO AI &amp; BigData Academy</h3>
-      <div class="edu-sub" data-i18n="edu2_school">POSCO HRD &times; POSTECH</div>
-      <p data-i18n="edu2_note">Intensive ML/DL program &middot; Project Excellence Award</p>
+    <div class="led-row reveal">
+      <div class="led-year" data-i18n="edu2_year">2023</div>
+      <div class="led-body">
+        <div class="led-top">
+          <h3 data-i18n="edu2_degree">POSCO AI &amp; BigData Academy</h3>
+          <span class="badge badge-other" data-i18n="edu2_period">Oct 2023 &mdash; Dec 2023</span>
+        </div>
+        <div class="led-school" data-i18n="edu2_school">POSCO HRD &times; POSTECH</div>
+        <p data-i18n="edu2_note">Intensive ML/DL program &middot; Project Excellence Award</p>
+      </div>
     </div>
-    <div class="edu reveal">
-      <div class="edu-top"><span class="edu-icon">&#128218;</span><span class="badge badge-other" data-i18n="edu5_period">Aug 2025 &mdash; Nov 2025</span></div>
-      <h3 data-i18n="edu5_degree">AIFFEL LLM Engineering Course</h3>
-      <div class="edu-sub" data-i18n="edu5_school">Modulabs</div>
-      <p data-i18n="edu5_note">204 hours &middot; RAG &amp; LLM Agent development</p>
+    <div class="led-row reveal">
+      <div class="led-year" data-i18n="edu5_year">2025</div>
+      <div class="led-body">
+        <div class="led-top">
+          <h3 data-i18n="edu5_degree">AIFFEL LLM Engineering Course</h3>
+          <span class="badge badge-other" data-i18n="edu5_period">Aug 2025 &mdash; Nov 2025</span>
+        </div>
+        <div class="led-school" data-i18n="edu5_school">Modulabs</div>
+        <p data-i18n="edu5_note">204 hours &middot; RAG &amp; LLM Agent development</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="grid-2">
-    <div>
-      <div class="sec-head reveal">
-        <div class="sec-tag" data-i18n="awards_tag">Awards &amp; Certifications</div>
-        <h2 data-i18n="awards_h2">Recognition</h2>
-      </div>
-      <div class="reveal">
-        <div class="award"><b data-i18n="award1">&#127942; Capstone Design Grand Prize &mdash; Ewha Womans University</b></div>
-        <div class="award"><b data-i18n="award2">&#127942; POSCO AI BigData Academy &mdash; Project Excellence Award</b></div>
-        <div class="award"><span data-i18n="award3">&#129706; ADsP &mdash; Data Analysis Semi-Professional (Korea Data Industry Promotion Institute)</span></div>
-        <div class="award"><span data-i18n="award4">&#129706; SQLD &mdash; SQL Developer (Korea Data Industry Promotion Institute)</span></div>
-      </div>
+<section id="awards" class="wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag" data-i18n="awards_tag">Awards &amp; Certifications</div>
+    <h2 data-i18n="awards_h2">Recognition</h2>
+  </div>
+  <div class="awards-grid">
+    <div class="award reveal">
+      <span class="award-kind" data-i18n="award_kind_award">Award</span>
+      <div class="award-t" data-i18n="award1_t">Capstone Design Grand Prize</div>
+      <div class="award-s" data-i18n="award1_s">Ewha Womans University</div>
     </div>
-    <div>
-      <div class="sec-head reveal">
-        <div class="sec-tag" data-i18n="tech_tag">Tech Stack</div>
-        <h2 data-i18n="tech_h2">Tools &amp; Technologies</h2>
-      </div>
-      <div class="reveal">
-        <div class="cat"><div class="cat-name">LLM / AI</div><div class="chips"><span>Dify</span><span>LangChain</span><span>Langfuse</span><span>RAG</span><span>LoRA</span><span>Prompt Engineering</span></div></div>
-        <div class="cat"><div class="cat-name">Search &amp; Retrieval</div><div class="chips"><span>Elasticsearch</span><span>BM25</span><span>Vector DB</span><span>Kiwi</span></div></div>
-        <div class="cat"><div class="cat-name">Infrastructure</div><div class="chips"><span>AWS EKS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span></div></div>
-        <div class="cat"><div class="cat-name">Backend &amp; Automation</div><div class="chips"><span>Python</span><span>FastAPI</span><span>n8n</span></div></div>
-        <div class="cat"><div class="cat-name">Auth &amp; Monitoring</div><div class="chips"><span>Keycloak</span><span>OAuth</span><span>Langfuse</span><span>CloudWatch</span></div></div>
-        <div class="cat"><div class="cat-name" data-i18n="tech_lang_cat">Languages</div><div class="chips"><span data-i18n="tech_lang1">Korean (Native)</span><span data-i18n="tech_lang2">English (Business Level)</span></div></div>
-      </div>
+    <div class="award reveal">
+      <span class="award-kind" data-i18n="award_kind_award">Award</span>
+      <div class="award-t" data-i18n="award2_t">Project Excellence Award</div>
+      <div class="award-s" data-i18n="award2_s">POSCO AI BigData Academy</div>
     </div>
+    <div class="award reveal">
+      <span class="award-kind" data-i18n="award_kind_cert">Certification</span>
+      <div class="award-t" data-i18n="award3_t">ADsP &mdash; Data Analysis Semi-Professional</div>
+      <div class="award-s" data-i18n="award3_s">Korea Data Industry Promotion Institute</div>
+    </div>
+    <div class="award reveal">
+      <span class="award-kind" data-i18n="award_kind_cert">Certification</span>
+      <div class="award-t" data-i18n="award4_t">SQLD &mdash; SQL Developer</div>
+      <div class="award-s" data-i18n="award4_s">Korea Data Industry Promotion Institute</div>
+    </div>
+  </div>
+</section>
+
+<section id="tech" class="wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag" data-i18n="tech_tag">Tech Stack</div>
+    <h2 data-i18n="tech_h2">Tools &amp; Technologies</h2>
+  </div>
+  <div class="tech-grid">
+    <div class="cat reveal"><div class="cat-name">LLM / AI</div><div class="chips"><span>Dify</span><span>LangChain</span><span>Langfuse</span><span>RAG</span><span>LoRA</span><span>Prompt Engineering</span></div></div>
+    <div class="cat reveal"><div class="cat-name">Search &amp; Retrieval</div><div class="chips"><span>Elasticsearch</span><span>BM25</span><span>Vector DB</span><span>Kiwi</span></div></div>
+    <div class="cat reveal"><div class="cat-name">Infrastructure</div><div class="chips"><span>AWS EKS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span></div></div>
+    <div class="cat reveal"><div class="cat-name">Backend &amp; Automation</div><div class="chips"><span>Python</span><span>FastAPI</span><span>n8n</span></div></div>
+    <div class="cat reveal"><div class="cat-name">Auth &amp; Monitoring</div><div class="chips"><span>Keycloak</span><span>OAuth</span><span>Langfuse</span><span>CloudWatch</span></div></div>
+    <div class="cat reveal"><div class="cat-name" data-i18n="tech_lang_cat">Languages</div><div class="chips"><span data-i18n="tech_lang1">Korean (Native)</span><span data-i18n="tech_lang2">English (Business Level)</span></div></div>
   </div>
 </section>
 
@@ -629,18 +686,18 @@ footer{padding:44px 0}
     <div class="sec-tag" data-i18n="about_tag">About</div>
     <h2 data-i18n="about_h2">A little about me</h2>
   </div>
-  <div class="about-grid">
-    <div class="reveal">
-      <p class="about-lead" data-i18n="about_lead">Engineer-turned-AI-developer who <span class="accent">ships real systems</span> &mdash; from front-end to infra.</p>
+  <div class="about-lead-wrap">
+    <p class="about-lead reveal" data-i18n="about_lead">Engineer-turned-AI-developer who <span class="accent">ships real systems</span> &mdash; from front-end to infra.</p>
+    <div class="about-cols reveal">
       <p data-i18n="about_p1">I started in HVAC &amp; mechanical design, moved into AI/LLM engineering, and now build enterprise RAG + agent systems that people rely on daily. I like owning the whole path: designing it, building it, deploying it, and keeping it running.</p>
       <p data-i18n="about_p2">Currently pursuing an M.S. in Computer Science (AI) at E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest.</p>
     </div>
-    <div class="reveal">
-      <div class="mini"><div class="k" data-i18n="about_k1">Now</div><div class="v" data-i18n="about_v1">M.S. Computer Science &middot; AI</div><div class="s" data-i18n="about_s1">E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest</div></div>
-      <div class="mini"><div class="k" data-i18n="about_k2">Experience</div><div class="v" data-i18n="about_v2">AI / LLM Developer</div><div class="s" data-i18n="about_s2">Dongmyeong E&amp;C &middot; R&amp;D Institute</div></div>
-      <div class="mini"><div class="k" data-i18n="about_k3">Recognition</div><div class="v" data-i18n="about_v3">IEEE Access &mdash; SCI paper</div><div class="s" data-i18n="about_s3">1st author &middot; POSCO Excellence Award</div></div>
-      <div class="mini"><div class="k" data-i18n="about_k4">Languages</div><div class="v" data-i18n="about_v4">Korean (native) &middot; English (business)</div><div class="s" data-i18n="about_s4">Hungarian &mdash; learning</div></div>
-    </div>
+  </div>
+  <div class="facts">
+    <div class="mini reveal"><div class="k" data-i18n="about_k1">Now</div><div class="v" data-i18n="about_v1">M.S. Computer Science &middot; AI</div><div class="s" data-i18n="about_s1">E&ouml;tv&ouml;s Lor&aacute;nd University, Budapest</div></div>
+    <div class="mini reveal"><div class="k" data-i18n="about_k2">Experience</div><div class="v" data-i18n="about_v2">AI / LLM Developer</div><div class="s" data-i18n="about_s2">Dongmyeong E&amp;C &middot; R&amp;D Institute</div></div>
+    <div class="mini reveal"><div class="k" data-i18n="about_k3">Recognition</div><div class="v" data-i18n="about_v3">IEEE Access &mdash; SCI paper</div><div class="s" data-i18n="about_s3">1st author &middot; POSCO Excellence Award</div></div>
+    <div class="mini reveal"><div class="k" data-i18n="about_k4">Languages</div><div class="v" data-i18n="about_v4">Korean (native) &middot; English (business)</div><div class="s" data-i18n="about_s4">Hungarian &mdash; learning</div></div>
   </div>
 </section>
 
@@ -790,15 +847,18 @@ footer{padding:44px 0}
         edu0_degree2: "+ Specialized in Artificial Intelligence",
         edu0_school: "Eötvös Loránd University",
         edu0_period: "2026 &mdash; Present",
+        edu0_year: "2026",
         edu0_note: "<strong>Stipendium Hungaricum Scholarship Recipient:</strong> Awarded full government scholarship for Master's degree in Artificial Intelligence (Budapest, Hungary).",
         edu1_degree: "B.S. Mechanical &amp; Biomedical Engineering",
         edu1_degree2: "+ Double Major in Philosophy",
         edu1_school: "Ewha Womans University",
         edu1_period: "Graduated 2023",
+        edu1_year: "2023",
         edu1_note: '<strong>Engineering thesis (Grand Prize):</strong> Reaction Wheel balance &amp; direction control prototype using PID control — awarded research funding, extended into first-author SCI paper (IEEE Access, 2023).<br><br><strong>Philosophy thesis (Outstanding Award):</strong> <em>"The Structure of Continuous Scientific Revolutions"</em> — Proposed a new reading of Kuhn\'s paradigm shift theory, arguing that scientific revolutions are structurally continuous, not discontinuous. Published in the department\'s philosophy magazine.',
         edu2_degree: "POSCO AI &amp; BigData Academy",
         edu2_school: "POSCO HRD &times; POSTECH",
         edu2_period: "Oct 2023 &mdash; Dec 2023",
+        edu2_year: "2023",
         edu2_note: "3 Mos &middot; Intensive ML/DL program &middot; Project Excellence Award",
         edu3_degree: "SQLD — SQL Developer",
         edu3_school: "Korea Data Industry Promotion Institute",
@@ -811,16 +871,23 @@ footer{padding:44px 0}
         edu5_degree: "AIFFEL LLM Engineering Course",
         edu5_school: "Modulabs",
         edu5_period: "Aug 2025 &mdash; Nov 2025",
+        edu5_year: "2025",
         edu5_note: "204 hours &middot; RAG &amp; LLM Agent development",
         awards_tag: "Awards &amp; Certifications",
         awards_h2: "Recognition",
         award_cat1: "2021 &middot; Award",
         award_cat2: "2023 &middot; Award",
         award_cat3: "2024 &middot; Certifications",
-        award1: "🏆 Capstone Design Grand Prize — Ewha Womans University",
-        award2: "🏆 POSCO AI BigData Academy — Project Excellence Award",
-        award3: "🪪 ADsP — Data Analysis Semi-Professional (Korea Data Industry Promotion Institute)",
-        award4: "🪪 SQLD — SQL Developer (Korea Data Industry Promotion Institute)",
+        award_kind_award: "Award",
+        award_kind_cert: "Certification",
+        award1_t: "Capstone Design Grand Prize",
+        award1_s: "Ewha Womans University",
+        award2_t: "Project Excellence Award",
+        award2_s: "POSCO AI BigData Academy",
+        award3_t: "ADsP — Data Analysis Semi-Professional",
+        award3_s: "Korea Data Industry Promotion Institute",
+        award4_t: "SQLD — SQL Developer",
+        award4_s: "Korea Data Industry Promotion Institute",
         tech_tag: "Tech Stack",
         tech_h2: "Tools &amp; Technologies",
         tech_lang_cat: "Languages",
@@ -959,15 +1026,18 @@ footer{padding:44px 0}
         edu0_degree2: "+ AI (인공지능) 특화",
         edu0_school: "Eötvös Loránd University (헝가리 부다페스트)",
         edu0_period: "2026년 &mdash; 재학 중",
+        edu0_year: "2026",
         edu0_note: "<strong>Stipendium Hungaricum 정부 장학생:</strong> 헝가리 정부 전액 장학생 선정, 인공지능(AI) 전공 석사 과정.",
         edu1_degree: "B.S. 기계·의공학 학사",
         edu1_degree2: "+ 철학 복수전공",
         edu1_school: "이화여자대학교",
         edu1_period: "2023년 졸업",
+        edu1_year: "2023",
         edu1_note: "<strong>공학 졸업논문 (대상):</strong> PID 제어를 활용한 반응 휠 균형 및 방향 제어 프로토타입 — 연구비 수주 후 제1저자 SCI 논문으로 발전 (IEEE Access, 2023).<br><br><strong>철학 졸업논문 (우수상):</strong> <em>「연속적 과학혁명의 구조」</em> — 쿤의 패러다임 전환 이론에 대한 새로운 해석 제안, 과학혁명은 구조적으로 연속적임을 논증. 학과 철학 잡지에 게재.",
         edu2_degree: "POSCO 청년 AI·빅데이터 아카데미",
         edu2_school: "POSCO HRD × POSTECH",
         edu2_period: "2023.10 — 2023.12",
+        edu2_year: "2023",
         edu2_note: "3개월 · 집중 ML/DL 과정 · 프로젝트 우수상",
         edu3_degree: "SQLD — SQL 개발자",
         edu3_school: "한국데이터산업진흥원",
@@ -980,16 +1050,23 @@ footer{padding:44px 0}
         edu5_degree: "AIFFEL LLM Engineering Course",
         edu5_school: "모두의연구소",
         edu5_period: "2025.08 — 2025.11",
+        edu5_year: "2025",
         edu5_note: "204시간 · RAG & LLM Agent 개발",
         awards_tag: "수상 및 자격",
         awards_h2: "수상 및 자격증",
         award_cat1: "2021 · 수상",
         award_cat2: "2023 · 수상",
         award_cat3: "2024 · 자격증",
-        award1: "🏆 융합캡스톤디자인 대상 — 이화여자대학교",
-        award2: "🏆 POSCO AI 빅데이터 아카데미 — 프로젝트 우수상",
-        award3: "🪪 ADsP — 데이터분석 준전문가 (한국데이터산업진흥원)",
-        award4: "🪪 SQLD — SQL 개발자 (한국데이터산업진흥원)",
+        award_kind_award: "수상",
+        award_kind_cert: "자격증",
+        award1_t: "융합캡스톤디자인 대상",
+        award1_s: "이화여자대학교",
+        award2_t: "프로젝트 우수상",
+        award2_s: "POSCO AI 빅데이터 아카데미",
+        award3_t: "ADsP — 데이터분석 준전문가",
+        award3_s: "한국데이터산업진흥원",
+        award4_t: "SQLD — SQL 개발자",
+        award4_s: "한국데이터산업진흥원",
         tech_tag: "기술 스택",
         tech_h2: "도구 및 기술",
         tech_lang_cat: "언어",
