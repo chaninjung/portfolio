@@ -397,8 +397,8 @@ footer{padding:44px 0}
 
 <div class="marquee">
   <div class="marquee-track">
-    <span><b>LLM / RAG</b></span><span>&middot;</span><span>AWS EKS</span><span>&middot;</span><span><b>Python</b></span><span>&middot;</span><span>Dify &middot; n8n</span><span>&middot;</span><span><b>Cloudflare Pages</b></span><span>&middot;</span><span>Langfuse</span><span>&middot;</span><span><b>YOLOv5 / GAN</b></span><span>&middot;</span><span>XGBoost</span><span>&middot;</span>
-    <span><b>LLM / RAG</b></span><span>&middot;</span><span>AWS EKS</span><span>&middot;</span><span><b>Python</b></span><span>&middot;</span><span>Dify &middot; n8n</span><span>&middot;</span><span><b>Cloudflare Pages</b></span><span>&middot;</span><span>Langfuse</span><span>&middot;</span><span><b>YOLOv5 / GAN</b></span><span>&middot;</span><span>XGBoost</span><span>&middot;</span>
+    <span><b>LLM / RAG</b></span><span>&middot;</span><span>AWS</span><span>&middot;</span><span><b>Python</b></span><span>&middot;</span><span>Dify &middot; n8n</span><span>&middot;</span><span><b>Cloudflare Pages</b></span><span>&middot;</span><span>Langfuse</span><span>&middot;</span><span><b>YOLOv5 / GAN</b></span><span>&middot;</span><span>XGBoost</span><span>&middot;</span>
+    <span><b>LLM / RAG</b></span><span>&middot;</span><span>AWS</span><span>&middot;</span><span><b>Python</b></span><span>&middot;</span><span>Dify &middot; n8n</span><span>&middot;</span><span><b>Cloudflare Pages</b></span><span>&middot;</span><span>Langfuse</span><span>&middot;</span><span><b>YOLOv5 / GAN</b></span><span>&middot;</span><span>XGBoost</span><span>&middot;</span>
   </div>
 </div>
 
@@ -421,13 +421,13 @@ footer{padding:44px 0}
       </div>
       <div class="na-desc">
         <p data-i18n="p1_desc">AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company. Users ask regulatory questions in Mattermost &mdash; the agent retrieves answers with cited legal references.</p>
-        <div class="na-tags"><span>Python</span><span>Dify</span><span>n8n</span><span>AWS EKS</span><span>Terraform</span><span>Keycloak</span></div>
+        <div class="na-tags"><span>Python</span><span>Dify</span><span>n8n</span><span>AWS</span><span>Terraform</span><span>Keycloak</span></div>
         <details class="na-more">
           <summary data-i18n="work_points">Key points</summary>
           <ul>
             <li data-i18n="p1_li1">Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding</li>
             <li data-i18n="p1_li2">Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost</li>
-            <li data-i18n="p1_li3">21 pods, 6 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions</li>
+            <li data-i18n="p1_li3">21 pods, 6 open-source services on AWS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions</li>
             <li data-i18n="p1_li4">Regulatory document search time: 1 week &rarr; 1 minute</li>
             <li data-i18n="p1_li5">Query cost: &#8361;33/query (~$0.025)</li>
           </ul>
@@ -523,14 +523,14 @@ footer{padding:44px 0}
     </div>
     <h3>BM25-based Retrieval-Augmented Compliance Verification for Korean Construction Standards</h3>
     <img src="architecture_figure1.png" alt="BM25-based RAG pipeline architecture">
-    <p data-i18n="paper2_abstract">A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.</p>
+    <p data-i18n="paper2_abstract">A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.</p>
     <div class="pstats">
       <div class="pstat"><div class="v">84.0%</div><div class="l" data-i18n="ps2_lbl1">Accuracy (vs 76% standalone)</div></div>
       <div class="pstat"><div class="v">82.0%</div><div class="l" data-i18n="ps2_lbl2">Recall@5</div></div>
       <div class="pstat"><div class="v">0</div><div class="l" data-i18n="ps2_lbl3">False Positives (vs 11)</div></div>
       <div class="pstat"><div class="v">78%</div><div class="l" data-i18n="ps2_lbl4">Token reduction</div></div>
     </div>
-    <div class="tags"><span>BM25</span><span>RAG</span><span>Kiwi</span><span>Compliance Verification</span><span>Construction Standards</span><span>Python</span></div>
+    <div class="tags"><span>BM25</span><span>RAG</span><span>Compliance Verification</span><span>Construction Standards</span><span>Python</span></div>
   </article>
 
   <article class="paper reveal">
@@ -561,7 +561,7 @@ footer{padding:44px 0}
       <h3 data-i18n="tl1_title">AI Developer &mdash; LLM / RAG Engineer</h3>
       <div class="tl-place" data-i18n="tl1_place">Dongmyeong Engineering &amp; Construction (DMEC) &mdash; Seoul, Korea</div>
       <ul>
-        <li data-i18n="tl1_li1">Built and operate enterprise LLM agent platform serving 100+ users on AWS EKS</li>
+        <li data-i18n="tl1_li1">Built and operate enterprise LLM agent platform serving 100+ users on AWS</li>
         <li data-i18n="tl1_li2">Production RAG pipelines with Elasticsearch for regulatory / legal document search</li>
         <li data-i18n="tl1_li3">AI agent &amp; chatbot development with Dify; workflow automation with n8n</li>
         <li data-i18n="tl1_li4">LLM observability and cost monitoring with Langfuse</li>
@@ -762,7 +762,7 @@ footer{padding:44px 0}
         p1_desc: "AI agent serving 100+ users across 6 departments at a 1,700-employee construction engineering company. Users ask regulatory questions in Mattermost — the agent retrieves answers with cited legal references.",
         p1_li1: "Dify-based LLM Agent autonomously calls 3 data sources: Korean Construction Standards API, National Legislation API, Gemini web grounding",
         p1_li2: "Full round-trip pipeline: Mattermost &rarr; n8n &rarr; Dify Agent &rarr; n8n &rarr; Mattermost",
-        p1_li3: "21 pods, 6 open-source services on AWS EKS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions",
+        p1_li3: "21 pods, 6 open-source services on AWS &mdash; Keycloak SSO across 5 tools, CI/CD via GitHub Actions",
         p1_li4: "Regulatory document search time: 1 week &rarr; 1 minute",
         p1_li5: "Query cost: &#8361;33/query (~$0.025)",
         p7_h3: "Huko News — A Live Full-Stack Web Service",
@@ -790,7 +790,7 @@ footer{padding:44px 0}
         research_h2: "Publications &amp; Academic Work",
         paper_year: "2023 &nbsp;·&nbsp; First Author",
         paper2_year: "2026 &nbsp;&middot;&nbsp; First Author &nbsp;&middot;&nbsp; Conditionally Accepted (Under Revision)",
-        paper2_abstract: "A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with Kiwi morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.",
+        paper2_abstract: "A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.",
         ps2_lbl1: "Accuracy (vs 76% standalone)",
         ps2_lbl2: "Recall@5",
         ps2_lbl3: "False Positives (vs 11)",
@@ -805,7 +805,7 @@ footer{padding:44px 0}
         tl1_period: "Feb 2024 &mdash; Apr 2026",
         tl1_title: "AI Developer &mdash; LLM / RAG Engineer",
         tl1_place: "Dongmyeong Engineering &amp; Construction (DMEC) &mdash; Seoul, Korea",
-        tl1_li1: "Built and operate enterprise LLM agent platform serving 100+ users on AWS EKS",
+        tl1_li1: "Built and operate enterprise LLM agent platform serving 100+ users on AWS",
         tl1_li2: "Production RAG pipelines with Elasticsearch for regulatory / legal document search",
         tl1_li3: "AI agent &amp; chatbot development with Dify; workflow automation with n8n",
         tl1_li4: "LLM observability and cost monitoring with Langfuse",
@@ -895,7 +895,7 @@ footer{padding:44px 0}
         p1_desc: "1,700명 규모 건설엔지니어링 회사의 6개 부서, 100명 이상 사용자에게 서비스하는 AI 에이전트. Mattermost에서 규정 질문을 하면 법적 참조와 함께 답변을 제공합니다.",
         p1_li1: "Dify 기반 LLM 에이전트가 3개 데이터 소스를 자율 호출: 건설기준 API, 법제처 API, Gemini 웹 그라운딩",
         p1_li2: "전체 파이프라인: Mattermost → n8n → Dify 에이전트 → n8n → Mattermost",
-        p1_li3: "AWS EKS에 21개 파드, 6개 오픈소스 서비스 — Keycloak SSO(5개 도구 통합), GitHub Actions CI/CD",
+        p1_li3: "AWS에 21개 파드, 6개 오픈소스 서비스 — Keycloak SSO(5개 도구 통합), GitHub Actions CI/CD",
         p1_li4: "규정 문서 검색 시간: 1주일 → 1분",
         p1_li5: "쿼리 비용: ₩33/쿼리 (~$0.025)",
         p7_h3: "후코 뉴스 — 직접 만든 풀스택 웹서비스",
@@ -923,7 +923,7 @@ footer{padding:44px 0}
         research_h2: "논문 및 학술 활동",
         paper_year: "2023 &nbsp;·&nbsp; 제1저자",
         paper2_year: "2026 &nbsp;&middot;&nbsp; 제1저자 &nbsp;&middot;&nbsp; Conditionally Accepted (수정 후 게재 예정)",
-        paper2_abstract: "한국 건설기준(KCSC) 도메인 특화 RAG 시스템. Markdown-HTML 전처리 파이프라인으로 토큰 78% 절감, BM25+Kiwi 형태소 분석 기반 Lexical Retrieval로 조항 수준 용어 정렬 및 인용 기반 검증 수행. 50개 전문가 벤치마크 평가 결과 정확도 76.0%→84.0% 향상, False Positive 11→0건. 2026년 6월 송도 ASCE i3CE 학회 발표 예정.",
+        paper2_abstract: "한국 건설기준(KCSC) 도메인 특화 RAG 시스템. Markdown-HTML 전처리 파이프라인으로 토큰 78% 절감, BM25 + 형태소 분석 기반 Lexical Retrieval로 조항 수준 용어 정렬 및 인용 기반 검증 수행. 50개 전문가 벤치마크 평가 결과 정확도 76.0%→84.0% 향상, False Positive 11→0건. 2026년 6월 송도 ASCE i3CE 학회 발표 예정.",
         ps2_lbl1: "정확도 (vs 76% 단독 LLM)",
         ps2_lbl2: "Recall@5",
         ps2_lbl3: "False Positive (vs 11건)",
@@ -938,7 +938,7 @@ footer{padding:44px 0}
         tl1_period: "2024.02 — 2026.04",
         tl1_title: "AI 개발자 — LLM / RAG 엔지니어",
         tl1_place: "동명기술공단종합건축사사무소 (DMEC) — 서울, 한국",
-        tl1_li1: "AWS EKS에서 100명 이상 사용자에게 서비스하는 엔터프라이즈 LLM 에이전트 플랫폼 구축 및 운영",
+        tl1_li1: "AWS에서 100명 이상 사용자에게 서비스하는 엔터프라이즈 LLM 에이전트 플랫폼 구축 및 운영",
         tl1_li2: "규정/법률 문서 검색을 위한 Elasticsearch 기반 프로덕션 RAG 파이프라인",
         tl1_li3: "Dify를 활용한 AI 에이전트 및 챗봇 개발; n8n을 활용한 워크플로우 자동화",
         tl1_li4: "Langfuse를 활용한 LLM 관측성 및 비용 모니터링",
