@@ -259,6 +259,14 @@ section{padding:78px 0}
 .paper h3{font-size:1.28rem;letter-spacing:-.02em;line-height:1.3;margin-bottom:12px}
 .paper p{color:var(--muted);font-size:.92rem}
 .paper img{width:100%;max-width:720px;border-radius:12px;margin:16px 0;border:1px solid var(--border)}
+/* the IEEE demo clip wears the figures' frame, but it moves: the poster covers the
+   first paint so the card never flashes black, and the caption says in words what
+   the loop shows — a muted clip has no audio track to caption */
+.paper-video{margin:16px 0}
+.paper-video video{display:block;width:100%;height:auto;max-width:720px;border-radius:12px;
+  border:1px solid var(--border);background:#000}
+.paper-video figcaption{margin-top:8px;font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
 .pstats{display:flex;gap:34px;flex-wrap:wrap;margin-top:20px}
 .pstat .v{font-family:'Space Grotesk';font-size:1.7rem;font-weight:700}
 .pstat .l{font-size:.76rem;color:var(--muted);margin-top:4px}
@@ -602,6 +610,15 @@ footer{padding:44px 0}
       <span class="badge badge-other" data-i18n="paper_year">2023 &middot; First Author</span>
     </div>
     <h3>Counter-Rotating Hoop Stabilizer and SVR Control for Two-Wheels Vehicle Applications &nbsp;<a href="https://ieeexplore.ieee.org/document/10041155" target="_blank" class="accent">&#8599; IEEE</a></h3>
+    <!-- the prototype holding balance at a 23&deg; lean, on loop: it is the claim the
+         numbers below make, shown rather than described. Muted + playsinline are
+         what let it autoplay; the poster covers the wait for the first frame -->
+    <figure class="paper-video">
+      <video src="ieee-lean-23deg.mp4" poster="ieee-lean-23deg.webp" width="1280" height="720"
+             autoplay loop muted playsinline preload="metadata"
+             aria-label="Lab demo: the counter-rotating hoop prototype holding balance at a 23-degree lean angle"></video>
+      <figcaption data-i18n="paper_video_cap">Lab demo &mdash; the prototype holds balance at a 23&deg; lean angle (loops)</figcaption>
+    </figure>
     <p data-i18n="paper_abstract">The capstone design project won the Grand Prize (2021) and was awarded research funding to continue development. The PID-controlled reaction wheel system was then fully redesigned for this SCI paper: replaced PID with SVR (Support Vector Regression), and replaced the single reaction wheel with a counter-rotating hoop &mdash; two wheels spinning in opposite directions to achieve more stable, bidirectional balance control. SVR predicted the required PWM voltage at each tilt angle; hyperparameter optimization with RBF kernel achieved 98.2% correlation.</p>
     <div class="pstats">
       <div class="pstat"><div class="v">100%</div><div class="l" data-i18n="ps_lbl1">Balance correction accuracy</div></div>
@@ -859,6 +876,7 @@ footer{padding:44px 0}
         ps2_lbl3: "False Positives (vs 11)",
         ps2_lbl4: "Token reduction",
         paper_abstract: "The capstone design project won the Grand Prize (2021) and was awarded research funding to continue development. The PID-controlled reaction wheel system was then fully redesigned for this SCI paper: replaced PID with SVR (Support Vector Regression), and replaced the single reaction wheel with a counter-rotating hoop — two wheels spinning in opposite directions to achieve more stable, bidirectional balance control. SVR predicted the required PWM voltage at each tilt angle; hyperparameter optimization with RBF kernel achieved 98.2% correlation.",
+        paper_video_cap: "Lab demo &mdash; the prototype holds balance at a 23&deg; lean angle (loops)",
         ps_lbl1: "Balance correction accuracy",
         ps_lbl2: "Tilt correction range",
         ps_lbl3: "Avg. recovery time",
@@ -992,6 +1010,7 @@ footer{padding:44px 0}
         ps2_lbl3: "False Positive (vs 11건)",
         ps2_lbl4: "토큰 절감",
         paper_abstract: "캡스톤 디자인 프로젝트가 대상(2021)을 수상하고 연구비를 지원받아 후속 개발을 이어갔습니다. PID 제어 기반 반응 휠 시스템을 본 SCI 논문을 위해 전면 재설계: PID를 SVR(서포트 벡터 회귀)로 교체하고, 단일 반응 휠을 반대 방향으로 회전하는 두 개의 후프로 대체하여 더 안정적인 양방향 균형 제어를 구현했습니다. SVR이 각 기울기 각도에서 필요한 PWM 전압을 예측하며, RBF 커널로 하이퍼파라미터 최적화 시 98.2% 상관관계를 달성했습니다.",
+        paper_video_cap: "실험 데모 &mdash; 프로토타입이 23&deg; 기울기에서도 균형을 유지합니다 (반복 재생)",
         ps_lbl1: "균형 보정 정확도",
         ps_lbl2: "기울기 보정 범위",
         ps_lbl3: "평균 복원 시간",
@@ -1148,6 +1167,16 @@ footer{padding:44px 0}
       b.addEventListener('click', () => go(k));
     });
     go(0);
+  });
+
+  // Research — the IEEE demo clip loops while it is on screen and parks itself once
+  // it scrolls away, so a 9 s loop is not still decoding behind the fold
+  document.querySelectorAll('.paper-video video').forEach(video => {
+    const videoIo = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) video.play().catch(() => {});   // the autoplay policy may refuse
+      else video.pause();
+    }, { threshold: .3 });
+    videoIo.observe(video);
   });
 
   // keep initial view in sync with the dictionary
