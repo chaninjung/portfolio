@@ -151,11 +151,15 @@ section{padding:78px 0}
    Korean shot in from the right while the English one slides out to the left,
    and dragging back returns it. translateX percentages resolve against the track
    (200% of the frame), so -50% is exactly one frame — nothing to measure, and the
-   track stays aligned when the frame is resized. */
-.na-swipe{cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none;
-  justify-content:flex-start}
+   track stays aligned when the frame is resized.
+   The track is taken out of flow and pinned to the frame's left edge: as a flex
+   item it would be centred like everything else, parking the seam mid-frame, and
+   overriding the frame's justify-content to fix that would drag the resting label
+   card off-centre with it (its left/right stay auto on purpose — see below). The
+   frame's fixed height is what lets the track be absolute without collapsing. */
+.na-swipe{cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none}
 .na-swipe.is-dragging{cursor:grabbing}
-.na-track{flex:0 0 200%;height:100%;display:flex;will-change:transform;
+.na-track{position:absolute;left:0;top:0;width:200%;height:100%;display:flex;will-change:transform;
   transition:transform .62s cubic-bezier(.22,.61,.36,1)}
 .na-swipe.is-dragging .na-track{transition:none}
 .na-slide{flex:0 0 50%;display:flex;align-items:center;justify-content:center}
