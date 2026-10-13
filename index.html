@@ -145,6 +145,31 @@ section{padding:78px 0}
 /* narrower covers leave a thinner right-hand margin, so the inset shrinks with
    it and stays clear of both the shot and the resting label card */
 @media(max-width:1100px){.na-inset{right:16px;bottom:16px;width:108px}}
+/* The Mattermost cover holds two shots of the same agent — the English UI and
+   the Korean one — so both languages read the app in its own words. They ride on
+   a track twice the frame's width; dragging the frame to the left pulls the
+   Korean shot in from the right while the English one slides out to the left,
+   and dragging back returns it. translateX percentages resolve against the track
+   (200% of the frame), so -50% is exactly one frame — nothing to measure, and the
+   track stays aligned when the frame is resized. */
+.na-swipe{cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none;
+  justify-content:flex-start}
+.na-swipe.is-dragging{cursor:grabbing}
+.na-track{flex:0 0 200%;height:100%;display:flex;will-change:transform;
+  transition:transform .62s cubic-bezier(.22,.61,.36,1)}
+.na-swipe.is-dragging .na-track{transition:none}
+.na-slide{flex:0 0 50%;display:flex;align-items:center;justify-content:center}
+.na-slide img{-webkit-user-drag:none}
+/* the EN/KO pill echoes the inset caption: small, quiet, clear of the label card */
+.na-swipe-pill{position:absolute;right:22px;bottom:22px;z-index:4;display:flex;gap:2px;padding:3px;
+  background:rgba(255,255,255,.94);border:1px solid #E0DED7;border-radius:999px;
+  box-shadow:0 12px 30px -16px rgba(0,0,0,.4)}
+.na-swipe-pill button{border:0;background:none;cursor:pointer;border-radius:999px;padding:5px 13px;
+  font-family:'Space Grotesk',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:1.6px;
+  color:#6B6963;transition:background .2s,color .2s}
+.na-swipe-pill button:hover{color:#0A0A0A}
+.na-swipe-pill button.is-on{background:#0A0A0A;color:#fff}
+@media(max-width:1100px){.na-swipe-pill{right:16px;bottom:16px}}
 .na-label{position:absolute;top:50%;z-index:3;max-width:80%;text-align:center;background:#fff;
   padding:3.2em 2.7em;box-shadow:0 6px 60px -8px rgba(0,0,0,.3);
   transform:translateY(-50%);
@@ -427,8 +452,21 @@ footer{padding:44px 0}
     </div>
 
     <article class="na-entry reveal">
-      <div class="na-cover">
-        <img class="na-shot" src="mattermost.jpg" alt="Enterprise LLM agent answering a construction-regulation question inside Mattermost">
+      <div class="na-cover na-swipe">
+        <!-- two shots of the same agent ride on one track: the English UI first,
+             the Korean one behind it, dragged in from the right -->
+        <div class="na-track">
+          <div class="na-slide">
+            <img class="na-shot" src="mattermost_EN.webp" draggable="false" alt="Enterprise LLM agent answering a construction-regulation question inside Mattermost &mdash; English UI, listing the building and school-facility regulations to review">
+          </div>
+          <div class="na-slide" aria-hidden="true">
+            <img class="na-shot" src="mattermost_KO.webp" draggable="false" alt="The same Mattermost agent answering the same question in Korean, with the regulation table in Korean">
+          </div>
+        </div>
+        <div class="na-swipe-pill" role="group" aria-label="Screenshot language">
+          <button type="button" class="is-on" aria-pressed="true">EN</button>
+          <button type="button" aria-pressed="false">KO</button>
+        </div>
         <div class="na-label">
           <span class="na-cat" data-i18n="p1_badge">Production</span>
           <h3 data-i18n="p1_h3">Enterprise LLM Agent Platform</h3>
@@ -1056,6 +1094,57 @@ footer{padding:44px 0}
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Work — Mattermost cover: two shots of the same agent on one track. A short
+  // leftward drag (or a tap on the EN/KO pill) pulls the Korean shot in from the
+  // right and pushes the English one out to the left; a drag that stops short of
+  // the commit threshold snaps home. The offset is written as a percentage of the
+  // track, so resizing the frame needs no recalculation.
+  document.querySelectorAll('.na-swipe').forEach(frame => {
+    const track = frame.querySelector('.na-track');
+    const slides = [...frame.querySelectorAll('.na-slide')];
+    const pills = [...frame.querySelectorAll('.na-swipe-pill button')];
+    const last = slides.length - 1;
+    let i = 0, startX = 0, dx = 0, w = 1, t0 = 0, dragging = false;
+
+    const place = (offset = 0) => { track.style.transform = `translateX(calc(${i * -50}% + ${offset}px))`; };
+    const go = (n) => {
+      i = Math.max(0, Math.min(last, n));
+      slides.forEach((s, k) => s.setAttribute('aria-hidden', k !== i));
+      pills.forEach((b, k) => { b.classList.toggle('is-on', k === i); b.setAttribute('aria-pressed', k === i); });
+      place();
+    };
+
+    frame.addEventListener('pointerdown', e => {
+      if (e.button) return;
+      dragging = true; dx = 0; startX = e.clientX; t0 = e.timeStamp; w = frame.clientWidth;
+      frame.classList.add('is-dragging');
+      frame.setPointerCapture(e.pointerId);
+    });
+    frame.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      dx = e.clientX - startX;
+      const edge = (i === 0 && dx > 0) || (i === last && dx < 0);
+      place(edge ? dx * .3 : dx);              // rubber-band past the first/last shot
+    });
+    const drop = e => {
+      if (!dragging) return;
+      dragging = false;
+      frame.classList.remove('is-dragging');
+      const v = dx / Math.max(1, e.timeStamp - t0);                     // px per ms
+      const far = Math.abs(dx) > Math.min(64, w * .09);
+      go(far || Math.abs(v) > .4 ? i + (dx < 0 ? 1 : -1) : i);
+    };
+    frame.addEventListener('pointerup', drop);
+    frame.addEventListener('pointercancel', drop);
+    // the pill keeps its own click: swallowing the press stops the frame from
+    // capturing the pointer, which would retarget the click to the frame
+    pills.forEach((b, k) => {
+      b.addEventListener('pointerdown', e => e.stopPropagation());
+      b.addEventListener('click', () => go(k));
+    });
+    go(0);
+  });
 
   // keep initial view in sync with the dictionary
   applyLang();
