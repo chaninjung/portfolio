@@ -398,6 +398,29 @@ footer{padding:44px 0}
   .paper-meta{align-items:flex-start;gap:10px}
   .paper-meta .badge{white-space:normal;border-radius:12px;line-height:1.55;max-width:100%}
 }
+/* Touch has no hover, so a laptop's slide-away gesture has no equivalent, and the
+   centred card hides most of the shot: the frame shrinks to 230px on a phone while
+   the card keeps its desktop padding, so the card grows from a third of the frame
+   to nearly two thirds and the screenshot behind it stops being readable. On a
+   pointer that cannot hover the card therefore stops being a centred panel and
+   becomes a caption bar pinned to the frame's bottom edge — full width, a third of
+   the frame tall — which leaves the shot itself visible at rest; a tap on the bar
+   slides the card out of the frame (the same 1.1s travel the hover rule makes, plus
+   the 2px the frame's own 1px border adds, so no sliver of the card is left behind)
+   and a tap anywhere on the frame brings it back. Keyed on the pointer rather than
+   the width, so a touch tablet in landscape is covered too and a mouse-driven
+   laptop is left untouched. */
+@media(hover:none){
+  .na-label{top:auto;bottom:0;transform:none;max-width:100%;width:100%;
+    padding:.8em 1.1em .9em;box-shadow:0 -8px 30px -16px rgba(0,0,0,.35)}
+  .na-label .na-cat{font-size:9px;letter-spacing:2.4px;margin-bottom:3px}
+  .na-label h3{font-size:1rem;line-height:1.3}
+  /* the EN/KO pill is pinned to the frame's bottom-right corner, which is now the
+     bar's own corner, so the bar keeps clear of it instead of running its title
+     underneath */
+  .na-swipe .na-label{padding-right:118px}
+  .na-cover.is-open .na-label{transform:translateY(calc(100% + 2px))}
+}
 </style>
 </head>
 <body id="top">
@@ -1178,13 +1201,37 @@ footer{padding:44px 0}
     frame.addEventListener('pointerup', drop);
     frame.addEventListener('pointercancel', drop);
     // the pill keeps its own click: swallowing the press stops the frame from
-    // capturing the pointer, which would retarget the click to the frame
+    // capturing the pointer, which would retarget the click to the frame; the
+    // click is swallowed too, so on a touch screen switching the shot's language
+    // does not double as the tap that dismisses the caption bar
     pills.forEach((b, k) => {
       b.addEventListener('pointerdown', e => e.stopPropagation());
-      b.addEventListener('click', () => go(k));
+      b.addEventListener('click', e => { e.stopPropagation(); go(k); });
     });
     go(0);
   });
+
+  // Touch has no hover, so the caption bar takes over as the handle that slides the
+  // card out of the frame — the same travel the hover rule makes on a laptop. The
+  // bar is the only target that opens the card, so the cover that is a link still
+  // follows its link and the cover that is a swipe track still drags; once the card
+  // is away, a tap anywhere on the frame brings it back, which is also the only
+  // place left to tap because the bar has left the frame.
+  if (matchMedia('(hover:none)').matches) {
+    document.querySelectorAll('.na-cover').forEach(cover => {
+      const label = cover.querySelector('.na-label');
+      if (!label) return;
+      label.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();   // a link cover must not follow it
+        cover.classList.add('is-open');
+      });
+      cover.addEventListener('click', e => {
+        if (!cover.classList.contains('is-open')) return;
+        e.preventDefault(); e.stopPropagation();   // this tap dismisses, it does not navigate
+        cover.classList.remove('is-open');
+      });
+    });
+  }
 
   // Research — the IEEE demo clip loops while it is on screen and parks itself once
   // it scrolls away, so a 9 s loop is not still decoding behind the fold
