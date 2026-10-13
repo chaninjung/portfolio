@@ -390,9 +390,8 @@ footer{padding:44px 0}
   .lt > section:first-child{padding-top:0}
   .lt .sec-head{margin-bottom:36px}
   .lt .contact h2{font-size:clamp(1.9rem,8.5vw,2.6rem)}
-  /* long status pills (e.g. "2026 · First Author · Conditionally Accepted
-     (Under Revision)") cannot stay on one line on phones — let them wrap
-     instead of being clipped by body{overflow-x:hidden} */
+  /* status pills cannot stay on one line on phones — let them wrap instead of
+     being clipped by body{overflow-x:hidden} */
   .paper-meta{align-items:flex-start;gap:10px}
   .paper-meta .badge{white-space:normal;border-radius:12px;line-height:1.55;max-width:100%}
 }
@@ -607,7 +606,7 @@ footer{padding:44px 0}
          anyone clicks through to a search that is still empty -->
     <p class="paper-note" data-i18n="paper2_pub_note">Proceedings 2026 &mdash; <strong>not published yet</strong>; the ASCE volume is due next year. The link opens the i3CE proceedings listing on the ASCE Library.</p>
     <img src="architecture_figure1.png" alt="BM25-based RAG pipeline architecture">
-    <p data-i18n="paper2_abstract">A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.</p>
+    <p data-i18n="paper2_abstract">A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presented at ASCE i3CE 2026, Songdo, June 2026.</p>
     <div class="pstats">
       <div class="pstat"><div class="v">84.0%</div><div class="l" data-i18n="ps2_lbl1">Accuracy (vs 76% standalone)</div></div>
       <div class="pstat"><div class="v">82.0%</div><div class="l" data-i18n="ps2_lbl2">Recall@5</div></div>
@@ -882,9 +881,9 @@ footer{padding:44px 0}
         research_tag: "Research",
         research_h2: "Publications &amp; Academic Work",
         paper_year: "2023 &nbsp;·&nbsp; First Author",
-        paper2_year: "2026 &nbsp;&middot;&nbsp; First Author &nbsp;&middot;&nbsp; Conditionally Accepted (Under Revision)",
+        paper2_year: "2026 &nbsp;&middot;&nbsp; First Author",
         paper2_pub_note: "Proceedings 2026 &mdash; <strong>not published yet</strong>; the ASCE volume is due next year. The link opens the i3CE proceedings listing on the ASCE Library.",
-        paper2_abstract: "A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presentation scheduled at ASCE i3CE 2026, Songdo, June 2026.",
+        paper2_abstract: "A domain-specific RAG system for Korean construction regulations. A structure-preserving Markdown&ndash;HTML preprocessing pipeline reduces token overhead by 78%, and BM25-based sparse retrieval with morphological decomposition enables clause-level terminology alignment and citation-grounded verification. Evaluation on 50 expert-curated compliance questions shows improved accuracy (76.0% &rarr; 84.0%) and elimination of false positives (11 &rarr; 0). Presented at ASCE i3CE 2026, Songdo, June 2026.",
         ps2_lbl1: "Accuracy (vs 76% standalone)",
         ps2_lbl2: "Recall@5",
         ps2_lbl3: "False Positives (vs 11)",
@@ -1017,9 +1016,9 @@ footer{padding:44px 0}
         research_tag: "연구",
         research_h2: "논문 및 학술 활동",
         paper_year: "2023 &nbsp;·&nbsp; 제1저자",
-        paper2_year: "2026 &nbsp;&middot;&nbsp; 제1저자 &nbsp;&middot;&nbsp; Conditionally Accepted (수정 후 게재 예정)",
+        paper2_year: "2026 &nbsp;&middot;&nbsp; 제1저자",
         paper2_pub_note: "Proceedings 2026 &mdash; <strong>아직 출간 전</strong>이며 ASCE 논문집은 내년 발간 예정입니다. 링크는 ASCE Library의 i3CE 논문집 목록으로 연결됩니다.",
-        paper2_abstract: "한국 건설기준(KCSC) 도메인 특화 RAG 시스템. Markdown-HTML 전처리 파이프라인으로 토큰 78% 절감, BM25 + 형태소 분석 기반 Lexical Retrieval로 조항 수준 용어 정렬 및 인용 기반 검증 수행. 50개 전문가 벤치마크 평가 결과 정확도 76.0%→84.0% 향상, False Positive 11→0건. 2026년 6월 송도 ASCE i3CE 학회 발표 예정.",
+        paper2_abstract: "한국 건설기준(KCSC) 도메인 특화 RAG 시스템. Markdown-HTML 전처리 파이프라인으로 토큰 78% 절감, BM25 + 형태소 분석 기반 Lexical Retrieval로 조항 수준 용어 정렬 및 인용 기반 검증 수행. 50개 전문가 벤치마크 평가 결과 정확도 76.0%→84.0% 향상, False Positive 11→0건. 2026년 6월 송도 ASCE i3CE 학회에서 발표.",
         ps2_lbl1: "정확도 (vs 76% 단독 LLM)",
         ps2_lbl2: "Recall@5",
         ps2_lbl3: "False Positive (vs 11건)",
